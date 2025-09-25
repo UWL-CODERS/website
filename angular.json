@@ -7,7 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss",
+          "style": "css",
           "changeDetection": "OnPush"
         }
       },
@@ -23,7 +23,7 @@
             "browser": "src/main.ts",
             "polyfills": [],
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
+            "inlineStyleLanguage": "css",
             "assets": [
               {
                 "glob": "**/*",
@@ -32,7 +32,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           },
