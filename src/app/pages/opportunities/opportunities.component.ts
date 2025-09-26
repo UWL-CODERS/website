@@ -1,4 +1,3 @@
-// opportunities.component.ts
 import { Component, AfterViewInit, OnDestroy, ViewChildren, QueryList, ElementRef, inject, OnInit } from '@angular/core';
 import { PageMeta } from '../../models/meta.model';
 import { SeoService } from '../../services/seo.service';
@@ -18,7 +17,7 @@ interface CardUpdateData {
 }
 
 // --- DraggingEvent Class (TypeScript) ---
-// (No changes needed in DraggingEvent - keeping it as is)
+
 class DraggingEvent {
   private target: HTMLElement;
   private mouseMoveHandler: ((e: MouseEvent | null) => void) | null = null;
@@ -33,11 +32,11 @@ class DraggingEvent {
 
   constructor(target: HTMLElement) {
     if (!target) {
-        throw new Error("DraggingEvent requires a target element.");
+      throw new Error("DraggingEvent requires a target element.");
     }
     this.target = target;
-    this.mouseDownListener = () => {};
-    this.touchStartListener = () => {};
+    this.mouseDownListener = () => void 0;
+    this.touchStartListener = () => void 0;
   }
 
   private event(callback: (e: MouseEvent | TouchEvent) => (e2: MouseEvent | TouchEvent | null) => void): void {
@@ -69,37 +68,37 @@ class DraggingEvent {
     this.target.addEventListener("touchstart", this.touchStartListener);
   }
 
-    private clearMouseEventListeners(handler: (e: MouseEvent | TouchEvent | null) => void): void {
-        if (this.mouseMoveHandler) {
-            window.removeEventListener("mousemove", this.mouseMoveHandler);
-            this.mouseMoveHandler = null;
-        }
-        if (this.mouseUpHandler) {
-            window.removeEventListener("mouseup", this.mouseUpHandler);
-            this.mouseUpHandler = null;
-        }
-        if (this.docMouseLeaveHandler) {
-            document.removeEventListener("mouseleave", this.docMouseLeaveHandler);
-            this.docMouseLeaveHandler = null;
-        }
-        handler(null);
+  private clearMouseEventListeners(handler: (e: MouseEvent | TouchEvent | null) => void): void {
+    if (this.mouseMoveHandler) {
+      window.removeEventListener("mousemove", this.mouseMoveHandler);
+      this.mouseMoveHandler = null;
     }
+    if (this.mouseUpHandler) {
+      window.removeEventListener("mouseup", this.mouseUpHandler);
+      this.mouseUpHandler = null;
+    }
+    if (this.docMouseLeaveHandler) {
+      document.removeEventListener("mouseleave", this.docMouseLeaveHandler);
+      this.docMouseLeaveHandler = null;
+    }
+    handler(null);
+  }
 
-    private clearTouchEventListeners(handler: (e: MouseEvent | TouchEvent | null) => void): void {
-        if (this.touchMoveHandler) {
-            window.removeEventListener("touchmove", this.touchMoveHandler);
-            this.touchMoveHandler = null;
-        }
-        if (this.touchEndHandler) {
-            window.removeEventListener("touchend", this.touchEndHandler);
-            this.touchEndHandler = null;
-        }
-        if (this.bodyMouseLeaveHandler) {
-             document.body.removeEventListener("mouseleave", this.bodyMouseLeaveHandler);
-             this.bodyMouseLeaveHandler = null;
-        }
-        handler(null);
+  private clearTouchEventListeners(handler: (e: MouseEvent | TouchEvent | null) => void): void {
+    if (this.touchMoveHandler) {
+      window.removeEventListener("touchmove", this.touchMoveHandler);
+      this.touchMoveHandler = null;
     }
+    if (this.touchEndHandler) {
+      window.removeEventListener("touchend", this.touchEndHandler);
+      this.touchEndHandler = null;
+    }
+    if (this.bodyMouseLeaveHandler) {
+      document.body.removeEventListener("mouseleave", this.bodyMouseLeaveHandler);
+      this.bodyMouseLeaveHandler = null;
+    }
+    handler(null);
+  }
 
   public getDistance(callback: (distance: DragDistance | null) => void): void {
     const distanceInit = (e1: MouseEvent | TouchEvent) => {
@@ -129,19 +128,18 @@ class DraggingEvent {
   public destroy(): void {
     this.target.removeEventListener("mousedown", this.mouseDownListener);
     this.target.removeEventListener("touchstart", this.touchStartListener);
-     if (this.mouseMoveHandler && this.mouseUpHandler && this.docMouseLeaveHandler) {
-        window.removeEventListener("mousemove", this.mouseMoveHandler);
-        window.removeEventListener("mouseup", this.mouseUpHandler);
-        document.removeEventListener("mouseleave", this.docMouseLeaveHandler);
-     }
-     if (this.touchMoveHandler && this.touchEndHandler && this.bodyMouseLeaveHandler) {
-        window.removeEventListener("touchmove", this.touchMoveHandler);
-        window.removeEventListener("touchend", this.touchEndHandler);
-        document.body.removeEventListener("mouseleave", this.bodyMouseLeaveHandler);
-     }
+    if (this.mouseMoveHandler && this.mouseUpHandler && this.docMouseLeaveHandler) {
+      window.removeEventListener("mousemove", this.mouseMoveHandler);
+      window.removeEventListener("mouseup", this.mouseUpHandler);
+      document.removeEventListener("mouseleave", this.docMouseLeaveHandler);
+    }
+    if (this.touchMoveHandler && this.touchEndHandler && this.bodyMouseLeaveHandler) {
+      window.removeEventListener("touchmove", this.touchMoveHandler);
+      window.removeEventListener("touchend", this.touchEndHandler);
+      document.body.removeEventListener("mouseleave", this.bodyMouseLeaveHandler);
+    }
   }
 }
-
 
 // --- CardCarousel Class (TypeScript) ---
 
@@ -167,8 +165,8 @@ class CardCarousel extends DraggingEvent {
     if (this.cards.length === 0) {
       console.warn("CardCarousel: No card elements found.");
       this.centerIndex = 0;
-      this.resizeListener = () => {}; // Assign empty functions for safe removal
-      this.keydownListener = () => {};
+      this.resizeListener = () => void 0; // no-op function
+      this.keydownListener = () => void 0; // no-op function
       return;
     }
 
@@ -176,14 +174,13 @@ class CardCarousel extends DraggingEvent {
 
     // Defer initial width calculation slightly to help ensure layout is stable
     setTimeout(() => {
-        if (this.container.offsetWidth > 0 && this.cards.length > 0) {
-            this.cardWidth = (this.cards[0].offsetWidth / this.container.offsetWidth) * 100;
-        } else {
-            console.warn("CardCarousel: Container width is zero or no cards after timeout. Width calculation failed.");
-        }
-        this.build(); // Build after width calculation
+      if (this.container.offsetWidth > 0 && this.cards.length > 0) {
+        this.cardWidth = (this.cards[0].offsetWidth / this.container.offsetWidth) * 100;
+      } else {
+        console.warn("CardCarousel: Container width is zero or no cards after timeout. Width calculation failed.");
+      }
+      this.build(); // Build after width calculation
     }, 0);
-
 
     this.resizeListener = this.updateCardWidth.bind(this);
     this.keydownListener = this.controller.bind(this);
@@ -195,7 +192,6 @@ class CardCarousel extends DraggingEvent {
     }
 
     // Bind dragging event from parent class
-    // NOTE: `moveCards` will be called by `getDistance` callback
     super.getDistance(this.moveCards.bind(this));
   }
 
@@ -205,133 +201,107 @@ class CardCarousel extends DraggingEvent {
     this.build();
   }
 
-  private build(fix = 0): void {
+  private build(): void {
     this.xScale = {}; // Reset mapping
-    for (let i = 0; i < this.cards.length; i++) {
+    for (const [i, card] of Array.from(this.cards).entries()) {
       const x = i - this.centerIndex;
       const scale = this.calcScale(x);
       const scale2 = this.calcScale2(x);
       const zIndex = -(Math.abs(i - this.centerIndex));
       const leftPos = this.calcPos(x, scale2);
 
-      this.xScale[x] = this.cards[i];
+      this.xScale[x] = card;
 
-      this.updateCards(this.cards[i], {
-        x: x,
-        scale: scale,
-        leftPos: leftPos,
-        zIndex: zIndex
+      this.updateCards(card, {
+        x,
+        scale,
+        leftPos,
+        zIndex
       });
     }
   }
 
   // Method to handle keyboard controls
   private controller(e: KeyboardEvent): void {
-    const temp: Record<number, HTMLElement> = {...this.xScale};
+    const temp: Record<number, HTMLElement> = { ...this.xScale };
 
-      if (e.keyCode === 39) {
-        // Left arrow
-        for (const xStr in this.xScale) {
-          const x = parseInt(xStr, 10);
-          const newX = (x - 1 < -this.centerIndex) ? this.centerIndex : x - 1;
-          temp[newX] = this.xScale[x];
-        }
-      }
-
-      if (e.keyCode === 37) {
-        // Right arrow
-        for (const xStr in this.xScale) {
-          const x = parseInt(xStr, 10);
-          const newX = (x + 1 > this.centerIndex) ? -this.centerIndex : x + 1;
-          temp[newX] = this.xScale[x];
-        }
-      }
-
-      this.xScale = temp;
-
-      for (const xStr in temp) {
+    if (e.keyCode === 39) {
+      // Left arrow
+      for (const xStr in this.xScale) {
         const x = parseInt(xStr, 10);
-        const scale = this.calcScale(x);
-        const scale2 = this.calcScale2(x);
-        const leftPos = this.calcPos(x, scale2);
-        const zIndex = -Math.abs(x);
-
-        this.updateCards(this.xScale[x], {
-          x: x,
-          scale: scale,
-          leftPos: leftPos,
-          zIndex: zIndex
-        });
+        const newX = (x - 1 < -this.centerIndex) ? this.centerIndex : x - 1;
+        temp[newX] = this.xScale[x];
       }
-  }
+    }
 
-  // Method to calculate card position
-  private calcPos(x: number, scale: number): number {
-    let formula: number;
+    if (e.keyCode === 37) {
+      // Right arrow
+      for (const xStr in this.xScale) {
+        const x = parseInt(xStr, 10);
+        const newX = (x + 1 > this.centerIndex) ? -this.centerIndex : x + 1;
+        temp[newX] = this.xScale[x];
+      }
+    }
 
-    if (x < 0) {
-      formula = (scale * 100 - this.cardWidth) / 2;
-      return formula;
+    this.xScale = temp;
 
-    } else if (x > 0) {
-      formula = 100 - (scale * 100 + this.cardWidth) / 2;
-      return formula;
-    } else {
-      formula = 100 - (scale * 100 + this.cardWidth) / 2;
-      return formula;
+    for (const xStr in temp) {
+      const x = parseInt(xStr, 10);
+      const scale = this.calcScale(x);
+      const scale2 = this.calcScale2(x);
+      const leftPos = this.calcPos(x, scale2);
+      const zIndex = -Math.abs(x);
+
+      this.updateCards(this.xScale[x], {
+        x,
+        scale,
+        leftPos,
+        zIndex
+      });
     }
   }
 
-  // Method to update card styles
+  private calcPos(x: number, scale: number): number {
+    if (x < 0) {
+      return (scale * 100 - this.cardWidth) / 2;
+    } else {
+      return 100 - (scale * 100 + this.cardWidth) / 2;
+    }
+  }
+
   private updateCards(card: HTMLElement, data: CardUpdateData): void {
     if (data.x !== undefined) {
       card.setAttribute("data-x", data.x.toString());
     }
-  
+
     if (data.scale !== undefined) {
       card.style.transform = `scale(${data.scale})`;
-  
-      if (data.scale === 0) {
-        card.style.opacity = data.scale.toString();
-      } else {
-        card.style.opacity = '1';
-      }
+
+      card.style.opacity = data.scale === 0 ? '0' : '1';
     }
-  
+
     if (data.leftPos !== undefined) {
       card.style.left = `${data.leftPos}%`;
     }
-  
+
     if (data.zIndex !== undefined) {
       card.style.zIndex = data.zIndex.toString();
     }
   }
 
-  // Methods to calculate card scale
   private calcScale2(x: number): number {
-    let formula: number;
-
     if (x <= 0) {
-      formula = 1 - (-1 / 5) * x;
-      return formula;
-    } else if (x > 0) {
-      formula = 1 - (1 / 5) * x;
-      return formula;
+      return 1 - (-1 / 5) * x;
+    } else {
+      return 1 - (1 / 5) * x;
     }
-    return 0; // Should not reach here
   }
 
   private calcScale(x: number): number {
     const formula = 1 - (1 / 5) * Math.pow(x, 2);
-
-    if (formula <= 0) {
-      return 0;
-    } else {
-      return formula;
-    }
+    return formula <= 0 ? 0 : formula;
   }
 
-  // Method to check and update card ordering
   private checkOrdering(card: HTMLElement, x: number, xDist: number): number {
     const original = parseInt(card.dataset['x'] || '0');
     const rounded = Math.round(xDist);
@@ -350,41 +320,32 @@ class CardCarousel extends DraggingEvent {
       this.xScale[newX + rounded] = card;
     }
 
-    const tempZIndex = -Math.abs(newX + rounded);
-    this.updateCards(card, { zIndex: tempZIndex });
+    this.updateCards(card, { zIndex: -Math.abs(newX + rounded) });
 
     return newX;
   }
 
-  // Method to move cards based on drag distance
   private moveCards(data: DragDistance | null): void {
     if (this.cards.length === 0) return;
 
-    let xDist: number;
-
     if (data !== null) {
-      // --- Active Drag ---
       this.container.classList.remove("smooth-return");
-      xDist = data.x / 250;
+      const xDist = data.x / 250;
 
-      for (let i = 0; i < this.cards.length; i++) {
-        const card = this.cards[i];
+      for (const card of this.cards) {
         const currentX = parseFloat(card.dataset['x'] || '0');
-
         const newX = this.checkOrdering(card, currentX, xDist);
-
         const targetX = newX + xDist;
         const scale = this.calcScale(targetX);
         const scale2 = this.calcScale2(targetX);
         const leftPos = this.calcPos(targetX, scale2);
 
         this.updateCards(card, {
-          scale: scale,
-          leftPos: leftPos
+          scale,
+          leftPos
         });
       }
     } else {
-      // --- Drag End: Auto Center ---
       this.container.classList.add("smooth-return");
       let closestX = Infinity;
       let closestLogicalX = 0;
@@ -417,9 +378,9 @@ class CardCarousel extends DraggingEvent {
 
       this.updateCards(card, {
         x: newLogicalX,
-        scale: scale,
-        leftPos: leftPos,
-        zIndex: zIndex
+        scale,
+        leftPos,
+        zIndex
       });
       nextXScale[newLogicalX] = card;
     }
@@ -427,9 +388,9 @@ class CardCarousel extends DraggingEvent {
   }
 
   public getCenterCardId(): string | null {
-    for (let i = 0; i < this.cards.length; i++) {
-      if (this.cards[i].classList.contains('highlight')) {
-        return this.cards[i].id;
+    for (const card of this.cards) {
+      if (card.classList.contains('highlight')) {
+        return card.id;
       }
     }
     return null;
@@ -443,19 +404,16 @@ class CardCarousel extends DraggingEvent {
     }
   }
 
-  // Override destroy from DraggingEvent to add CardCarousel specific cleanup
   public override destroy(): void {
-    super.destroy(); // Call parent destroy
+    super.destroy();
 
     window.removeEventListener("resize", this.resizeListener);
     if (this.controllerElement) {
       this.controllerElement.removeEventListener("keydown", this.keydownListener);
     }
-    // console.log("CardCarousel destroyed for container:", this.container);
   }
 }
 
-// --- Angular Component ---
 @Component({
   selector: 'app-opportunities',
   templateUrl: './opportunities.component.html',
@@ -463,6 +421,9 @@ class CardCarousel extends DraggingEvent {
 })
 export class OpportunitiesComponent implements AfterViewInit, OnDestroy, OnInit {
   private seoService = inject(SeoService);
+
+  @ViewChildren('carouselContainer') carouselContainers!: QueryList<ElementRef<HTMLElement>>;
+  private carouselInstances: CardCarousel[] = [];
 
   ngOnInit(): void {
     const pageMeta: PageMeta = {
@@ -473,10 +434,6 @@ export class OpportunitiesComponent implements AfterViewInit, OnDestroy, OnInit 
     this.seoService.setPageMeta(pageMeta);
   }
 
-
-  @ViewChildren('carouselContainer') carouselContainers!: QueryList<ElementRef<HTMLElement>>;
-  private carouselInstances: CardCarousel[] = [];
-
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.initializeCarousels();
@@ -484,7 +441,7 @@ export class OpportunitiesComponent implements AfterViewInit, OnDestroy, OnInit 
         this.cleanupCarousels();
         this.initializeCarousels();
       });
-    }, 150); // Add a 100ms delay
+    }, 150);
   }
 
   ngOnDestroy(): void {
@@ -493,17 +450,18 @@ export class OpportunitiesComponent implements AfterViewInit, OnDestroy, OnInit 
   }
 
   private saveCarouselState(): void {
-    this.carouselInstances.forEach((carousel, index) => {
+    for (const [index, carousel] of this.carouselInstances.entries()) {
       const centeredCardId = carousel.getCenterCardId();
       if (centeredCardId) {
         localStorage.setItem(`carousel-${index}-centered-card`, centeredCardId);
       }
-    });
+    }
   }
 
   private initializeCarousels(): void {
     this.carouselContainers.forEach((containerRef, index) => {
       const containerElement = containerRef.nativeElement;
+
       let controllerElement: HTMLElement | null = null;
       let nextSibling = containerElement.nextElementSibling;
       while (nextSibling) {
@@ -513,12 +471,12 @@ export class OpportunitiesComponent implements AfterViewInit, OnDestroy, OnInit 
         }
         nextSibling = nextSibling.nextElementSibling;
       }
+
       try {
         const carousel = new CardCarousel(containerElement, controllerElement);
         this.carouselInstances.push(carousel);
         const storedCenteredCardId = localStorage.getItem(`carousel-${index}-centered-card`);
         if (storedCenteredCardId) {
-          // Wait for the carousel to be fully built before centering
           setTimeout(() => {
             carousel.centerCardById(storedCenteredCardId);
           }, 0);
@@ -530,7 +488,9 @@ export class OpportunitiesComponent implements AfterViewInit, OnDestroy, OnInit 
   }
 
   private cleanupCarousels(): void {
-    this.carouselInstances.forEach(carousel => carousel.destroy());
+    for (const carousel of this.carouselInstances) {
+      carousel.destroy();
+    }
     this.carouselInstances = [];
   }
 }

@@ -1,4 +1,4 @@
-import { describe, beforeEach, it, expect } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { ProjectsComponent } from './projects.component';
 import { TestBed } from '@angular/core/testing';
 import { provideZonelessChangeDetection, provideCheckNoChangesConfig } from '@angular/core';

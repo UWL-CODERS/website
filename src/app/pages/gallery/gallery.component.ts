@@ -2,6 +2,26 @@ import { Component, inject, OnInit } from '@angular/core';
 import { PageMeta } from '../../models/meta.model';
 import { SeoService } from '../../services/seo.service';
 
+interface Meta {
+  text: string;
+  iconPath: string;
+}
+
+interface GalleryImage {
+  src: string;
+  alt: string;
+  caption: string;
+  event: string;
+}
+
+interface Album {
+  title: string;
+  description: string;
+  images: GalleryImage[];
+  meta: Meta[];
+}
+
+
 @Component({
   selector: 'app-pictures',
   templateUrl: './gallery.component.html',
@@ -10,13 +30,18 @@ import { SeoService } from '../../services/seo.service';
 export class GalleryComponent implements OnInit {
   private seoService = inject(SeoService);
 
-  selectedImage: any = null;
+  selectedImage: GalleryImage | null = null;
 
   // Events array to be initialized in ngOnInit
-  events: any[] = [];
+  events: Album[] = [];
+
+  keydownSpaceHandler(event: KeyboardEvent, image: GalleryImage): void {
+  event.preventDefault();
+  this.openModal(image);
+}
 
   // Helper method to create an album
-  private createAlbum(title: string, description: string, images: any[], meta: any[] = []): any {
+  private createAlbum(title: string, description: string, images: GalleryImage[], meta: Meta[] = []): Album {
     return { title, description, meta, images };
   }
 
@@ -29,7 +54,6 @@ export class GalleryComponent implements OnInit {
     this.seoService.setPageMeta(pageMeta);
     this.events = [
 
-      // Volunteer Work
       this.createAlbum(
         'Volunteer Work at Boys\' and Girls\' Club',
         'Weekly Sessions of Volunteering Dedicated to Teach Computer Science Concepts.',
@@ -46,7 +70,6 @@ export class GalleryComponent implements OnInit {
         ]
       ),
 
-      // Cookies With CODERS
       this.createAlbum(
         'Cookies With CODERS',
         'A Weekly Event to Hang out, Work On Projects, and Eat Cookies!',
@@ -63,7 +86,6 @@ export class GalleryComponent implements OnInit {
         ]
       ),
 
-      // Kids' College
       this.createAlbum(
         'Kids\' College | April 2025',
         'Volunteering to Teach 6-8th Graders the Wonderful World of Computer Science!',
@@ -83,7 +105,6 @@ export class GalleryComponent implements OnInit {
         ]
       ),
 
-      // Past Events
       this.createAlbum(
         'All of Our Past Events',
         'A Variety of Volunteer Opportunities Both On and Off Campus!',
@@ -99,13 +120,10 @@ export class GalleryComponent implements OnInit {
           }
         ]
       )
-
-      // Add more albums as needed
-
     ];
   }
 
-  openModal(image: any): void {
+  openModal(image: GalleryImage): void {
     this.selectedImage = image;
   }
 
@@ -113,9 +131,13 @@ export class GalleryComponent implements OnInit {
     this.selectedImage = null;
   }
 
-  onBackdropClick(event: MouseEvent): void {
+  onBackdropClick(event: Event): void {
+  // Only proceed if it's a MouseEvent or keyboard Enter/Space key
+  if (event.type === 'click' || (event instanceof KeyboardEvent && (event.key === 'Enter' || event.key === ' '))) {
     if ((event.target as HTMLElement).classList.contains('modal-backdrop')) {
       this.closeModal();
     }
   }
+}
+
 }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2, AfterViewInit, inject, viewChild, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ElementRef, Renderer2, AfterViewInit, inject, viewChild } from '@angular/core';
 import { gsap } from 'gsap';
 
 @Component({

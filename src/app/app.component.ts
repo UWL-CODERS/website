@@ -8,7 +8,6 @@ import { LogoTransitionComponent } from './components/logo-transition/logo-trans
 import { PageTransitionComponent } from './components/page-transition/page-transition.component';
 import { PageTransitionService } from './components/page-transition/page-transition.service';
 import { gsap } from 'gsap';
-// import 'zone.js';  Use this import if you need to run the spec.ts tests in isolation
 
 @Component({
     selector: 'app-root',
@@ -30,8 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
     showLogoTransition = false;
     private initialTransitionComplete = false;
 
-    // Track the current transition timeout and listener for cleanup
-    private transitionTimeout: any = null;
+    private transitionTimeout: ReturnType<typeof setTimeout> | null = null;
     private transitionEndListener: (() => void) | null = null;
 
     ngOnInit() {
@@ -53,15 +51,11 @@ export class AppComponent implements OnInit, OnDestroy {
                 document.body.style.pointerEvents = 'auto';
             });
 
-            // WORKAROUND: Force repaint for SCSS
-            setTimeout(() => {
-                document.body.offsetHeight;
-            }, 0);
+            void document.body.offsetHeight;
         }
     }
 
     private handleNormalNavigation(event: NavigationEnd) {
-        // Clean up any previous listeners/timeouts
         this.cleanupTransitionListeners();
 
         if (event.url === '/') {
@@ -76,14 +70,12 @@ export class AppComponent implements OnInit, OnDestroy {
         if (this.showLogoTransition && !this.initialTransitionComplete) {
             this.logoTransition().startAnimation();
 
-            // Fallback: If transitionend doesn't fire, proceed after 2s
             this.transitionTimeout = setTimeout(() => {
                 this.initialTransitionComplete = true;
                 this.startPageTransition();
                 this.cleanupTransitionListeners();
             }, 0);
 
-            // Attach transitionend listener if the element exists
             const logoContainer = this.logoTransition().logoCubeContainer().nativeElement;
             if (logoContainer) {
                 const transitionEndHandler = () => {
@@ -92,10 +84,8 @@ export class AppComponent implements OnInit, OnDestroy {
                     this.cleanupTransitionListeners();
                 };
                 logoContainer.addEventListener('transitionend', transitionEndHandler, { once: true });
-                // Save handler for cleanup
                 this.transitionEndListener = () => logoContainer.removeEventListener('transitionend', transitionEndHandler);
             } else {
-                // If element is missing, just fallback
                 this.initialTransitionComplete = true;
                 this.startPageTransition();
             }
@@ -105,7 +95,6 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     private startPageTransition() {
-        // Delay only on very first transition
         const delay = !this.initialTransitionComplete && this.router.url === '/' ? 1250 : 0;
 
         setTimeout(() => {
@@ -118,12 +107,10 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     private cleanupTransitionListeners() {
-        // Remove previous transitionend listener if any
         if (this.transitionEndListener) {
             this.transitionEndListener();
             this.transitionEndListener = null;
         }
-        // Clear previous timeout if any
         if (this.transitionTimeout) {
             clearTimeout(this.transitionTimeout);
             this.transitionTimeout = null;

@@ -10,7 +10,6 @@ import { SeoService } from '../../services/seo.service';
 })
 export class AboutComponent implements AfterViewInit, OnInit {
   private seoService = inject(SeoService);
-
   private platformId = inject<object>(PLATFORM_ID);
 
   readonly slider = viewChild.required<ElementRef<HTMLElement>>('slider');
@@ -19,7 +18,7 @@ export class AboutComponent implements AfterViewInit, OnInit {
   readonly sliderDots = viewChild.required<ElementRef<HTMLElement>>('sliderDots');
 
   private currentSlide = 0;
-  private slideInterval: any;
+  private slideInterval: ReturnType<typeof setInterval> | undefined;
 
   ngOnInit(): void {
     const pageMeta: PageMeta = {
@@ -53,10 +52,6 @@ export class AboutComponent implements AfterViewInit, OnInit {
 
       this.createDots(totalSlides, dotsContainer);
       this.updateSlider();
-
-      // Remove these lines:
-      // nextSlide.addEventListener('click', () => this.nextSlide());
-      // prevSlide.addEventListener('click', () => this.prevSlide());
 
       this.startAutoSlide();
 
@@ -117,7 +112,6 @@ export class AboutComponent implements AfterViewInit, OnInit {
     }
   }
 
-
   goToSlide(index: number): void {
     this.currentSlide = index;
     this.updateSlider();
@@ -130,8 +124,9 @@ export class AboutComponent implements AfterViewInit, OnInit {
   }
 
   private pauseAutoSlide(): void {
-    if (isPlatformBrowser(this.platformId)) {
+    if (isPlatformBrowser(this.platformId) && this.slideInterval !== undefined) {
       clearInterval(this.slideInterval);
+      this.slideInterval = undefined;
     }
   }
 

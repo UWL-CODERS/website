@@ -26,7 +26,13 @@
       <!-- Picture Section -->
       <div class="image-grid">
         @for (image of event.images; track image) {
-        <div class="image-item" (click)="openModal(image)">
+        <div class="image-item" 
+            (click)="openModal(image)" 
+            (keydown.enter)="openModal(image)" 
+            (keydown.space)="$event.preventDefault(); openModal(image)" 
+            tabindex="0" 
+            role="button" 
+            aria-label="Open image modal: {{image.caption}}">
           <div class="image-wrapper">
             <img [src]="image.src" [alt]="image.alt" />
           </div>
@@ -40,17 +46,30 @@
   </div>
   }
 
-  <!-- Modal Section -->
-  @if (selectedImage) {
-  <div class="modal-backdrop" [class.active]="selectedImage" (click)="onBackdropClick($event)">
-    <div class="modal-content">
-      <button class="modal-close" (click)="closeModal()">&times;</button>
-      <h3 class="modal-title">{{ selectedImage.event }}</h3>
-      <div class="modal-image-container">
-        <img [src]="selectedImage.src" class="modal-image" [alt]="selectedImage.alt" />
-      </div>
-      <p class="modal-caption">{{ selectedImage.caption }}</p>
+<!-- Modal Section -->
+<div 
+  class="modal-backdrop" 
+  [class.active]="selectedImage" 
+  (click)="onBackdropClick($event)" 
+  tabindex="0" 
+  role="button"
+  (keydown.enter)="onBackdropClick($event)" 
+  (keydown.space)="$event.preventDefault(); onBackdropClick($event)">
+  <div class="modal-content">
+    <button class="modal-close"
+            (click)="closeModal()"
+            (keydown.enter)="closeModal()"
+            (keydown.space)="closeModal()"
+            aria-label="Close modal"
+            type="button">
+      &times;
+    </button>
+    <h3 class="modal-title">{{ selectedImage?.event }}</h3>
+    <div class="modal-image-container">
+      <img [src]="selectedImage?.src" class="modal-image" [alt]="selectedImage?.alt" />
     </div>
+    <p class="modal-caption">{{ selectedImage?.caption }}</p>
   </div>
-  }
 </div>
+
+

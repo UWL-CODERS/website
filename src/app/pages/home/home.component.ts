@@ -4,35 +4,35 @@ import { SeoService } from '../../services/seo.service';
 import { PageMeta } from '../../models/meta.model';
 
 interface BannerSlide {
-  image: string
-  title: string
-  description: string
+  image: string;
+  title: string;
+  description: string;
 }
 
 interface Feature {
-  icon: string
-  title: string
-  description: string
-  image: string
-  techStack: string[]
+  icon: string;
+  title: string;
+  description: string;
+  image: string;
+  techStack: string[];
 }
 
 interface Activity {
-  icon: string
-  title: string
-  description: string
-  image: string
-  technologies: string[]
+  icon: string;
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
 }
 
 interface Event {
-  title: string
-  time: string
-  timeRange: string
-  timeRange2?: string
-  location?: string
-  image: string
-  tags: string[]
+  title: string;
+  time: string;
+  timeRange: string;
+  timeRange2?: string;
+  location?: string;
+  image: string;
+  tags: string[];
 }
 
 @Component({
@@ -50,8 +50,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   readonly sliderDots = viewChild.required<ElementRef<HTMLElement>>("sliderDots");
   readonly logoTransition = viewChild.required(LogoTransitionComponent);
 
-  private currentSlide = 0
-  private slideInterval: any
+  private currentSlide = 0;
+  private slideInterval: ReturnType<typeof setInterval> | undefined;
 
   bannerSlides: BannerSlide[] = [
     {
@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       title: "Help Us Build the Future",
       description: "Work On Real Projects That Impact Our Community",
     },
-  ]
+  ];
 
   features: Feature[] = [
     {
@@ -98,7 +98,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       image: "assets/images/Intern_Panel24/IMG_7995.jpg",
       techStack: ["Networking", "College Readiness", "Internship Advice", "Career Growth"],
     },
-  ]
+  ];
 
   activities: Activity[] = [
     {
@@ -122,7 +122,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       image: "assets/images/CookiesCODERS/Cookievar.JPG",
       technologies: ["Chill", "Coding", "Cookies", "Tasty", "Friendship"],
     },
-  ]
+  ];
 
   events: Event[] = [
     {
@@ -147,99 +147,101 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       image: "assets/images/Logos/BGCNAL-Official-Symbol.png",
       tags: ["Conceptual", "Games", "Code.org"],
     },
-  ]
+  ];
 
   ngOnInit(): void {
     // Set default SEO metadata for home page - explicitly set title and description to undefined to use defaults
     const pageMeta: Partial<PageMeta> = {
       title: undefined,
       description: undefined,
-      keywords: undefined
+      keywords: undefined,
     };
     this.seoService.setPageMeta(pageMeta);
   }
 
   ngAfterViewInit(): void {
-    this.initBannerSlider()
+    this.initBannerSlider();
     this.logoTransition().startAnimation(); // Start the logo transition
   }
 
   ngOnDestroy(): void {
-    this.pauseAutoSlide()
+    this.pauseAutoSlide();
   }
 
   private initBannerSlider(): void {
     const bannerSlider = this.bannerSlider();
     const sliderDots = this.sliderDots();
     if (!bannerSlider || !this.prevSlideBtn() || !this.nextSlideBtn() || !sliderDots) {
-      console.error("Required elements not found")
-      return
+      console.error("Required elements not found");
+      return;
     }
 
-    const slider = bannerSlider.nativeElement
-    const dotsContainer = sliderDots.nativeElement
-    const totalSlides = this.bannerSlides.length
+    const slider = bannerSlider.nativeElement;
+    const dotsContainer = sliderDots.nativeElement;
+    const totalSlides = this.bannerSlides.length;
 
-    this.createDots(totalSlides, dotsContainer)
-    this.updateSlider()
+    this.createDots(totalSlides, dotsContainer);
+    this.updateSlider();
 
-    this.startAutoSlide()
+    this.startAutoSlide();
 
-    slider.addEventListener("mouseenter", () => this.pauseAutoSlide())
-    slider.addEventListener("mouseleave", () => this.startAutoSlide())
+    slider.addEventListener("mouseenter", () => this.pauseAutoSlide());
+    slider.addEventListener("mouseleave", () => this.startAutoSlide());
   }
 
   private createDots(totalSlides: number, container: HTMLElement): void {
-    container.innerHTML = ""
+    container.innerHTML = "";
     for (let i = 0; i < totalSlides; i++) {
-      const dot = document.createElement("div")
-      dot.className = "dot"
+      const dot = document.createElement("div");
+      dot.className = "dot";
       if (i === 0) {
-        dot.classList.add("active")
+        dot.classList.add("active");
       }
-      dot.addEventListener("click", () => this.goToSlide(i))
-      container.appendChild(dot)
+      dot.addEventListener("click", () => this.goToSlide(i));
+      container.appendChild(dot);
     }
   }
 
   private updateSlider(): void {
-    const slider = this.bannerSlider().nativeElement
-    const dotsContainer = this.sliderDots().nativeElement
+    const slider = this.bannerSlider().nativeElement;
+    const dotsContainer = this.sliderDots().nativeElement;
 
-    slider.style.transform = `translateX(-${this.currentSlide * 100}%)`
+    slider.style.transform = `translateX(-${this.currentSlide * 100}%)`;
 
-    const dots = dotsContainer.querySelectorAll(".dot")
+    const dots = dotsContainer.querySelectorAll(".dot");
     dots.forEach((dot: Element, index: number) => {
       if (index === this.currentSlide) {
-        dot.classList.add("active")
+        dot.classList.add("active");
       } else {
-        dot.classList.remove("active")
+        dot.classList.remove("active");
       }
-    })
+    });
   }
 
   nextSlide(): void {
-    this.currentSlide = (this.currentSlide + 1) % this.bannerSlides.length
-    this.updateSlider()
+    this.currentSlide = (this.currentSlide + 1) % this.bannerSlides.length;
+    this.updateSlider();
   }
 
   prevSlide(): void {
-    this.currentSlide = (this.currentSlide - 1 + this.bannerSlides.length) % this.bannerSlides.length
-    this.updateSlider()
+    this.currentSlide =
+      (this.currentSlide - 1 + this.bannerSlides.length) % this.bannerSlides.length;
+    this.updateSlider();
   }
 
   goToSlide(index: number): void {
-    this.currentSlide = index
-    this.updateSlider()
+    this.currentSlide = index;
+    this.updateSlider();
   }
 
   private startAutoSlide(): void {
-    this.slideInterval = setInterval(() => this.nextSlide(), 5000)
+    this.slideInterval = setInterval(() => this.nextSlide(), 5000);
   }
 
   private pauseAutoSlide(): void {
     if (this.slideInterval) {
-      clearInterval(this.slideInterval)
+      clearInterval(this.slideInterval);
+      this.slideInterval = undefined;
     }
   }
 }
