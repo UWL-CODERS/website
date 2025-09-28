@@ -1,9 +1,9 @@
-import { Component, inject, OnDestroy, OnInit, ChangeDetectorRef } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
-import { gsap } from 'gsap';
-import { NgIf } from '@angular/common';
+import {Component, inject, OnDestroy, OnInit, ChangeDetectorRef} from '@angular/core';
+import {Router, RouterModule} from '@angular/router';
+import {gsap} from 'gsap';
+import {NgIf} from '@angular/common';
 
-import { PageTransitionService } from '../page-transition/page-transition.service'; // Adjust path as needed
+import {PageTransitionService} from '../page-transition/page-transition.service'; // Adjust path as needed
 
 type UpcomingEvent = Record<string, unknown>;
 
@@ -11,7 +11,7 @@ type UpcomingEvent = Record<string, unknown>;
   selector: 'app-header',
   imports: [RouterModule, NgIf],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   private router = inject(Router);
@@ -38,17 +38,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.isMenuClosing = true;
 
     this.pageTransitionService.transitionOut().then(() => {
-      this.router.navigate([route]).then(() => {
-        window.scrollTo(0, 0);
-        this.pageTransitionService.transitionIn().then(() => {
+      this.router
+        .navigate([route])
+        .then(() => {
+          window.scrollTo(0, 0);
+          this.pageTransitionService.transitionIn().then(() => {
+            this.isMenuClosing = false;
+            this.isAnimating = false;
+          });
+        })
+        .catch((error) => {
+          console.error('Navigation error:', error);
           this.isMenuClosing = false;
           this.isAnimating = false;
         });
-      }).catch(error => {
-        console.error('Navigation error:', error);
-        this.isMenuClosing = false;
-        this.isAnimating = false;
-      });
     });
 
     gsap.to('.main-nav', {
@@ -80,9 +83,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
       onComplete: () => {
         gsap.to(toggleElement, {
           opacity: 1,
-          duration: 0.1
+          duration: 0.1,
         });
-      }
+      },
     });
 
     gsap.to('.main-nav', {
@@ -92,7 +95,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         if (!this.isMenuOpen) {
           this.isMenuClosing = false;
         }
-      }
+      },
     });
   }
 
@@ -100,7 +103,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
     const nav = document.querySelector('.main-nav');
     const toggle = document.querySelector('.mobile-menu-toggle');
 
-    if (nav && toggle && !nav.contains(event.target as Node) && !toggle.contains(event.target as Node)) {
+    if (
+      nav &&
+      toggle &&
+      !nav.contains(event.target as Node) &&
+      !toggle.contains(event.target as Node)
+    ) {
       if (this.isMenuOpen) {
         this.isMenuOpen = false;
         this.cdr.detectChanges();
@@ -111,7 +119,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
           duration: 0.2,
           onComplete: () => {
             this.isMenuClosing = false;
-          }
+          },
         });
 
         const toggleElement = document.querySelector('.mobile-menu-toggle');
@@ -121,9 +129,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
           onComplete: () => {
             gsap.to(toggleElement, {
               opacity: 1,
-              duration: 0.1
+              duration: 0.1,
             });
-          }
+          },
         });
       }
     }

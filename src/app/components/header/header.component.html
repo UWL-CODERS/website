@@ -12,8 +12,11 @@
         <span class="pi pi-github icon"></span>
       </a>
     </div>
-    <a href="https://calendar.google.com/calendar/embed?src=61d2c536ecd3a2b20ec4b8693e7193b78600b2970188ec7d2e3d26f5412de18d%40group.calendar.google.com&ctz=America%2FChicago"
-      target="_blank" rel="noopener noreferrer">
+    <a
+      href="https://calendar.google.com/calendar/embed?src=61d2c536ecd3a2b20ec4b8693e7193b78600b2970188ec7d2e3d26f5412de18d%40group.calendar.google.com&ctz=America%2FChicago"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <div class="event-bar">
         <div class="container">
           Check Out Our Upcoming Events! <span class="pi pi-external-link icon"></span>
@@ -22,7 +25,11 @@
     </a>
     <div class="contact-info">
       <span class="pi pi-at icon"></span>Contact us on
-      <a href="https://uwlmyorgs.campuslabs.com/engage/organization/coders/contact" target="_blank" rel="noopener noreferrer">
+      <a
+        href="https://uwlmyorgs.campuslabs.com/engage/organization/coders/contact"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         MyOrgs
       </a>
     </div>
@@ -33,18 +40,23 @@
   <section class="main-header">
     <div class="container">
       <div class="logo">
-        <a (click)="navigateAndReload('/')"
-           (keydown.enter)="navigateAndReload('/')"
-           tabindex="0" role="link">
-          <img src="assets/images/Logos/headerlogo.png" alt="CODERS Club logo">
+        <a
+          (click)="navigateAndReload('/')"
+          (keydown.enter)="navigateAndReload('/')"
+          tabindex="0"
+          role="link"
+        >
+          <img src="assets/images/Logos/headerlogo.png" alt="CODERS Club logo" />
         </a>
       </div>
-      <button class="mobile-menu-toggle"
-              (click)="toggleMenu()"
-              (keydown.enter)="toggleMenu()"
-              (keydown.space)="toggleMenu()"
-              aria-label="Toggle menu"
-              type="button">
+      <button
+        class="mobile-menu-toggle"
+        (click)="toggleMenu()"
+        (keydown.enter)="toggleMenu()"
+        (keydown.space)="toggleMenu()"
+        aria-label="Toggle menu"
+        type="button"
+      >
         <ng-container *ngIf="!isMenuOpen">
           <i class="pi pi-bars"></i>
         </ng-container>
@@ -55,47 +67,57 @@
       <nav class="main-nav" [class.menu-open]="isMenuOpen" [class.menu-closing]="isMenuClosing">
         <ul>
           <li>
-            <a (click)="!isActiveRoute('/') && navigateAndReload('/')"
-               (keydown.enter)="!isActiveRoute('/') && navigateAndReload('/')"
-               tabindex="0"
-               [class.disabled]="isActiveRoute('/')"
-               [attr.aria-disabled]="isActiveRoute('/') ? 'true' : null">
+            <a
+              (click)="!isActiveRoute('/') && navigateAndReload('/')"
+              (keydown.enter)="!isActiveRoute('/') && navigateAndReload('/')"
+              tabindex="0"
+              [class.disabled]="isActiveRoute('/')"
+              [attr.aria-disabled]="isActiveRoute('/') ? 'true' : null"
+            >
               Home
             </a>
           </li>
           <li>
-            <a (click)="!isActiveRoute('/opportunities') && navigateAndReload('/opportunities')"
-               (keydown.enter)="!isActiveRoute('/opportunities') && navigateAndReload('/opportunities')"
-               tabindex="0"
-               [class.disabled]="isActiveRoute('/opportunities')"
-               [attr.aria-disabled]="isActiveRoute('/opportunities') ? 'true' : null">
+            <a
+              (click)="!isActiveRoute('/opportunities') && navigateAndReload('/opportunities')"
+              (keydown.enter)="!isActiveRoute('/opportunities') && navigateAndReload('/opportunities')"
+              tabindex="0"
+              [class.disabled]="isActiveRoute('/opportunities')"
+              [attr.aria-disabled]="isActiveRoute('/opportunities') ? 'true' : null"
+            >
               Opportunities
             </a>
           </li>
           <li>
-            <a (click)="!isActiveRoute('/projects') && navigateAndReload('/projects')"
-               (keydown.enter)="!isActiveRoute('/projects') && navigateAndReload('/projects')"
-               tabindex="0"
-               [class.disabled]="isActiveRoute('/projects')"
-               [attr.aria-disabled]="isActiveRoute('/projects') ? 'true' : null">
+            <a
+              (click)="!isActiveRoute('/projects') && navigateAndReload('/projects')"
+              (keydown.enter)="!isActiveRoute('/projects') && navigateAndReload('/projects')"
+              tabindex="0"
+              [class.disabled]="isActiveRoute('/projects')"
+              [attr.aria-disabled]="isActiveRoute('/projects') ? 'true' : null"
+            >
               Projects
             </a>
           </li>
           <li>
-            <a (click)="!isActiveRoute('/gallery') && navigateAndReload('/gallery')"
-               (keydown.enter)="!isActiveRoute('/gallery') && navigateAndReload('/gallery')"
-               tabindex="0"
-               [class.disabled]="isActiveRoute('/gallery')"
-               [attr.aria-disabled]="isActiveRoute('/gallery') ? 'true' : null">
+            <a
+              (click)="!isActiveRoute('/gallery') && navigateAndReload('/gallery')"
+              (keydown.enter)="!isActiveRoute('/gallery') && navigateAndReload('/gallery')"
+              tabindex="0"
+              [class.disabled]="isActiveRoute('/gallery')"
+              [attr.aria-disabled]="isActiveRoute('/gallery') ? 'true' : null"
+            >
               Gallery
             </a>
           </li>
           <li>
-            <a (click)="!isActiveRoute('/about') && navigateAndReload('/about')"
-               (keydown.enter)="!isActiveRoute('/about') && navigateAndReload('/about')"
-               tabindex="0"
-               [class.disabled]="isActiveRoute('/about')"
-               [attr.aria-disabled]="isActiveRoute('/about') ? 'true' : null">
+            <a
+              (click)="!isActiveRoute('/about') && navigateAndReload('/about')"
+              (keydown.enter)="!isActiveRoute('/about') && navigateAndReload('/about')"
+              tabindex="0"
+              [class.disabled]="isActiveRoute('/about')"
+              [attr.aria-disabled]="isActiveRoute('/about') ? 'true' : null"
+            >
               About
             </a>
           </li>

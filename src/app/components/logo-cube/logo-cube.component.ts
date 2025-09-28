@@ -1,9 +1,9 @@
-import { Component, ElementRef, AfterViewInit, viewChild } from '@angular/core';
+import {Component, ElementRef, AfterViewInit, viewChild} from '@angular/core';
 
 @Component({
   selector: 'app-logo-cube',
   templateUrl: './logo-cube.component.html',
-  styleUrl: './logo-cube.component.scss'
+  styleUrl: './logo-cube.component.scss',
 })
 export class LogoCubeComponent implements AfterViewInit {
   readonly logoCubeContainer = viewChild.required<ElementRef<HTMLElement>>('logoCubeContainer');
@@ -61,9 +61,9 @@ export class LogoCubeComponent implements AfterViewInit {
       containerClassList.add('zoom-out');
       // Reset state after zoom-out animation ends
       setTimeout(() => {
-          containerClassList.remove('zoom-out');
-          this.isAnimating = false;
-          this.setRandomInitialPosition();
+        containerClassList.remove('zoom-out');
+        this.isAnimating = false;
+        this.setRandomInitialPosition();
       }, 2000); // Corresponds to the zoom-out animation duration
     }, 2000); // Delay before the cube starts to zoom out
   }

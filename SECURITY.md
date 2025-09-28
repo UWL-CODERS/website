@@ -6,6 +6,7 @@ We take the security of our project seriously. If you discover a security vulner
 > Please do not report security vulnerabilities through public GitHub issues or discussion forums.
 
 Instead, please contact one of our professors directly and privately:
+
 - [Prof. Foley](https://www.uwlax.edu/profile/sfoley/)
 - [Prof. Sauppé](https://www.uwlax.edu/profile/asauppe/)
 - Any of the currently active project maintainer

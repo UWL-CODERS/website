@@ -5,7 +5,7 @@ $shadow-color: rgba(24, 100, 171, 0.1);
 
 /* Mixins */
 @mixin section-gradient {
-  background: $primary-color
+  background: $primary-color;
 }
 
 @mixin standard-shadow {
@@ -17,7 +17,7 @@ $shadow-color: rgba(24, 100, 171, 0.1);
 }
 
 @mixin link-underline {
-  content: "";
+  content: '';
   position: absolute;
   width: 100%;
   height: 2px;
@@ -79,7 +79,8 @@ $shadow-color: rgba(24, 100, 171, 0.1);
   overflow: hidden;
   background: rgba(255, 255, 255, 0.97);
   box-shadow: 0 4px 24px rgba(24, 100, 171, 0.09);
-  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+  transition:
+    transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
     box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 
   &:hover {
@@ -96,7 +97,7 @@ $shadow-color: rgba(24, 100, 171, 0.1);
 }
 
 .stats-table th {
-  @include section-gradient;  /* Use mixin */
+  @include section-gradient; /* Use mixin */
   color: #fff;
   text-transform: uppercase;
   font-weight: 700;
@@ -122,12 +123,12 @@ $shadow-color: rgba(24, 100, 171, 0.1);
 
 .stats-table td:last-child {
   font-weight: 700;
-  color: $primary-color;  /* Use variable */
+  color: $primary-color; /* Use variable */
   text-align: center;
   transition: color 0.3s;
 
   &:hover {
-    color: $secondary-color;  /* Use variable */
+    color: $secondary-color; /* Use variable */
     text-shadow: 0 2px 8px rgba(24, 100, 171, 0.3);
   }
 }
@@ -141,17 +142,17 @@ $shadow-color: rgba(24, 100, 171, 0.1);
   text-align: left;
   font-size: 1.1rem;
   margin-bottom: 1.2rem;
-  color: $primary-color;  /* Use variable */
-  text-shadow: 0 2px 8px $shadow-color;  /* Use variable */
+  color: $primary-color; /* Use variable */
+  text-shadow: 0 2px 8px $shadow-color; /* Use variable */
 }
 
 /* Blue Header Style */
 .blue-header {
-  @include section-gradient;  /* Use mixin */
+  @include section-gradient; /* Use mixin */
   color: #fff;
   padding: 22px 16px;
   border-radius: 12px 12px 0 0;
-  @include standard-shadow;  /* Use mixin */
+  @include standard-shadow; /* Use mixin */
 }
 
 .blue-header h3 {
@@ -165,8 +166,8 @@ $shadow-color: rgba(24, 100, 171, 0.1);
 .centered-title {
   text-align: center;
   margin: 12px 0;
-  color: $primary-color;  /* Use variable */
-  text-shadow: 0 2px 8px $shadow-color;  /* Use variable */
+  color: $primary-color; /* Use variable */
+  text-shadow: 0 2px 8px $shadow-color; /* Use variable */
 }
 
 .centered-title h2 {
@@ -192,7 +193,7 @@ $shadow-color: rgba(24, 100, 171, 0.1);
   width: max-content;
   margin: 0 auto;
   padding: 1rem 2rem;
-  @include section-gradient;  /* Use mixin */
+  @include section-gradient; /* Use mixin */
   color: #fff;
   text-decoration: none;
   border-radius: 30px;
@@ -202,30 +203,25 @@ $shadow-color: rgba(24, 100, 171, 0.1);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  @include standard-shadow;  /* Use mixin */
+  @include standard-shadow; /* Use mixin */
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      120deg,
-      transparent,
-      rgba(255, 255, 255, 0.3),
-      transparent
-    );
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
     transition: all 0.5s ease;
     cursor: pointer;
   }
 
   &:hover {
     background: #fff;
-    color: $primary-color;  /* Use variable */
+    color: $primary-color; /* Use variable */
     transform: translateY(-3px);
-    @include hover-shadow;  /* Use mixin */
+    @include hover-shadow; /* Use mixin */
     cursor: pointer;
 
     &::before {
@@ -260,11 +256,11 @@ $shadow-color: rgba(24, 100, 171, 0.1);
 .about {
   text-align: center;
   padding: 20px;
-  @include section-gradient;  /* Use mixin */
+  @include section-gradient; /* Use mixin */
   color: #fff;
   margin-top: 0;
   border-radius: 1rem;
-  box-shadow: 0 4px 24px $shadow-color;  /* Use variable */
+  box-shadow: 0 4px 24px $shadow-color; /* Use variable */
   overflow: hidden;
 
   h1,
@@ -352,44 +348,44 @@ h1 {
 
 /* Background Images for Carousel 1 */
 #carousel1-card1 .image-container {
-  background-image: url("../../../assets/images/Logos/BGCNAL-Official-Symbol.png");
+  background-image: url('../../../assets/images/Logos/BGCNAL-Official-Symbol.png');
 }
 
 #carousel1-card2 .image-container {
-  background-image: url("../../../assets/images/Logos/ieee-logo.jpg");
+  background-image: url('../../../assets/images/Logos/ieee-logo.jpg');
 }
 
 #carousel1-card3 .image-container {
-  background-image: url("../../../assets/images/Logos/BSU.jpg");
+  background-image: url('../../../assets/images/Logos/BSU.jpg');
 }
 
 #carousel1-card4 .image-container {
-  background-image: url("../../../assets/images/Logos/distem-logo.jpg");
+  background-image: url('../../../assets/images/Logos/distem-logo.jpg');
 }
 
 #carousel1-card5 .image-container {
-  background-image: url("../../../assets/images/Logos/RealEstateClub.png");
+  background-image: url('../../../assets/images/Logos/RealEstateClub.png');
 }
 
 /* Background Images for Carousel 2 */
 #carousel2-card1 .image-container {
-  background-image: url("../../../assets/images/Logos/KidsCollege.png");
+  background-image: url('../../../assets/images/Logos/KidsCollege.png');
 }
 
 #carousel2-card2 .image-container {
-  background-image: url("../../../assets/images/Logos/enchantedForest.jpg");
+  background-image: url('../../../assets/images/Logos/enchantedForest.jpg');
 }
 
 #carousel2-card3 .image-container {
-  background-image: url("../../../assets/images/Logos/Colab.png");
+  background-image: url('../../../assets/images/Logos/Colab.png');
 }
 
 #carousel2-card4 .image-container {
-  background-image: url("../../../assets/images/Logos/UWL_Logo.png");
+  background-image: url('../../../assets/images/Logos/UWL_Logo.png');
 }
 
 #carousel2-card5 .image-container {
-  background-image: url("../../../assets/images/Logos/stem.png");
+  background-image: url('../../../assets/images/Logos/stem.png');
 }
 
 /* Image Container Styles */
@@ -416,7 +412,7 @@ h1 {
 
 /* Pseudo-element for Image Border */
 .image-container::after {
-  content: "";
+  content: '';
   display: block;
   width: 120%;
   height: 120%;
@@ -462,14 +458,14 @@ h2 {
   color: $primary-color; /* Use variable */
   margin-bottom: 1.5rem;
   position: relative;
-  padding-bottom: 0.5rem;  /* Added padding to avoid overlap */
+  padding-bottom: 0.5rem; /* Added padding to avoid overlap */
   overflow: hidden;
   text-shadow: 0 2px 8px $shadow-color; /* Use variable */
 }
 
 .section-title::after,
 .section-subtitle::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -540,7 +536,7 @@ h2 {
   width: max-content;
   margin: 0 auto;
   padding: 1rem 2rem;
-   @include section-gradient;  /* Use mixin */
+  @include section-gradient; /* Use mixin */
   color: #fff;
   text-decoration: none;
   border-radius: 30px;
@@ -550,21 +546,16 @@ h2 {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-   @include standard-shadow;  /* Use mixin */
+  @include standard-shadow; /* Use mixin */
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      120deg,
-      transparent,
-      rgba(255, 255, 255, 0.3),
-      transparent
-    );
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
     transition: all 0.5s ease;
     cursor: pointer;
   }
@@ -573,7 +564,7 @@ h2 {
     background: #fff;
     color: $primary-color; /* Use variable */
     transform: translateY(-3px);
-    @include hover-shadow;  /* Use mixin */
+    @include hover-shadow; /* Use mixin */
     cursor: pointer;
 
     &::before {
@@ -584,13 +575,13 @@ h2 {
 
 /* Link Underline Transition */
 a {
-  color: #18272F;
+  color: #18272f;
   position: relative;
   text-decoration: none;
 }
 
 a::after {
-    @include link-underline; /* Use mixin */
+  @include link-underline; /* Use mixin */
 }
 
 a:hover::after {

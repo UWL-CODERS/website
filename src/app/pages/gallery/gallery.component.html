@@ -8,68 +8,80 @@
 
   <!-- Event Section -->
   @for (event of events; track event) {
-  <div class="event-card">
-    <div class="event-content">
-      <h2 class="event-title">{{ event.title }}</h2>
-      <div class="event-meta">
-        @for (meta of event.meta; track meta) {
-        <div class="event-meta-item">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path [attr.d]="meta.iconPath"></path>
-          </svg>
-          <span>{{ meta.text }}</span>
+    <div class="event-card">
+      <div class="event-content">
+        <h2 class="event-title">{{ event.title }}</h2>
+        <div class="event-meta">
+          @for (meta of event.meta; track meta) {
+            <div class="event-meta-item">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path [attr.d]="meta.iconPath"></path>
+              </svg>
+              <span>{{ meta.text }}</span>
+            </div>
+          }
         </div>
-        }
-      </div>
-      <p class="event-description">{{ event.description }}</p>
-      <!-- Picture Section -->
-      <div class="image-grid">
-        @for (image of event.images; track image) {
-        <div class="image-item" 
-            (click)="openModal(image)" 
-            (keydown.enter)="openModal(image)" 
-            (keydown.space)="$event.preventDefault(); openModal(image)" 
-            tabindex="0" 
-            role="button" 
-            aria-label="Open image modal: {{image.caption}}">
-          <div class="image-wrapper">
-            <img [src]="image.src" [alt]="image.alt" />
-          </div>
-          <div class="image-overlay">
-            <div class="image-caption">{{ image.caption }}</div>
-          </div>
+        <p class="event-description">{{ event.description }}</p>
+        <!-- Picture Section -->
+        <div class="image-grid">
+          @for (image of event.images; track image) {
+            <div
+              class="image-item"
+              (click)="openModal(image)"
+              (keydown.enter)="openModal(image)"
+              (keydown.space)="$event.preventDefault(); openModal(image)"
+              tabindex="0"
+              role="button"
+              aria-label="Open image modal: {{image.caption}}"
+            >
+              <div class="image-wrapper">
+                <img [src]="image.src" [alt]="image.alt" />
+              </div>
+              <div class="image-overlay">
+                <div class="image-caption">{{ image.caption }}</div>
+              </div>
+            </div>
+          }
         </div>
-        }
       </div>
     </div>
-  </div>
   }
 
-<!-- Modal Section -->
-<div 
-  class="modal-backdrop" 
-  [class.active]="selectedImage" 
-  (click)="onBackdropClick($event)" 
-  tabindex="0" 
-  role="button"
-  (keydown.enter)="onBackdropClick($event)" 
-  (keydown.space)="$event.preventDefault(); onBackdropClick($event)">
-  <div class="modal-content">
-    <button class="modal-close"
-            (click)="closeModal()"
-            (keydown.enter)="closeModal()"
-            (keydown.space)="closeModal()"
-            aria-label="Close modal"
-            type="button">
-      &times;
-    </button>
-    <h3 class="modal-title">{{ selectedImage?.event }}</h3>
-    <div class="modal-image-container">
-      <img [src]="selectedImage?.src" class="modal-image" [alt]="selectedImage?.alt" />
+  <!-- Modal Section -->
+  <div
+    class="modal-backdrop"
+    [class.active]="selectedImage"
+    (click)="onBackdropClick($event)"
+    tabindex="0"
+    role="button"
+    (keydown.enter)="onBackdropClick($event)"
+    (keydown.space)="$event.preventDefault(); onBackdropClick($event)"
+  >
+    <div class="modal-content">
+      <button
+        class="modal-close"
+        (click)="closeModal()"
+        (keydown.enter)="closeModal()"
+        (keydown.space)="closeModal()"
+        aria-label="Close modal"
+        type="button"
+      >
+        &times;
+      </button>
+      <h3 class="modal-title">{{ selectedImage?.event }}</h3>
+      <div class="modal-image-container">
+        <img [src]="selectedImage?.src" class="modal-image" [alt]="selectedImage?.alt" />
+      </div>
+      <p class="modal-caption">{{ selectedImage?.caption }}</p>
     </div>
-    <p class="modal-caption">{{ selectedImage?.caption }}</p>
   </div>
 </div>
-
-

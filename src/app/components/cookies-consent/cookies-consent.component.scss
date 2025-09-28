@@ -9,7 +9,9 @@
   border-radius: 8px; /* Rounded corners */
   font-size: 0.9rem;
   width: 300px; /* Fixed width */
-  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out; /* Smooth animation */
+  transition:
+    transform 0.4s ease-in-out,
+    opacity 0.4s ease-in-out; /* Smooth animation */
   transform: translateX(0); /* Default position */
   opacity: 0; /* Initially hidden */
   z-index: 1000; /* Ensure it appears above other elements */

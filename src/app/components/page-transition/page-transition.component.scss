@@ -1,32 +1,32 @@
 .transition {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    z-index: 1001; /* Increased z-index to be greater than the logo-cube */
-    pointer-events: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  z-index: 1001; /* Increased z-index to be greater than the logo-cube */
+  pointer-events: none;
 }
 
 .transition-row {
-    flex: 1;
-    display: flex;
+  flex: 1;
+  display: flex;
 }
 
 .transition-row.row-1 .block {
-    transform-origin: top;
+  transform-origin: top;
 }
 
 .transition-row.row-2 .block {
-    transform-origin: bottom;
+  transform-origin: bottom;
 }
 
 .block {
-    flex: 1;
-    background-color: rgb(58, 129, 247);
-    transform: scaleY(1);
-    will-change: transform;
-    width: 50px; // Adjust as needed
+  flex: 1;
+  background-color: rgb(58, 129, 247);
+  transform: scaleY(1);
+  will-change: transform;
+  width: 50px; // Adjust as needed
 }

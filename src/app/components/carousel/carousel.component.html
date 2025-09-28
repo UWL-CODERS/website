@@ -1,8 +1,18 @@
-<p-carousel [value]="items()" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions">
+<p-carousel
+  [value]="items()"
+  [numVisible]="3"
+  [numScroll]="1"
+  [responsiveOptions]="responsiveOptions"
+>
   <ng-template let-item pTemplate="item">
     <div class="border border-surface rounded-border m-2 p-4 text-center">
       <div class="mb-2">
-        <img [src]="item.imageUrl" [alt]="item.title" class="w-full h-48 object-cover rounded-border" loading="lazy"/>
+        <img
+          [src]="item.imageUrl"
+          [alt]="item.title"
+          class="w-full h-48 object-cover rounded-border"
+          loading="lazy"
+        />
       </div>
       <div class="mb-2">
         <h4 class="mb-1">{{ item.title }}</h4>

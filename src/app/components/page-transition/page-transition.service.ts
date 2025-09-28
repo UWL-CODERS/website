@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { gsap } from 'gsap';
+import {Injectable} from '@angular/core';
+import {gsap} from 'gsap';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class PageTransitionService {
   /**
    * Animate the transition in (blocks scale from 1 to 0).
@@ -41,13 +41,13 @@ export class PageTransitionService {
       const duration = 0.6; // Reduced duration for faster transitions
 
       // Set initial state
-      gsap.set('.block', { visibility: 'visible', scaleY: fromScale });
+      gsap.set('.block', {visibility: 'visible', scaleY: fromScale});
 
       // Animate the first row of blocks
       gsap.to('.transition-row.row-1 .block', {
         scaleY: toScale,
         duration: duration,
-        stagger: { each: 0.1, from: 'end' },
+        stagger: {each: 0.1, from: 'end'},
         ease: ease,
       });
 
@@ -55,7 +55,7 @@ export class PageTransitionService {
       gsap.to('.transition-row.row-2 .block', {
         scaleY: toScale,
         duration: duration,
-        stagger: { each: 0.1, from: 'end' },
+        stagger: {each: 0.1, from: 'end'},
         ease: ease,
         onComplete: resolve,
       });

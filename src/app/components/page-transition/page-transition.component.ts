@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { gsap } from 'gsap';
+import {Component} from '@angular/core';
+import {gsap} from 'gsap';
 
 @Component({
   selector: 'app-page-transition',
@@ -7,13 +7,11 @@ import { gsap } from 'gsap';
   styleUrl: './page-transition.component.scss',
 })
 export class PageTransitionComponent {
-  
   public transitionIn(): Promise<void> {
     return new Promise<void>((resolve) => {
       this.animateTransition(1, 0).then(resolve); // Start animation immediately
     });
   }
-
 
   public transitionOut() {
     return this.animateTransition(0, 1);
@@ -32,13 +30,13 @@ export class PageTransitionComponent {
       const ease = 'power4.inOut'; // Smooth easing for a natural transition
       const duration = 0.6; // Reduced duration for faster transitions
 
-      gsap.set('.block', { visibility: 'visible', scaleY: fromScale });
+      gsap.set('.block', {visibility: 'visible', scaleY: fromScale});
 
       // Animate the first row of blocks
       gsap.to('.transition-row.row-1 .block', {
         scaleY: toScale,
         duration: duration,
-        stagger: { each: 0.1, from: 'end' }, // Faster stagger
+        stagger: {each: 0.1, from: 'end'}, // Faster stagger
         ease: ease,
       });
 
@@ -46,7 +44,7 @@ export class PageTransitionComponent {
       gsap.to('.transition-row.row-2 .block', {
         scaleY: toScale,
         duration: duration,
-        stagger: { each: 0.1, from: 'end' }, // Faster stagger
+        stagger: {each: 0.1, from: 'end'}, // Faster stagger
         ease: ease,
         onComplete: resolve,
       });

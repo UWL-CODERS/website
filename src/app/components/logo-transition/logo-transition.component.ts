@@ -1,15 +1,16 @@
-import { Component, ElementRef, Renderer2, AfterViewInit, inject, viewChild } from '@angular/core';
-import { gsap } from 'gsap';
+import {Component, ElementRef, Renderer2, AfterViewInit, inject, viewChild} from '@angular/core';
+import {gsap} from 'gsap';
 
 @Component({
   selector: 'app-logo-transition',
   templateUrl: './logo-transition.component.html',
-  styleUrl: './logo-transition.component.scss'
+  styleUrl: './logo-transition.component.scss',
 })
 export class LogoTransitionComponent implements AfterViewInit {
   private readonly renderer = inject(Renderer2);
 
-  public readonly logoCubeContainer = viewChild.required<ElementRef<HTMLElement>>('logoCubeContainer');
+  public readonly logoCubeContainer =
+    viewChild.required<ElementRef<HTMLElement>>('logoCubeContainer');
   private readonly cubeElement = viewChild.required<ElementRef<HTMLElement>>('cubeElement');
 
   private isAnimating = false;
@@ -25,7 +26,11 @@ export class LogoTransitionComponent implements AfterViewInit {
     const randomYRotation = Math.random() * 360;
     const randomZRotation = Math.random() * 360;
 
-    this.renderer.setStyle(cube, 'transform', `rotateY(${randomYRotation}deg) rotateZ(${randomZRotation}deg)`);
+    this.renderer.setStyle(
+      cube,
+      'transform',
+      `rotateY(${randomYRotation}deg) rotateZ(${randomZRotation}deg)`,
+    );
   }
 
   startAnimation(): void {
@@ -80,23 +85,23 @@ export class LogoTransitionComponent implements AfterViewInit {
         opacity: 0, // Fade out over 0.5 seconds
         duration: 0.5,
         onComplete: () => {
-        this.renderer.removeClass(containerElement, 'zoom-in');
-        this.renderer.removeClass(containerElement, 'close');
-        this.renderer.addClass(containerElement, 'zoom-out');
-        this.isAnimating = false;
+          this.renderer.removeClass(containerElement, 'zoom-in');
+          this.renderer.removeClass(containerElement, 'close');
+          this.renderer.addClass(containerElement, 'zoom-out');
+          this.isAnimating = false;
 
           // Schedule the position reset slightly after zoom-out starts
           // Using a separate timeout ensures it runs even if the component is destroyed before the main timeout finishes completely
           this.resetPositionTimeoutId = setTimeout(() => {
             // Check if the element still exists before resetting (optional safety)
             if (this.cubeElement()) {
-               this.setRandomInitialPosition();
+              this.setRandomInitialPosition();
             }
             this.resetPositionTimeoutId = null;
           }, 1500); // Small delay after zoom-out starts
 
           this.animationTimeoutId = null; // Clear the timeout ID after execution
-        }
+        },
       });
     }, 700); // Extended delay before zoom-out
   }

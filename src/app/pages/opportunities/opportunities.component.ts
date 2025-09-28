@@ -1,6 +1,15 @@
-import { Component, AfterViewInit, OnDestroy, ViewChildren, QueryList, ElementRef, inject, OnInit } from '@angular/core';
-import { PageMeta } from '../../models/meta.model';
-import { SeoService } from '../../services/seo.service';
+import {
+  Component,
+  AfterViewInit,
+  OnDestroy,
+  ViewChildren,
+  QueryList,
+  ElementRef,
+  inject,
+  OnInit,
+} from '@angular/core';
+import {PageMeta} from '../../models/meta.model';
+import {SeoService} from '../../services/seo.service';
 
 // --- Interfaces (for better type definition) ---
 
@@ -32,14 +41,16 @@ class DraggingEvent {
 
   constructor(target: HTMLElement) {
     if (!target) {
-      throw new Error("DraggingEvent requires a target element.");
+      throw new Error('DraggingEvent requires a target element.');
     }
     this.target = target;
     this.mouseDownListener = () => void 0;
     this.touchStartListener = () => void 0;
   }
 
-  private event(callback: (e: MouseEvent | TouchEvent) => (e2: MouseEvent | TouchEvent | null) => void): void {
+  private event(
+    callback: (e: MouseEvent | TouchEvent) => (e2: MouseEvent | TouchEvent | null) => void,
+  ): void {
     this.mouseDownListener = (e: MouseEvent) => {
       e.preventDefault();
       const handler = callback(e);
@@ -48,11 +59,11 @@ class DraggingEvent {
       this.mouseUpHandler = () => this.clearMouseEventListeners(handler);
       this.docMouseLeaveHandler = () => this.clearMouseEventListeners(handler);
 
-      window.addEventListener("mousemove", this.mouseMoveHandler);
-      window.addEventListener("mouseup", this.mouseUpHandler);
-      document.addEventListener("mouseleave", this.docMouseLeaveHandler);
+      window.addEventListener('mousemove', this.mouseMoveHandler);
+      window.addEventListener('mouseup', this.mouseUpHandler);
+      document.addEventListener('mouseleave', this.docMouseLeaveHandler);
     };
-    this.target.addEventListener("mousedown", this.mouseDownListener);
+    this.target.addEventListener('mousedown', this.mouseDownListener);
 
     this.touchStartListener = (e: TouchEvent) => {
       const handler = callback(e);
@@ -61,24 +72,24 @@ class DraggingEvent {
       this.touchEndHandler = () => this.clearTouchEventListeners(handler);
       this.bodyMouseLeaveHandler = () => this.clearTouchEventListeners(handler);
 
-      window.addEventListener("touchmove", this.touchMoveHandler);
-      window.addEventListener("touchend", this.touchEndHandler);
-      document.body.addEventListener("mouseleave", this.bodyMouseLeaveHandler);
+      window.addEventListener('touchmove', this.touchMoveHandler);
+      window.addEventListener('touchend', this.touchEndHandler);
+      document.body.addEventListener('mouseleave', this.bodyMouseLeaveHandler);
     };
-    this.target.addEventListener("touchstart", this.touchStartListener);
+    this.target.addEventListener('touchstart', this.touchStartListener);
   }
 
   private clearMouseEventListeners(handler: (e: MouseEvent | TouchEvent | null) => void): void {
     if (this.mouseMoveHandler) {
-      window.removeEventListener("mousemove", this.mouseMoveHandler);
+      window.removeEventListener('mousemove', this.mouseMoveHandler);
       this.mouseMoveHandler = null;
     }
     if (this.mouseUpHandler) {
-      window.removeEventListener("mouseup", this.mouseUpHandler);
+      window.removeEventListener('mouseup', this.mouseUpHandler);
       this.mouseUpHandler = null;
     }
     if (this.docMouseLeaveHandler) {
-      document.removeEventListener("mouseleave", this.docMouseLeaveHandler);
+      document.removeEventListener('mouseleave', this.docMouseLeaveHandler);
       this.docMouseLeaveHandler = null;
     }
     handler(null);
@@ -86,15 +97,15 @@ class DraggingEvent {
 
   private clearTouchEventListeners(handler: (e: MouseEvent | TouchEvent | null) => void): void {
     if (this.touchMoveHandler) {
-      window.removeEventListener("touchmove", this.touchMoveHandler);
+      window.removeEventListener('touchmove', this.touchMoveHandler);
       this.touchMoveHandler = null;
     }
     if (this.touchEndHandler) {
-      window.removeEventListener("touchend", this.touchEndHandler);
+      window.removeEventListener('touchend', this.touchEndHandler);
       this.touchEndHandler = null;
     }
     if (this.bodyMouseLeaveHandler) {
-      document.body.removeEventListener("mouseleave", this.bodyMouseLeaveHandler);
+      document.body.removeEventListener('mouseleave', this.bodyMouseLeaveHandler);
       this.bodyMouseLeaveHandler = null;
     }
     handler(null);
@@ -103,7 +114,7 @@ class DraggingEvent {
   public getDistance(callback: (distance: DragDistance | null) => void): void {
     const distanceInit = (e1: MouseEvent | TouchEvent) => {
       let startingX: number, startingY: number;
-      if ("touches" in e1) {
+      if ('touches' in e1) {
         startingX = e1.touches[0].clientX;
         startingY = e1.touches[0].clientY;
       } else {
@@ -114,10 +125,10 @@ class DraggingEvent {
         if (e2 === null) {
           callback(null);
         } else {
-          if ("touches" in e2) {
-            callback({ x: e2.touches[0].clientX - startingX, y: e2.touches[0].clientY - startingY });
+          if ('touches' in e2) {
+            callback({x: e2.touches[0].clientX - startingX, y: e2.touches[0].clientY - startingY});
           } else {
-            callback({ x: e2.clientX - startingX, y: e2.clientY - startingY });
+            callback({x: e2.clientX - startingX, y: e2.clientY - startingY});
           }
         }
       };
@@ -126,17 +137,17 @@ class DraggingEvent {
   }
 
   public destroy(): void {
-    this.target.removeEventListener("mousedown", this.mouseDownListener);
-    this.target.removeEventListener("touchstart", this.touchStartListener);
+    this.target.removeEventListener('mousedown', this.mouseDownListener);
+    this.target.removeEventListener('touchstart', this.touchStartListener);
     if (this.mouseMoveHandler && this.mouseUpHandler && this.docMouseLeaveHandler) {
-      window.removeEventListener("mousemove", this.mouseMoveHandler);
-      window.removeEventListener("mouseup", this.mouseUpHandler);
-      document.removeEventListener("mouseleave", this.docMouseLeaveHandler);
+      window.removeEventListener('mousemove', this.mouseMoveHandler);
+      window.removeEventListener('mouseup', this.mouseUpHandler);
+      document.removeEventListener('mouseleave', this.docMouseLeaveHandler);
     }
     if (this.touchMoveHandler && this.touchEndHandler && this.bodyMouseLeaveHandler) {
-      window.removeEventListener("touchmove", this.touchMoveHandler);
-      window.removeEventListener("touchend", this.touchEndHandler);
-      document.body.removeEventListener("mouseleave", this.bodyMouseLeaveHandler);
+      window.removeEventListener('touchmove', this.touchMoveHandler);
+      window.removeEventListener('touchend', this.touchEndHandler);
+      document.body.removeEventListener('mouseleave', this.bodyMouseLeaveHandler);
     }
   }
 }
@@ -160,10 +171,10 @@ class CardCarousel extends DraggingEvent {
 
     this.container = container;
     this.controllerElement = controller;
-    this.cards = this.container.querySelectorAll(".card");
+    this.cards = this.container.querySelectorAll('.card');
 
     if (this.cards.length === 0) {
-      console.warn("CardCarousel: No card elements found.");
+      console.warn('CardCarousel: No card elements found.');
       this.centerIndex = 0;
       this.resizeListener = () => void 0; // no-op function
       this.keydownListener = () => void 0; // no-op function
@@ -177,7 +188,9 @@ class CardCarousel extends DraggingEvent {
       if (this.container.offsetWidth > 0 && this.cards.length > 0) {
         this.cardWidth = (this.cards[0].offsetWidth / this.container.offsetWidth) * 100;
       } else {
-        console.warn("CardCarousel: Container width is zero or no cards after timeout. Width calculation failed.");
+        console.warn(
+          'CardCarousel: Container width is zero or no cards after timeout. Width calculation failed.',
+        );
       }
       this.build(); // Build after width calculation
     }, 0);
@@ -185,10 +198,10 @@ class CardCarousel extends DraggingEvent {
     this.resizeListener = this.updateCardWidth.bind(this);
     this.keydownListener = this.controller.bind(this);
 
-    window.addEventListener("resize", this.resizeListener);
+    window.addEventListener('resize', this.resizeListener);
     if (this.controllerElement) {
       this.controllerElement.setAttribute('tabindex', '0');
-      this.controllerElement.addEventListener("keydown", this.keydownListener);
+      this.controllerElement.addEventListener('keydown', this.keydownListener);
     }
 
     // Bind dragging event from parent class
@@ -207,7 +220,7 @@ class CardCarousel extends DraggingEvent {
       const x = i - this.centerIndex;
       const scale = this.calcScale(x);
       const scale2 = this.calcScale2(x);
-      const zIndex = -(Math.abs(i - this.centerIndex));
+      const zIndex = -Math.abs(i - this.centerIndex);
       const leftPos = this.calcPos(x, scale2);
 
       this.xScale[x] = card;
@@ -216,20 +229,20 @@ class CardCarousel extends DraggingEvent {
         x,
         scale,
         leftPos,
-        zIndex
+        zIndex,
       });
     }
   }
 
   // Method to handle keyboard controls
   private controller(e: KeyboardEvent): void {
-    const temp: Record<number, HTMLElement> = { ...this.xScale };
+    const temp: Record<number, HTMLElement> = {...this.xScale};
 
     if (e.keyCode === 39) {
       // Left arrow
       for (const xStr in this.xScale) {
         const x = parseInt(xStr, 10);
-        const newX = (x - 1 < -this.centerIndex) ? this.centerIndex : x - 1;
+        const newX = x - 1 < -this.centerIndex ? this.centerIndex : x - 1;
         temp[newX] = this.xScale[x];
       }
     }
@@ -238,7 +251,7 @@ class CardCarousel extends DraggingEvent {
       // Right arrow
       for (const xStr in this.xScale) {
         const x = parseInt(xStr, 10);
-        const newX = (x + 1 > this.centerIndex) ? -this.centerIndex : x + 1;
+        const newX = x + 1 > this.centerIndex ? -this.centerIndex : x + 1;
         temp[newX] = this.xScale[x];
       }
     }
@@ -256,7 +269,7 @@ class CardCarousel extends DraggingEvent {
         x,
         scale,
         leftPos,
-        zIndex
+        zIndex,
       });
     }
   }
@@ -271,7 +284,7 @@ class CardCarousel extends DraggingEvent {
 
   private updateCards(card: HTMLElement, data: CardUpdateData): void {
     if (data.x !== undefined) {
-      card.setAttribute("data-x", data.x.toString());
+      card.setAttribute('data-x', data.x.toString());
     }
 
     if (data.scale !== undefined) {
@@ -310,17 +323,17 @@ class CardCarousel extends DraggingEvent {
     if (x !== x + rounded) {
       if (x + rounded > original) {
         if (x + rounded > this.centerIndex) {
-          newX = ((x + rounded - 1) - this.centerIndex) - rounded + -this.centerIndex;
+          newX = x + rounded - 1 - this.centerIndex - rounded + -this.centerIndex;
         }
       } else if (x + rounded < original) {
         if (x + rounded < -this.centerIndex) {
-          newX = ((x + rounded + 1) + this.centerIndex) - rounded + this.centerIndex;
+          newX = x + rounded + 1 + this.centerIndex - rounded + this.centerIndex;
         }
       }
       this.xScale[newX + rounded] = card;
     }
 
-    this.updateCards(card, { zIndex: -Math.abs(newX + rounded) });
+    this.updateCards(card, {zIndex: -Math.abs(newX + rounded)});
 
     return newX;
   }
@@ -329,7 +342,7 @@ class CardCarousel extends DraggingEvent {
     if (this.cards.length === 0) return;
 
     if (data !== null) {
-      this.container.classList.remove("smooth-return");
+      this.container.classList.remove('smooth-return');
       const xDist = data.x / 250;
 
       for (const card of this.cards) {
@@ -342,11 +355,11 @@ class CardCarousel extends DraggingEvent {
 
         this.updateCards(card, {
           scale,
-          leftPos
+          leftPos,
         });
       }
     } else {
-      this.container.classList.add("smooth-return");
+      this.container.classList.add('smooth-return');
       let closestX = Infinity;
       let closestLogicalX = 0;
 
@@ -380,7 +393,7 @@ class CardCarousel extends DraggingEvent {
         x: newLogicalX,
         scale,
         leftPos,
-        zIndex
+        zIndex,
       });
       nextXScale[newLogicalX] = card;
     }
@@ -397,7 +410,7 @@ class CardCarousel extends DraggingEvent {
   }
 
   public centerCardById(cardId: string): void {
-    const cardToCenter = Array.from(this.cards).find(card => card.id === cardId);
+    const cardToCenter = Array.from(this.cards).find((card) => card.id === cardId);
     if (cardToCenter) {
       const logicalX = parseInt(cardToCenter.dataset['x'] || '0', 10);
       this.centerCard(logicalX);
@@ -407,9 +420,9 @@ class CardCarousel extends DraggingEvent {
   public override destroy(): void {
     super.destroy();
 
-    window.removeEventListener("resize", this.resizeListener);
+    window.removeEventListener('resize', this.resizeListener);
     if (this.controllerElement) {
-      this.controllerElement.removeEventListener("keydown", this.keydownListener);
+      this.controllerElement.removeEventListener('keydown', this.keydownListener);
     }
   }
 }
@@ -417,7 +430,7 @@ class CardCarousel extends DraggingEvent {
 @Component({
   selector: 'app-opportunities',
   templateUrl: './opportunities.component.html',
-  styleUrls: ['./opportunities.component.scss']
+  styleUrls: ['./opportunities.component.scss'],
 })
 export class OpportunitiesComponent implements AfterViewInit, OnDestroy, OnInit {
   private seoService = inject(SeoService);
@@ -428,8 +441,10 @@ export class OpportunitiesComponent implements AfterViewInit, OnDestroy, OnInit 
   ngOnInit(): void {
     const pageMeta: PageMeta = {
       title: 'Opportunities',
-      description: 'Explore our community outreach initiatives, campus events, and volunteer opportunities.',
-      keywords: 'opportunities, community outreach, campus events, volunteer work, student activities, community service'
+      description:
+        'Explore our community outreach initiatives, campus events, and volunteer opportunities.',
+      keywords:
+        'opportunities, community outreach, campus events, volunteer work, student activities, community service',
     };
     this.seoService.setPageMeta(pageMeta);
   }

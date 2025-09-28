@@ -1,109 +1,113 @@
 .about {
-    text-align: center;
-    padding: 32px 20px;
-    background: linear-gradient(135deg, #1864ab 80%, #1a237e 100%);
-    color: #fff;
-    box-shadow: 0 8px 32px rgba(24, 100, 171, 0.15);
-    position: relative;
-    overflow: hidden;
-  
-    &::before {
-      content: '';
-      position: absolute;
-      top: -40px;
-      left: -40px;
-      width: 120px;
-      height: 120px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 50%;
-      z-index: 0;
-    }
+  text-align: center;
+  padding: 32px 20px;
+  background: linear-gradient(135deg, #1864ab 80%, #1a237e 100%);
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(24, 100, 171, 0.15);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    z-index: 0;
   }
-  
-  .shadow-line {
-    width: 100%;
-    height: 6px;
-    background: linear-gradient(90deg, #1864ab 40%, #1a237e 100%);
-    box-shadow: 0 4px 12px rgba(24, 100, 171, 0.18);
-    border-radius: 4px;
-    margin: 0 auto 28px auto;
-  }
-  
-  .social-links {
-    display: flex;
-    gap: 18px;
-    justify-content: center;
-    font-size: 28px;
-    color: #e3e3e3;
-    margin-bottom: 18px;
-  
-    a {
-      color: inherit;
-      text-decoration: none;
-      transition: color 0.2s, transform 0.2s;
-  
-      &:hover {
-        color: #fff;
-        transform: scale(1.15) rotate(-8deg);
-        text-shadow: 0 2px 8px #1864ab88;
-      }
-    }
-  }
-  
-  .content-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 32px;
-    padding: 24px 0;
-    flex-wrap: wrap;
-  }
-  
-  .professors-section,
-  .exec-team-section {
-    flex: 1;
-    min-width: 320px;
-    padding: 28px 16px;
-    background: rgba(255,255,255,0.85);
-    margin-bottom: 28px;
-    border-radius: 14px;
-    box-shadow: 0 4px 24px rgba(24, 100, 171, 0.08);
-    backdrop-filter: blur(2px);
-  }
-  
-  .professor-cards,
-  .exec-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 28px;
-  }
-  
-  .professor-card,
-  .exec-card {
-    text-align: center;
-    padding: 18px 10px;
-    background: rgba(255,255,255,0.98);
-    border-radius: 16px;
-    box-shadow: 0 2px 16px rgba(24, 100, 171, 0.13);
-    width: 220px;
-    transition: transform 0.2s, box-shadow 0.2s;
-  
+}
+
+.shadow-line {
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #1864ab 40%, #1a237e 100%);
+  box-shadow: 0 4px 12px rgba(24, 100, 171, 0.18);
+  border-radius: 4px;
+  margin: 0 auto 28px auto;
+}
+
+.social-links {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  font-size: 28px;
+  color: #e3e3e3;
+  margin-bottom: 18px;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition:
+      color 0.2s,
+      transform 0.2s;
+
     &:hover {
-      transform: translateY(-8px) scale(1.04);
-      box-shadow: 0 8px 32px rgba(24, 100, 171, 0.18);
+      color: #fff;
+      transform: scale(1.15) rotate(-8deg);
+      text-shadow: 0 2px 8px #1864ab88;
     }
   }
-  
- // Target the circular images in your credits section
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 24px 0;
+  flex-wrap: wrap;
+}
+
+.professors-section,
+.exec-team-section {
+  flex: 1;
+  min-width: 320px;
+  padding: 28px 16px;
+  background: rgba(255, 255, 255, 0.85);
+  margin-bottom: 28px;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(24, 100, 171, 0.08);
+  backdrop-filter: blur(2px);
+}
+
+.professor-cards,
+.exec-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+}
+
+.professor-card,
+.exec-card {
+  text-align: center;
+  padding: 18px 10px;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(24, 100, 171, 0.13);
+  width: 220px;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 8px 32px rgba(24, 100, 171, 0.18);
+  }
+}
+
+// Target the circular images in your credits section
 .professor-card img,
 .exec-card img {
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
-  transition: 
-    transform 0.35s cubic-bezier(.77,0,.18,1),
-    box-shadow 0.35s cubic-bezier(.77,0,.18,1),
+  transition:
+    transform 0.35s cubic-bezier(0.77, 0, 0.18, 1),
+    box-shadow 0.35s cubic-bezier(0.77, 0, 0.18, 1),
     border 0.35s;
   border: 4px solid #1864ab33;
   box-shadow: 0 2px 12px #1864ab22;
@@ -114,81 +118,185 @@
 .professor-card:hover img,
 .exec-card:hover img {
   transform: scale(1.08) rotate(-2deg);
-  box-shadow: 0 0 32px 0 #1864ab77, 0 4px 16px #1864ab22;
+  box-shadow:
+    0 0 32px 0 #1864ab77,
+    0 4px 16px #1864ab22;
   border: 4px solid #1864ab;
 }
 
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 820px;
+  margin: 28px auto;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(24, 100, 171, 0.07);
+}
 
-  
-  .slider-container {
-    position: relative;
-    width: 100%;
-    max-width: 820px;
-    margin: 28px auto;
-    overflow: hidden;
-    border-radius: 18px;
-    box-shadow: 0 4px 32px rgba(24, 100, 171, 0.07);
+.slider-wrapper {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+  height: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(24, 100, 171, 0.09);
+}
+
+.slide img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 18px;
+  border: 4px solid #1864ab33;
+  box-shadow: 0 2px 12px #1864ab22;
+  transition:
+    transform 0.35s cubic-bezier(0.77, 0, 0.18, 1),
+    box-shadow 0.35s cubic-bezier(0.77, 0, 0.18, 1),
+    border 0.35s;
+  cursor: pointer;
+}
+
+.slide img:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow:
+    0 0 32px 0 #1864ab77,
+    0 4px 16px #1864ab22;
+  border: 4px solid #1864ab;
+}
+
+.slide-content {
+  text-align: center;
+}
+
+.slider-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.slider-btn {
+  background: linear-gradient(135deg, #1864ab 70%, #1a237e 100%);
+  color: #fff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin: 0 7px;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+
+  &:hover {
+    background: #fff;
+    color: #1864ab;
+    transform: scale(1.13);
+    box-shadow: 0 2px 8px #1864ab33;
   }
-  
-  .slider-wrapper {
-    width: 100%;
-    height: 400px;
-    overflow: hidden;
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #a2b8d6;
+  margin: 0 5px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+
+  &.active {
+    background: #1864ab;
+    transform: scale(1.2);
   }
-  
-  .slider {
-    display: flex;
-    transition: transform 0.5s cubic-bezier(.77,0,.18,1);
-    height: 100%;
-  }
-  
-  .slide {
-    min-width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 28px;
-    box-sizing: border-box;
-    background: rgba(255,255,255,0.97);
-    border-radius: 14px;
-    box-shadow: 0 2px 16px rgba(24, 100, 171, 0.09);
-  }
-  
-  .slide img {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 18px;
-    border: 4px solid #1864ab33;
-    box-shadow: 0 2px 12px #1864ab22;
-    transition: 
-      transform 0.35s cubic-bezier(.77,0,.18,1),
-      box-shadow 0.35s cubic-bezier(.77,0,.18,1),
-      border 0.35s;
-    cursor: pointer;
-  }
-  
-  .slide img:hover {
-    transform: scale(1.08) rotate(-2deg);
-    box-shadow: 0 0 32px 0 #1864ab77, 0 4px 16px #1864ab22;
-    border: 4px solid #1864ab;
-  }
-  
-  
-  .slide-content {
-    text-align: center;
-  }
-  
-  .slider-controls {
-    display: flex;
-    justify-content: center;
-    margin-top: 18px;
-  }
-  
-  .slider-btn {
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.upper-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.slider-section,
+.calendar-section,
+.carousel-section {
+  flex: 1;
+  min-width: 320px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.93);
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(24, 100, 171, 0.07);
+}
+
+.lower-section {
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px;
+}
+
+.carousel-wrapper {
+  overflow: hidden;
+  position: relative;
+  border-radius: 14px;
+}
+
+.cards {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+  height: 100%;
+}
+
+.card {
+  min-width: 100%;
+  padding: 28px;
+  box-sizing: border-box;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(24, 100, 171, 0.08);
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+
+  button {
     background: linear-gradient(135deg, #1864ab 70%, #1a237e 100%);
     color: #fff;
     border: none;
@@ -198,11 +306,10 @@
     margin: 0 7px;
     cursor: pointer;
     font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s, transform 0.2s;
-  
+    transition:
+      background 0.2s,
+      transform 0.2s;
+
     &:hover {
       background: #fff;
       color: #1864ab;
@@ -210,101 +317,4 @@
       box-shadow: 0 2px 8px #1864ab33;
     }
   }
-  
-  .slider-dots {
-    display: flex;
-    justify-content: center;
-    margin-top: 12px;
-  }
-  
-  .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #a2b8d6;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-  
-    &.active {
-      background: #1864ab;
-      transform: scale(1.2);
-    }
-  }
-  
-  .main-content {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .upper-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-  }
-  
-  .slider-section,
-  .calendar-section,
-  .carousel-section {
-    flex: 1;
-    min-width: 320px;
-    padding: 24px;
-    background: rgba(255,255,255,0.93);
-    border-radius: 14px;
-    box-shadow: 0 2px 16px rgba(24, 100, 171, 0.07);
-  }
-  
-  .lower-section {
-    display: flex;
-    flex-direction: column;
-    padding: 0 24px;
-  }
-  
-  .carousel-wrapper {
-    overflow: hidden;
-    position: relative;
-    border-radius: 14px;
-  }
-  
-  .cards {
-    display: flex;
-    transition: transform 0.5s cubic-bezier(.77,0,.18,1);
-    height: 100%;
-  }
-  
-  .card {
-    min-width: 100%;
-    padding: 28px;
-    box-sizing: border-box;
-    text-align: center;
-    background: rgba(255,255,255,0.96);
-    border-radius: 14px;
-    box-shadow: 0 2px 16px rgba(24, 100, 171, 0.08);
-  }
-  
-  .carousel-controls {
-    display: flex;
-    justify-content: center;
-    margin-top: 18px;
-  
-    button {
-      background: linear-gradient(135deg, #1864ab 70%, #1a237e 100%);
-      color: #fff;
-      border: none;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      margin: 0 7px;
-      cursor: pointer;
-      font-size: 20px;
-      transition: background 0.2s, transform 0.2s;
-  
-      &:hover {
-        background: #fff;
-        color: #1864ab;
-        transform: scale(1.13);
-        box-shadow: 0 2px 8px #1864ab33;
-      }
-    }
-  }
-  
+}

@@ -1,12 +1,20 @@
-import { Component, AfterViewInit, ElementRef, PLATFORM_ID, inject, viewChild, OnInit } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { PageMeta } from '../../models/meta.model';
-import { SeoService } from '../../services/seo.service';
+import {
+  Component,
+  AfterViewInit,
+  ElementRef,
+  PLATFORM_ID,
+  inject,
+  viewChild,
+  OnInit,
+} from '@angular/core';
+import {isPlatformBrowser} from '@angular/common';
+import {PageMeta} from '../../models/meta.model';
+import {SeoService} from '../../services/seo.service';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent implements AfterViewInit, OnInit {
   private seoService = inject(SeoService);
@@ -23,8 +31,10 @@ export class AboutComponent implements AfterViewInit, OnInit {
   ngOnInit(): void {
     const pageMeta: PageMeta = {
       title: 'About Us',
-      description: 'Meet the talented creators behind our website. Each of them brings a unique set of skills and creativity to our platform.',
-      keywords: 'about us, team, developers, UWL coders, programming community, web development, coding club, tech team, software development'
+      description:
+        'Meet the talented creators behind our website. Each of them brings a unique set of skills and creativity to our platform.',
+      keywords:
+        'about us, team, developers, UWL coders, programming community, web development, coding club, tech team, software development',
     };
     this.seoService.setPageMeta(pageMeta);
   }

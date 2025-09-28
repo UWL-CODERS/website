@@ -61,7 +61,6 @@
   }
 
   .main-nav {
-
     ul {
       display: flex;
       list-style: none;
@@ -121,7 +120,7 @@
       .hamburger-icon {
         .line {
           transition: all 0.3s ease-in-out;
-          
+
           &.open {
             &:nth-child(1) {
               transform: translateY(11px) rotate(-45deg);
@@ -136,7 +135,6 @@
         }
       }
     }
-    
 
     .logo {
       position: static !important;
@@ -216,7 +214,7 @@
 
 // General link styles (without hover animation)
 a {
-  color: #18272F;
+  color: #18272f;
   text-decoration: none;
 }
 
@@ -252,7 +250,9 @@ a.disabled {
 
 .event-bar:hover {
   transform: scale(1.04);
-  box-shadow: 0 8px 32px rgba(26, 115, 232, 0.25), 0 0 16px #7928ca99;
+  box-shadow:
+    0 8px 32px rgba(26, 115, 232, 0.25),
+    0 0 16px #7928ca99;
   background: linear-gradient(90deg, #b47cff, #3ea6ff, #b47cff);
 }
 
@@ -279,8 +279,10 @@ a.disabled {
 
 .event-bar:hover {
   transform: scale(1.04);
-  box-shadow: 0 8px 32px rgba(26, 115, 232, 0.25), 0 0 16px #7928ca99;
-  background: rgb(151, 160, 247)
+  box-shadow:
+    0 8px 32px rgba(26, 115, 232, 0.25),
+    0 0 16px #7928ca99;
+  background: rgb(151, 160, 247);
   /* Slightly brighter gradient on hover */
 }
 

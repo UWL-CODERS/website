@@ -7,7 +7,7 @@ $light-color: #f8f9fa;
 $transition-speed: 0.3s;
 
 // Import the color module
-@use "sass:color";
+@use 'sass:color';
 
 // Mixins
 @mixin flex-center {
@@ -173,7 +173,9 @@ $transition-speed: 0.3s;
       height: 48px;
       border-radius: 50%;
       cursor: pointer;
-      box-shadow: 0 4px 24px rgba(40, 127, 167, 0.18), 0 1.5px 4px rgba(0, 0, 0, 0.07);
+      box-shadow:
+        0 4px 24px rgba(40, 127, 167, 0.18),
+        0 1.5px 4px rgba(0, 0, 0, 0.07);
       backdrop-filter: blur(6px) saturate(160%);
       display: flex;
       align-items: center;
@@ -181,37 +183,42 @@ $transition-speed: 0.3s;
       font-size: 1.5rem;
       position: relative;
       overflow: hidden;
-      transition: 
+      transition:
         background 0.3s,
         box-shadow 0.3s,
         transform 0.2s,
         border 0.3s;
-  
+
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         inset: 0;
         border-radius: 50%;
         border: 2px solid transparent;
-        transition: border-color 0.4s, box-shadow 0.4s;
+        transition:
+          border-color 0.4s,
+          box-shadow 0.4s;
         pointer-events: none;
       }
-  
-      &:hover, &:focus {
+
+      &:hover,
+      &:focus {
         background: rgba(0, 123, 255, 0.22); // lighter primary color background on hover
         box-shadow:
-          0 0 0 6px rgba(0, 123, 255, 0.25),  // glowing ring with #007bff
+          0 0 0 6px rgba(0, 123, 255, 0.25),
+          // glowing ring with #007bff
           0 8px 32px rgba(0, 123, 255, 0.18),
-          0 1.5px 4px rgba(0,0,0,0.07);
+          0 1.5px 4px rgba(0, 0, 0, 0.07);
         transform: scale(1.12) rotate(-2deg);
-  
+
         &::before {
           border-color: #007bff;
           box-shadow: 0 0 16px 2px #007bff;
         }
       }
-  
-      &:hover svg, &:hover i {
+
+      &:hover svg,
+      &:hover i {
         transform: scale(1.25);
         filter: drop-shadow(0 0 8px #007bff);
       }
