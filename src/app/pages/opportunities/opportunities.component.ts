@@ -430,7 +430,7 @@ class CardCarousel extends DraggingEvent {
 @Component({
   selector: 'app-opportunities',
   templateUrl: './opportunities.component.html',
-  styleUrls: ['./opportunities.component.css'],
+  styleUrls: ['./opportunities.component.scss'],
 })
 export class OpportunitiesComponent implements AfterViewInit, OnDestroy, OnInit {
   private seoService = inject(SeoService);

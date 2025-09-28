@@ -4,7 +4,7 @@ import {gsap} from 'gsap';
 @Component({
   selector: 'app-page-transition',
   templateUrl: './page-transition.component.html',
-  styleUrl: './page-transition.component.css',
+  styleUrl: './page-transition.component.scss',
 })
 export class PageTransitionComponent {
   public transitionIn(): Promise<void> {

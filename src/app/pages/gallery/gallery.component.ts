@@ -24,7 +24,7 @@ interface Album {
 @Component({
   selector: 'app-pictures',
   templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.css'],
+  styleUrls: ['./gallery.component.scss'],
 })
 export class GalleryComponent implements OnInit {
   private seoService = inject(SeoService);

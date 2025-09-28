@@ -6,7 +6,7 @@ import {PageTransitionService} from '../page-transition/page-transition.service'
   selector: 'app-footer',
   imports: [RouterModule],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css',
+  styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
   private router = inject(Router);
