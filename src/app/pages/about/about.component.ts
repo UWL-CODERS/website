@@ -14,7 +14,7 @@ import {SeoService} from '../../services/seo.service';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss'],
+  styleUrls: ['./about.component.css'],
 })
 export class AboutComponent implements AfterViewInit, OnInit {
   private seoService = inject(SeoService);

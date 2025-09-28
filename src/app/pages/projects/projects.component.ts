@@ -8,7 +8,7 @@ import {PageMeta} from '../../models/meta.model';
   selector: 'app-projects',
   imports: [CarouselComponent],
   templateUrl: './projects.component.html',
-  styleUrl: './projects.component.scss',
+  styleUrl: './projects.component.css',
 })
 export class ProjectsComponent implements OnInit {
   private seoService = inject(SeoService);

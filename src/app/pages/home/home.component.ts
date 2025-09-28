@@ -47,7 +47,7 @@ interface Event {
   selector: 'app-home',
   imports: [LogoTransitionComponent],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private seoService = inject(SeoService);
