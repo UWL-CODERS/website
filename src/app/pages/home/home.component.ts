@@ -43,6 +43,31 @@ interface Event {
   tags: string[];
 }
 
+interface TeamMember {
+  name: string;
+  image: string;
+  major: string;
+  linkedin?: string;
+  github?: string;
+}
+
+interface FacultyAdvisor {
+  name: string;
+  image: string;
+}
+
+interface ExecMember {
+  name: string;
+  image: string;
+  role: string;
+}
+
+interface Chairperson {
+  name: string;
+  image: string;
+  role: string;
+}
+
 @Component({
   selector: 'app-home',
   imports: [LogoTransitionComponent],
@@ -56,10 +81,18 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   readonly prevSlideBtn = viewChild.required<ElementRef<HTMLButtonElement>>('prevSlideBtn');
   readonly nextSlideBtn = viewChild.required<ElementRef<HTMLButtonElement>>('nextSlideBtn');
   readonly sliderDots = viewChild.required<ElementRef<HTMLElement>>('sliderDots');
+  
+  readonly teamSlider = viewChild.required<ElementRef<HTMLElement>>('teamSlider');
+  readonly prevTeamSlideBtn = viewChild.required<ElementRef<HTMLButtonElement>>('prevTeamSlideBtn');
+  readonly nextTeamSlideBtn = viewChild.required<ElementRef<HTMLButtonElement>>('nextTeamSlideBtn');
+  readonly teamSliderDots = viewChild.required<ElementRef<HTMLElement>>('teamSliderDots');
+  
   readonly logoTransition = viewChild.required(LogoTransitionComponent);
 
   private currentSlide = 0;
+  private currentTeamSlide = 0;
   private slideInterval: ReturnType<typeof setInterval> | undefined;
+  private teamSlideInterval: ReturnType<typeof setInterval> | undefined;
 
   bannerSlides: BannerSlide[] = [
     {
@@ -161,6 +194,107 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     },
   ];
 
+  teamMembers: TeamMember[] = [
+    {
+      name: 'Zach Ydunate',
+      image: 'assets/images/People/zach_ydunate.jpg',
+      major: 'Major: Computer Science | Class of 28\'',
+      linkedin: 'https://www.linkedin.com/in/zachary-ydunate/',
+      github: 'https://github.com/zydunate'
+    },
+    {
+      name: 'Brendan Lambrecht',
+      image: 'assets/images/People/brendan_lambrecht.jpeg',
+      major: 'Major: Computer Science Master of Software Engineering | Class of 27\'',
+      linkedin: 'https://www.linkedin.com/in/brendanlambrecht/',
+      github: 'https://github.com/BlambrechtCodes'
+    },
+    {
+      name: 'Andree Lin',
+      image: 'https://media.licdn.com/dms/image/v2/D5603AQHT4qsWsqPo0g/profile-displayphoto-shrink_400_400/B56ZVZv0UiGQAo-/0/1740967462603?e=1761782400&v=beta&t=BNlXJUWana2qBzkvNeKbWTieAKShg_PpflKPsfljZmU',
+      major: 'Major: Computer Science | Class of 25\'',
+      linkedin: 'https://www.linkedin.com/in/andree-lin-56196a284/',
+      github: 'https://github.com/andreelinyx'
+    },
+    {
+      name: 'Muhammad Fardeen',
+      image: 'https://media.licdn.com/dms/image/v2/D4D03AQG3tlbwKzghRg/profile-displayphoto-shrink_400_400/B4DZVQZak0G8Ag-/0/1740810595075?e=1761782400&v=beta&t=QQHIkNn7uyBbi0JHVniFB0fFp9i9KJ0EUY_N3o9WtD8',
+      major: 'Major: Computer Science | Class of 26\'',
+      linkedin: 'https://www.linkedin.com/in/muhdfdeen/',
+      github: 'https://github.com/muhdfdeen'
+    },
+    {
+      name: 'Bishal Karki',
+      image: 'assets/images/People/IMG_7025.JPG',
+      major: 'Major: Computer Science: Master of Software Engineering | Class of 25\'',
+      linkedin: 'https://www.linkedin.com/in/bishalkarki655/',
+      github: 'https://github.com/bishalkarki01'
+    },
+    {
+      name: 'Leroy Ombogo',
+      image: 'https://media.licdn.com/dms/image/v2/D4D03AQGnxJrH_Ff6Rg/profile-displayphoto-shrink_400_400/B4DZVkqyZsGkAg-/0/1741150694280?e=1761782400&v=beta&t=tLsaD16J3sSwsDm7acepBJYlMtejqo1WbPEDvWfKq3s',
+      major: 'Major: Computer Science | Class of 27\'',
+      linkedin: 'https://www.linkedin.com/in/leroy-o-13b724247/',
+      github: 'https://github.com/Leroy-collab'
+    },
+    {
+      name: 'Ahra Cho',
+      image: 'https://media.licdn.com/dms/image/v2/D4E03AQFygoRxp3Hzog/profile-displayphoto-shrink_400_400/B4EZY7CioRHYAg-/0/1744747244782?e=1761782400&v=beta&t=dzn_38d88L71ZkkuXzdle0AUSUJhGvC2g_ff0fR0iFM',
+      major: 'Major: Computer Science | Class of 27\'',
+      linkedin: 'https://www.linkedin.com/in/ahra-cho-3630a5355/',
+      github: 'https://github.com/Ahrax-x'
+    },
+    {
+      name: 'Jack Kern',
+      image: 'https://media.licdn.com/dms/image/v2/D4E03AQGw3r0jjhKSXg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1729082092958?e=1761782400&v=beta&t=8rIb8JwuCK85w0IfSfmA02BNVZZBkLNMegW4u-qX0VE',
+      major: 'Major: Computer Science Master of Software Engineering | Class of 26\'',
+      linkedin: 'https://www.linkedin.com/in/jack-kern-b9b501333/',
+      github: 'https://github.com/KernJack'
+    }
+  ];
+
+  facultyAdvisors: FacultyAdvisor[] = [
+    {
+      name: 'Samantha Foley',
+      image: 'https://www.uwlax.edu/User/photo/sfoley.jpg'
+    },
+    {
+      name: 'Allison Sauppé',
+      image: 'https://www.uwlax.edu/User/photo/asauppe.jpg'
+    }
+  ];
+
+  execTeam: ExecMember[] = [
+    {
+      name: 'Brendan Lambrecht',
+      image: 'assets/images/People/brendan_lambrecht.jpeg',
+      role: 'President'
+    },
+    {
+      name: 'Jack Kern',
+      image: 'assets/images/People/jack_kern.jpg',
+      role: 'Vice President'
+    },
+    {
+      name: 'Mason Wagner',
+      image: 'assets/images/People/mason_wagner.jpg',
+      role: 'Secretary'
+    },
+    {
+      name: 'Andree Lin',
+      image: 'https://media.licdn.com/dms/image/v2/D5603AQHT4qsWsqPo0g/profile-displayphoto-shrink_400_400/B56ZVZv0UiGQAo-/0/1740967462603?e=1761782400&v=beta&t=BNlXJUWana2qBzkvNeKbWTieAKShg_PpflKPsfljZmU',
+      role: 'Social Media Coordinator'
+    }
+  ];
+
+  chairpersons: Chairperson[] = [
+    {
+      name: 'Muhammad Fardeen',
+      image: 'https://media.licdn.com/dms/image/v2/D4D03AQG3tlbwKzghRg/profile-displayphoto-shrink_400_400/B4DZVQZak0G8Ag-/0/1740810595075?e=1761782400&v=beta&t=QQHIkNn7uyBbi0JHVniFB0fFp9i9KJ0EUY_N3o9WtD8',
+      role: 'Website Development Chair'
+    }
+  ];
+
   ngOnInit(): void {
     // Set default SEO metadata for home page - explicitly set title and description to undefined to use defaults
     const pageMeta: Partial<PageMeta> = {
@@ -173,11 +307,13 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.initBannerSlider();
+    this.initTeamSlider();
     this.logoTransition().startAnimation(); // Start the logo transition
   }
 
   ngOnDestroy(): void {
     this.pauseAutoSlide();
+    this.pauseTeamAutoSlide();
   }
 
   private initBannerSlider(): void {
@@ -194,11 +330,33 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.createDots(totalSlides, dotsContainer);
     this.updateSlider();
+    this.activateCurrentSlide();
 
     this.startAutoSlide();
 
     slider.addEventListener('mouseenter', () => this.pauseAutoSlide());
     slider.addEventListener('mouseleave', () => this.startAutoSlide());
+  }
+
+  private initTeamSlider(): void {
+    const teamSlider = this.teamSlider();
+    const teamSliderDots = this.teamSliderDots();
+    if (!teamSlider || !this.prevTeamSlideBtn() || !this.nextTeamSlideBtn() || !teamSliderDots) {
+      console.error('Required team slider elements not found');
+      return;
+    }
+
+    const slider = teamSlider.nativeElement;
+    const dotsContainer = teamSliderDots.nativeElement;
+    const totalSlides = this.teamMembers.length;
+
+    this.createTeamDots(totalSlides, dotsContainer);
+    this.updateTeamSlider();
+
+    this.startTeamAutoSlide();
+
+    slider.addEventListener('mouseenter', () => this.pauseTeamAutoSlide());
+    slider.addEventListener('mouseleave', () => this.startTeamAutoSlide());
   }
 
   private createDots(totalSlides: number, container: HTMLElement): void {
@@ -210,6 +368,19 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         dot.classList.add('active');
       }
       dot.addEventListener('click', () => this.goToSlide(i));
+      container.appendChild(dot);
+    }
+  }
+
+  private createTeamDots(totalSlides: number, container: HTMLElement): void {
+    container.innerHTML = '';
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'dot';
+      if (i === 0) {
+        dot.classList.add('active');
+      }
+      dot.addEventListener('click', () => this.goToTeamSlide(i));
       container.appendChild(dot);
     }
   }
@@ -228,6 +399,35 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         dot.classList.remove('active');
       }
     });
+
+    this.activateCurrentSlide();
+  }
+
+  private updateTeamSlider(): void {
+    const slider = this.teamSlider().nativeElement;
+    const dotsContainer = this.teamSliderDots().nativeElement;
+
+    slider.style.transform = `translateX(-${this.currentTeamSlide * 100}%)`;
+
+    const dots = dotsContainer.querySelectorAll('.dot');
+    dots.forEach((dot: Element, index: number) => {
+      if (index === this.currentTeamSlide) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
+
+  private activateCurrentSlide(): void {
+    const slides = this.bannerSlider().nativeElement.querySelectorAll('.banner-slide');
+    slides.forEach((slide: HTMLElement | Element, index: number) => {
+  if (index === this.currentSlide) {
+    slide.classList.add('active');
+  } else {
+    slide.classList.remove('active');
+  }
+});
   }
 
   nextSlide(): void {
@@ -246,6 +446,22 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.updateSlider();
   }
 
+  nextTeamSlide(): void {
+    this.currentTeamSlide = (this.currentTeamSlide + 1) % this.teamMembers.length;
+    this.updateTeamSlider();
+  }
+
+  prevTeamSlide(): void {
+    this.currentTeamSlide =
+      (this.currentTeamSlide - 1 + this.teamMembers.length) % this.teamMembers.length;
+    this.updateTeamSlider();
+  }
+
+  goToTeamSlide(index: number): void {
+    this.currentTeamSlide = index;
+    this.updateTeamSlider();
+  }
+
   private startAutoSlide(): void {
     this.slideInterval = setInterval(() => this.nextSlide(), 5000);
   }
@@ -254,6 +470,17 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     if (this.slideInterval) {
       clearInterval(this.slideInterval);
       this.slideInterval = undefined;
+    }
+  }
+
+  private startTeamAutoSlide(): void {
+    this.teamSlideInterval = setInterval(() => this.nextTeamSlide(), 5000);
+  }
+
+  private pauseTeamAutoSlide(): void {
+    if (this.teamSlideInterval) {
+      clearInterval(this.teamSlideInterval);
+      this.teamSlideInterval = undefined;
     }
   }
 }

@@ -28,10 +28,6 @@ export const routes: Routes = [
           import('./pages/gallery/gallery.component').then((m) => m.GalleryComponent),
       },
       {
-        path: 'about',
-        loadComponent: () => import('./pages/about/about.component').then((m) => m.AboutComponent),
-      },
-      {
         path: '**',
         loadComponent: () => import('./pages/home/home.component').then((m) => m.HomeComponent),
       },
