@@ -1,10 +1,11 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {gsap} from 'gsap';
 
 @Component({
   selector: 'app-page-transition',
   templateUrl: './page-transition.component.html',
   styleUrl: './page-transition.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PageTransitionComponent {
   public transitionIn(): Promise<void> {

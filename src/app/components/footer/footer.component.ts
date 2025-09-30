@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {Router, RouterModule} from '@angular/router';
 import {PageTransitionService} from '../page-transition/page-transition.service';
 
@@ -7,6 +7,7 @@ import {PageTransitionService} from '../page-transition/page-transition.service'
   imports: [RouterModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {
   private router = inject(Router);

@@ -1,10 +1,19 @@
-import {Component, ElementRef, Renderer2, AfterViewInit, inject, viewChild} from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Renderer2,
+  AfterViewInit,
+  inject,
+  viewChild,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import {gsap} from 'gsap';
 
 @Component({
   selector: 'app-logo-transition',
   templateUrl: './logo-transition.component.html',
   // styleUrl: './logo-transition.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LogoTransitionComponent implements AfterViewInit {
   private readonly renderer = inject(Renderer2);

@@ -1,4 +1,4 @@
-import {Component, input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, input} from '@angular/core';
 import {ButtonModule} from 'primeng/button';
 import {CarouselModule} from 'primeng/carousel';
 import {TagModule} from 'primeng/tag';
@@ -14,6 +14,7 @@ interface ResponsiveOption {
   imports: [CarouselModule, ButtonModule, TagModule],
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CarouselComponent {
   readonly items = input<object[]>([]);

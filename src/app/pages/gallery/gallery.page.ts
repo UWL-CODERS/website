@@ -1,4 +1,4 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, OnInit} from '@angular/core';
 import {PageMeta} from '../../models/meta.model';
 import {SeoService} from '../../services/seo.service';
 
@@ -25,6 +25,7 @@ interface Album {
   selector: 'app-pictures',
   templateUrl: './gallery.page.html',
   styleUrl: './gallery.page.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GalleryComponent implements OnInit {
   private seoService = inject(SeoService);

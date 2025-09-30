@@ -1,10 +1,11 @@
-import {Component, PLATFORM_ID, inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, PLATFORM_ID, inject} from '@angular/core';
 import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   selector: 'app-cookies-consent',
   templateUrl: './cookies-consent.component.html',
   styleUrl: './cookies-consent.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CookiesConsentComponent {
   private platformId = inject<object>(PLATFORM_ID);

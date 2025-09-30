@@ -7,6 +7,7 @@ import {
   ElementRef,
   inject,
   OnInit,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import {PageMeta} from '../../models/meta.model';
 import {SeoService} from '../../services/seo.service';
@@ -431,6 +432,7 @@ class CardCarousel extends DraggingEvent {
   selector: 'app-opportunities',
   templateUrl: './opportunities.page.html',
   styleUrl: './opportunities.page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OpportunitiesComponent implements AfterViewInit, OnDestroy, OnInit {
   private seoService = inject(SeoService);
