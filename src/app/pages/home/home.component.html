@@ -134,7 +134,7 @@
   </section>
 
   <!-- Join Us Section -->
-  <section class="howtojoin">
+  <!-- <section class="howtojoin">
     <div class="section-content">
       <h2>npm install uwl/coders</h2>
       <p class="code-comment">// Start your coding journey with us</p>
@@ -159,7 +159,7 @@
         Join Now
       </a>
     </div>
-  </section>
+  </section> -->
 
   <!-- Schedule Section -->
   <section class="schedule">
@@ -190,6 +190,124 @@
         }
       </div>
       <p class="code-text">&#125;</p>
+    </div>
+  </section>
+
+  <!-- Team Section (Merged from About) -->
+  <section id="team" class="team-section">
+    <div class="section-header">
+      <h1>About Our Team</h1>
+      <p>
+        Meet the talented creators behind our website. Each of them brings a unique set of skills and
+        creativity to our platform.
+      </p>
+    </div>
+
+    <div class="team-content">
+      <!-- Team Members Slider -->
+      <section class="slider-section">
+        <h2>Creators of the CODERS Website</h2>
+        <div class="slider-container">
+          <div class="slider-wrapper">
+            <div class="slider" #teamSlider>
+              @for (member of teamMembers; track member) {
+                <div class="slide">
+                  <img [src]="member.image" [alt]="member.name" />
+                  <div class="slide-content">
+                    <h3>{{ member.name }}</h3>
+                    <p>{{ member.major }}</p>
+                    <div class="social-links">
+                      @if (member.linkedin) {
+                        <a [href]="member.linkedin" target="_blank" rel="noopener noreferrer">
+                          <span class="pi pi-linkedin icon"></span>
+                        </a>
+                      }
+                      @if (member.github) {
+                        <a [href]="member.github" target="_blank" rel="noopener noreferrer">
+                          <span class="pi pi-github icon"></span>
+                        </a>
+                      }
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+          <div class="slider-controls">
+            <button class="slider-btn" #prevTeamSlideBtn (click)="prevTeamSlide()">&#60;</button>
+            <button class="slider-btn" #nextTeamSlideBtn (click)="nextTeamSlide()">&#62;</button>
+          </div>
+          <div class="slider-dots" #teamSliderDots></div>
+        </div>
+      </section>
+
+      <!-- Calendar Section -->
+      <section class="calendar-section">
+        <h2>Upcoming Events</h2>
+        <div class="calendar">
+          <iframe
+            src="https://calendar.google.com/calendar/embed?src=61d2c536ecd3a2b20ec4b8693e7193b78600b2970188ec7d2e3d26f5412de18d%40group.calendar.google.com&ctz=America%2FChicago"
+            style="border: 0"
+            width="100%"
+            height="600"
+            frameborder="0"
+            scrolling="no"
+          ></iframe>
+        </div>
+      </section>
+
+      <!-- Shadow Line -->
+      <div class="shadow-line"></div>
+
+      <!-- Faculty and Exec Team -->
+      <div class="team-lower-section">
+        <!-- Professors Section -->
+        <section class="professors-section">
+          <h2>Leading Faculty Advisors</h2>
+          <div class="professor-cards">
+            @for (professor of facultyAdvisors; track professor) {
+              <div class="professor-card">
+                <img [src]="professor.image" [alt]="professor.name" />
+                <h3>{{ professor.name }}</h3>
+              </div>
+            }
+          </div>
+        </section>
+
+        <!-- Shadow Line -->
+        <div class="shadow-line"></div>
+
+        <!-- Exec Team Section -->
+        <section class="exec-team-section">
+          <h2>The Executive Team</h2>
+          <div class="exec-cards">
+            @for (exec of execTeam; track exec) {
+              <div class="exec-card">
+                <img [src]="exec.image" [alt]="exec.name" />
+                <h3>{{ exec.name }}</h3>
+                <p>{{ exec.role }}</p>
+              </div>
+            }
+          </div>
+        </section>
+
+        <div class="shadow-line"></div>
+
+        <section class="chairperson-section">
+        <h2>Chairperson Positions</h2>
+        <div class="chairperson-cards">
+          @for (chairperson of chairpersons; track chairperson) {
+            <div class="chairperson-card">
+              <img [src]="chairperson.image" [alt]="chairperson.name" />
+              <h3>{{ chairperson.name }}</h3>
+              <p>{{ chairperson.role }}</p>
+            </div>
+          }
+        </div>
+      </section>
+
+      <div class="shadow-line"></div>
+      </div>
     </div>
   </section>
 
