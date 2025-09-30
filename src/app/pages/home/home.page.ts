@@ -71,8 +71,8 @@ interface Chairperson {
 @Component({
   selector: 'app-home',
   imports: [LogoTransitionComponent],
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private seoService = inject(SeoService);
@@ -81,12 +81,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   readonly prevSlideBtn = viewChild.required<ElementRef<HTMLButtonElement>>('prevSlideBtn');
   readonly nextSlideBtn = viewChild.required<ElementRef<HTMLButtonElement>>('nextSlideBtn');
   readonly sliderDots = viewChild.required<ElementRef<HTMLElement>>('sliderDots');
-  
+
   readonly teamSlider = viewChild.required<ElementRef<HTMLElement>>('teamSlider');
   readonly prevTeamSlideBtn = viewChild.required<ElementRef<HTMLButtonElement>>('prevTeamSlideBtn');
   readonly nextTeamSlideBtn = viewChild.required<ElementRef<HTMLButtonElement>>('nextTeamSlideBtn');
   readonly teamSliderDots = viewChild.required<ElementRef<HTMLElement>>('teamSliderDots');
-  
+
   readonly logoTransition = viewChild.required(LogoTransitionComponent);
 
   private currentSlide = 0;
@@ -196,103 +196,102 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   teamMembers: TeamMember[] = [
     {
-      name: 'Zach Ydunate',
-      image: 'assets/images/people/zach_ydunate.jpg',
-      major: 'Major: Computer Science | Class of 28\'',
-      linkedin: 'https://www.linkedin.com/in/zachary-ydunate/',
-      github: 'https://github.com/zydunate'
-    },
-    {
       name: 'Brendan Lambrecht',
       image: 'assets/images/people/brendan_lambrecht.jpeg',
-      major: 'Major: Computer Science Master of Software Engineering | Class of 27\'',
+      major: "Major: Computer Science Master of Software Engineering | Class of 27'",
       linkedin: 'https://www.linkedin.com/in/brendanlambrecht/',
-      github: 'https://github.com/BlambrechtCodes'
+      github: 'https://github.com/BlambrechtCodes',
     },
     {
-      name: 'Andree Lin',
-      image: 'https://media.licdn.com/dms/image/v2/D5603AQHT4qsWsqPo0g/profile-displayphoto-shrink_400_400/B56ZVZv0UiGQAo-/0/1740967462603?e=1761782400&v=beta&t=BNlXJUWana2qBzkvNeKbWTieAKShg_PpflKPsfljZmU',
-      major: 'Major: Computer Science | Class of 25\'',
-      linkedin: 'https://www.linkedin.com/in/andree-lin-56196a284/',
-      github: 'https://github.com/andreelinyx'
+      name: 'Jack Kern',
+      image:
+        'https://media.licdn.com/dms/image/v2/D4E03AQGw3r0jjhKSXg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1729082092958?e=1761782400&v=beta&t=8rIb8JwuCK85w0IfSfmA02BNVZZBkLNMegW4u-qX0VE',
+      major: "Major: Computer Science Master of Software Engineering | Class of 26'",
+      linkedin: 'https://www.linkedin.com/in/jack-kern-b9b501333/',
+      github: 'https://github.com/KernJack',
+    },
+    {
+      name: 'Zach Ydunate',
+      image: 'assets/images/people/zach_ydunate.jpg',
+      major: "Major: Computer Science | Class of 28'",
+      linkedin: 'https://www.linkedin.com/in/zachary-ydunate/',
+      github: 'https://github.com/zydunate',
     },
     {
       name: 'Muhammad Fardeen',
-      image: 'https://media.licdn.com/dms/image/v2/D4D03AQG3tlbwKzghRg/profile-displayphoto-shrink_400_400/B4DZVQZak0G8Ag-/0/1740810595075?e=1761782400&v=beta&t=QQHIkNn7uyBbi0JHVniFB0fFp9i9KJ0EUY_N3o9WtD8',
-      major: 'Major: Computer Science | Class of 26\'',
+      image:
+        'https://media.licdn.com/dms/image/v2/D4D03AQG3tlbwKzghRg/profile-displayphoto-shrink_400_400/B4DZVQZak0G8Ag-/0/1740810595075?e=1761782400&v=beta&t=QQHIkNn7uyBbi0JHVniFB0fFp9i9KJ0EUY_N3o9WtD8',
+      major: "Major: Computer Science | Class of 26'",
       linkedin: 'https://www.linkedin.com/in/muhdfdeen/',
-      github: 'https://github.com/muhdfdeen'
+      github: 'https://github.com/muhdfdeen',
     },
     {
       name: 'Bishal Karki',
       image: 'assets/images/people/IMG_7025.JPG',
-      major: 'Major: Computer Science: Master of Software Engineering | Class of 25\'',
+      major: "Major: Computer Science: Master of Software Engineering | Class of 25'",
       linkedin: 'https://www.linkedin.com/in/bishalkarki655/',
-      github: 'https://github.com/bishalkarki01'
+      github: 'https://github.com/bishalkarki01',
+    },
+    {
+      name: 'Andree Lin',
+      image:
+        'https://media.licdn.com/dms/image/v2/D5603AQHT4qsWsqPo0g/profile-displayphoto-shrink_400_400/B56ZVZv0UiGQAo-/0/1740967462603?e=1761782400&v=beta&t=BNlXJUWana2qBzkvNeKbWTieAKShg_PpflKPsfljZmU',
+      major: "Major: Computer Science | Class of 25'",
+      linkedin: 'https://www.linkedin.com/in/andree-lin-56196a284/',
+      github: 'https://github.com/andreelinyx',
     },
     {
       name: 'Leroy Ombogo',
-      image: 'https://media.licdn.com/dms/image/v2/D4D03AQGnxJrH_Ff6Rg/profile-displayphoto-shrink_400_400/B4DZVkqyZsGkAg-/0/1741150694280?e=1761782400&v=beta&t=tLsaD16J3sSwsDm7acepBJYlMtejqo1WbPEDvWfKq3s',
-      major: 'Major: Computer Science | Class of 27\'',
+      image:
+        'https://media.licdn.com/dms/image/v2/D4D03AQGnxJrH_Ff6Rg/profile-displayphoto-shrink_400_400/B4DZVkqyZsGkAg-/0/1741150694280?e=1761782400&v=beta&t=tLsaD16J3sSwsDm7acepBJYlMtejqo1WbPEDvWfKq3s',
+      major: "Major: Computer Science | Class of 27'",
       linkedin: 'https://www.linkedin.com/in/leroy-o-13b724247/',
-      github: 'https://github.com/Leroy-collab'
+      github: 'https://github.com/Leroy-collab',
     },
-    {
-      name: 'Ahra Cho',
-      image: 'https://media.licdn.com/dms/image/v2/D4E03AQFygoRxp3Hzog/profile-displayphoto-shrink_400_400/B4EZY7CioRHYAg-/0/1744747244782?e=1761782400&v=beta&t=dzn_38d88L71ZkkuXzdle0AUSUJhGvC2g_ff0fR0iFM',
-      major: 'Major: Computer Science | Class of 27\'',
-      linkedin: 'https://www.linkedin.com/in/ahra-cho-3630a5355/',
-      github: 'https://github.com/Ahrax-x'
-    },
-    {
-      name: 'Jack Kern',
-      image: 'https://media.licdn.com/dms/image/v2/D4E03AQGw3r0jjhKSXg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1729082092958?e=1761782400&v=beta&t=8rIb8JwuCK85w0IfSfmA02BNVZZBkLNMegW4u-qX0VE',
-      major: 'Major: Computer Science Master of Software Engineering | Class of 26\'',
-      linkedin: 'https://www.linkedin.com/in/jack-kern-b9b501333/',
-      github: 'https://github.com/KernJack'
-    }
   ];
 
   facultyAdvisors: FacultyAdvisor[] = [
     {
       name: 'Samantha Foley',
-      image: 'https://www.uwlax.edu/User/photo/sfoley.jpg'
+      image: 'https://www.uwlax.edu/User/photo/sfoley.jpg',
     },
     {
       name: 'Allison Sauppé',
-      image: 'https://www.uwlax.edu/User/photo/asauppe.jpg'
-    }
+      image: 'https://www.uwlax.edu/User/photo/asauppe.jpg',
+    },
   ];
 
   execTeam: ExecMember[] = [
     {
       name: 'Brendan Lambrecht',
       image: 'assets/images/people/brendan_lambrecht.jpeg',
-      role: 'President'
+      role: 'President',
     },
     {
       name: 'Jack Kern',
       image: 'assets/images/people/jack_kern.jpg',
-      role: 'Vice President'
+      role: 'Vice President',
     },
     {
       name: 'Mason Wagner',
       image: 'assets/images/people/mason_wagner.jpg',
-      role: 'Secretary'
+      role: 'Secretary',
     },
     {
       name: 'Andree Lin',
-      image: 'https://media.licdn.com/dms/image/v2/D5603AQHT4qsWsqPo0g/profile-displayphoto-shrink_400_400/B56ZVZv0UiGQAo-/0/1740967462603?e=1761782400&v=beta&t=BNlXJUWana2qBzkvNeKbWTieAKShg_PpflKPsfljZmU',
-      role: 'Social Media Coordinator'
-    }
+      image:
+        'https://media.licdn.com/dms/image/v2/D5603AQHT4qsWsqPo0g/profile-displayphoto-shrink_400_400/B56ZVZv0UiGQAo-/0/1740967462603?e=1761782400&v=beta&t=BNlXJUWana2qBzkvNeKbWTieAKShg_PpflKPsfljZmU',
+      role: 'Social Media Coordinator',
+    },
   ];
 
   chairpersons: Chairperson[] = [
     {
       name: 'Muhammad Fardeen',
-      image: 'https://media.licdn.com/dms/image/v2/D4D03AQG3tlbwKzghRg/profile-displayphoto-shrink_400_400/B4DZVQZak0G8Ag-/0/1740810595075?e=1761782400&v=beta&t=QQHIkNn7uyBbi0JHVniFB0fFp9i9KJ0EUY_N3o9WtD8',
-      role: 'Website Development Chair'
-    }
+      image:
+        'https://media.licdn.com/dms/image/v2/D4D03AQG3tlbwKzghRg/profile-displayphoto-shrink_400_400/B4DZVQZak0G8Ag-/0/1740810595075?e=1761782400&v=beta&t=QQHIkNn7uyBbi0JHVniFB0fFp9i9KJ0EUY_N3o9WtD8',
+      role: 'Website Development Chair',
+    },
   ];
 
   ngOnInit(): void {
@@ -422,12 +421,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private activateCurrentSlide(): void {
     const slides = this.bannerSlider().nativeElement.querySelectorAll('.banner-slide');
     slides.forEach((slide: HTMLElement | Element, index: number) => {
-  if (index === this.currentSlide) {
-    slide.classList.add('active');
-  } else {
-    slide.classList.remove('active');
-  }
-});
+      if (index === this.currentSlide) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    });
   }
 
   nextSlide(): void {

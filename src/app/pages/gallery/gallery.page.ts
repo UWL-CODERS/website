@@ -23,8 +23,8 @@ interface Album {
 
 @Component({
   selector: 'app-pictures',
-  templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.scss'],
+  templateUrl: './gallery.page.html',
+  styleUrls: ['./gallery.page.scss'],
 })
 export class GalleryComponent implements OnInit {
   private seoService = inject(SeoService);

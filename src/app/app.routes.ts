@@ -13,9 +13,7 @@ export const routes: Routes = [
       {
         path: 'opportunities',
         loadComponent: () =>
-          import('./pages/opportunities/opportunities.page').then(
-            (m) => m.OpportunitiesComponent,
-          ),
+          import('./pages/opportunities/opportunities.page').then((m) => m.OpportunitiesComponent),
       },
       {
         path: 'projects',
@@ -24,8 +22,7 @@ export const routes: Routes = [
       },
       {
         path: 'gallery',
-        loadComponent: () =>
-          import('./pages/gallery/gallery.page').then((m) => m.GalleryComponent),
+        loadComponent: () => import('./pages/gallery/gallery.page').then((m) => m.GalleryComponent),
       },
       {
         path: '**',
