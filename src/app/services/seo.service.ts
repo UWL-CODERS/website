@@ -15,7 +15,7 @@ export class SeoService {
   private readonly defaultPageTitle = 'Official Website';
   private readonly defaultDescription =
     'The official website of the CODERS Club at UW-La Crosse. Learn, code, and connect with fellow tech enthusiasts.';
-  private readonly defaultImageUrl = 'https://coders.cs.uwlax.edu/assets/images/Logos/logo.png';
+  private readonly defaultImageUrl = 'https://coders.cs.uwlax.edu/assets/images/logos/logo.png';
   private readonly baseUrl = 'https://coders.cs.uwlax.edu';
   private readonly defaultTwitterCard = 'summary_large_image';
   private readonly defaultOgType = 'website';

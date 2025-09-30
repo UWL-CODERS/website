@@ -1,5 +1,5 @@
 import {describe, it, expect} from 'vitest';
-import {AppComponent} from './app.component';
+import {AppComponent} from './app';
 import {TestBed} from '@angular/core/testing';
 import {provideZonelessChangeDetection, provideCheckNoChangesConfig} from '@angular/core';
 
