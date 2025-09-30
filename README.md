@@ -26,8 +26,7 @@ Our website is built using the following technologies. We highly suggest you lea
 - **Angular**: The main framework holding everything together and making the site dynamic.
 
 > [!NOTE]
-> We are currently migrating our styling to Tailwind CSS. Some pages may still use legacy CSS during this transition period.
-
+> We are currently migrating our styling to Tailwind CSS. Some pages may still use SCSS during this transition period.
 
 ## Further Reading & Resources
 

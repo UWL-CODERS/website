@@ -3,7 +3,7 @@ import {Component, ElementRef, AfterViewInit, viewChild} from '@angular/core';
 @Component({
   selector: 'app-logo-cube',
   templateUrl: './logo-cube.component.html',
-  styleUrl: './logo-cube.component.scss',
+  styleUrl: './logo-cube.component.css',
 })
 export class LogoCubeComponent implements AfterViewInit {
   readonly logoCubeContainer = viewChild.required<ElementRef<HTMLElement>>('logoCubeContainer');

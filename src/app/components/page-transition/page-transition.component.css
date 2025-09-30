@@ -28,5 +28,5 @@
   background-color: rgb(58, 129, 247);
   transform: scaleY(1);
   will-change: transform;
-  width: 50px; // Adjust as needed
+  width: 50px; /* Adjust as needed */
 }

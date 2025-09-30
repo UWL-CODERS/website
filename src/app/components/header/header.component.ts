@@ -11,7 +11,7 @@ type UpcomingEvent = Record<string, unknown>;
   selector: 'app-header',
   imports: [RouterModule, NgIf],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  styleUrl: './header.component.css',
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   private router = inject(Router);

@@ -72,7 +72,7 @@ interface Chairperson {
   selector: 'app-home',
   imports: [LogoTransitionComponent],
   templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  styleUrl: './home.page.scss',
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private seoService = inject(SeoService);

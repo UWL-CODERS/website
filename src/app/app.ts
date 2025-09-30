@@ -12,7 +12,7 @@ import {gsap} from 'gsap';
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
-  styleUrls: ['./app.css'],
+  styleUrl: './app.css',
   imports: [
     RouterOutlet,
     CookiesConsentComponent,

@@ -75,13 +75,13 @@
         color: #666;
         font-size: 18px;
         cursor: pointer;
-        position: relative; // Needed for the ::after positioning
+        position: relative; /* Needed for the ::after positioning */
 
         &:hover {
           color: #111;
         }
 
-        // Link hover animation for nav links
+        /* Link hover animation for nav links */
         &::after {
           content: '';
           position: absolute;
@@ -108,7 +108,7 @@
     pointer-events: none;
   }
 
-  // Larger screens (> 768px)
+  /* Larger screens (> 768px) */
   @media (min-width: 769px) {
     .main-nav {
       display: flex !important;
@@ -142,7 +142,7 @@
     }
   }
 
-  // Mobile screens (<= 768px)
+  /* Mobile screens (<= 768px) */
   @media (max-width: 768px) {
     .container {
       position: relative;
@@ -212,7 +212,7 @@
   }
 }
 
-// General link styles (without hover animation)
+/* General link styles (without hover animation) */
 a {
   color: #18272f;
   text-decoration: none;

@@ -3,7 +3,7 @@
   background-color: #1864ab;
   width: 100%;
 
-  // Mobile-first layout (new)
+  /* Mobile-first layout */
   .row {
     display: flex;
     flex-direction: column;
@@ -13,12 +13,12 @@
   }
 
   .footer-logo {
-    border-right: none; // Remove border for mobile (new)
-    padding-right: 0; // Remove padding for mobile (new)
-    margin-bottom: 30px; // Add spacing between stacked sections (new)
+    border-right: none; /* Remove border for mobile */
+    padding-right: 0; /* Remove padding for mobile */
+    margin-bottom: 30px; /* Add spacing between stacked sections */
 
     img {
-      margin: 0 auto 20px; // Center logo (new)
+      margin: 0 auto 20px; /* Center logo */
     }
 
     p {
@@ -36,51 +36,51 @@
       background: #ddd;
       width: 12%;
       height: 1px;
-      left: 50%; // Center line for mobile (new)
-      transform: translateX(-50%); // Center line for mobile (new)
+      left: 50%; /* Center line for mobile */
+      transform: translateX(-50%); /* Center line for mobile */
       bottom: -20px;
     }
   }
 
-  // Mobile-specific adjustments (new)
+  /* Mobile-specific adjustments */
   ul {
-    margin-bottom: 30px; // Add spacing between sections
+    margin-bottom: 30px; /* Add spacing between sections */
   }
 
   .socials {
-    justify-content: center; // Center social icons on mobile (new)
-    margin-bottom: 20px; // Add spacing
+    justify-content: center; /* Center social icons on mobile */
+    margin-bottom: 20px; /* Add spacing */
   }
 
-  // Desktop layout (new)
+  /* Desktop layout */
   @media (min-width: 769px) {
     .row {
-      flex-direction: row; // Side-by-side columns
+      flex-direction: row; /* Side-by-side columns */
       align-items: flex-start;
       text-align: left;
       gap: 0;
     }
 
     .footer-logo {
-      border-right: 1px solid grey; // Restore border
-      padding-right: 30px; // Restore padding
-      text-align: left; // Align left
+      border-right: 1px solid grey; /* Restore border */
+      padding-right: 30px; /* Restore padding */
+      text-align: left; /* Align left */
       margin-bottom: 0;
 
       img {
-        margin: 0 0 20px; // Left-align logo
+        margin: 0 0 20px; /* Left-align logo */
       }
     }
 
     h6 {
       &:after {
-        left: 0; // Restore left alignment
-        transform: none; // Remove centering
+        left: 0; /* Restore left alignment */
+        transform: none; /* Remove centering */
       }
     }
 
     .socials {
-      justify-content: flex-start; // Left-align social icons
+      justify-content: flex-start; /* Left-align social icons */
     }
   }
 
