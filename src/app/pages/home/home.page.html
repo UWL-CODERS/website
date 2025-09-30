@@ -7,29 +7,29 @@
     <div class="banner-wrapper">
       <div class="banner-slider" #bannerSlider>
         @for (slide of bannerSlides; track slide) {
-          <div class="banner-slide">
-            <img [src]="slide.image" [alt]="slide.title" />
-            <div class="slide-content">
-              <h2>{{ slide.title }}</h2>
-              <p>{{ slide.description }}</p>
-              <div class="slide-buttons">
-                <a
-                  href="https://uwlmyorgs.campuslabs.com/engage/organization/coders/contact"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-primary"
-                  >Join Us</a
-                >
-                <a
-                  href="https://orgs.uwlax.edu/organization/coders/events"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-outline"
-                  >Events</a
-                >
-              </div>
+        <div class="banner-slide">
+          <img [src]="slide.image" [alt]="slide.title" />
+          <div class="slide-content">
+            <h2>{{ slide.title }}</h2>
+            <p>{{ slide.description }}</p>
+            <div class="slide-buttons">
+              <a
+                href="https://uwlmyorgs.campuslabs.com/engage/organization/coders/contact"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+                >Join Us</a
+              >
+              <a
+                href="https://orgs.uwlax.edu/organization/coders/events"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline"
+                >Events</a
+              >
             </div>
           </div>
+        </div>
         }
       </div>
     </div>
@@ -70,7 +70,7 @@
       <div class="image-column">
         <div class="image-container">
           <img
-            src="assets/images/KidsCollege/IMG_7496.png"
+            src="assets/images/kids-college/IMG_7496.png"
             alt="Club members at an event"
             class="club-image"
           />
@@ -86,21 +86,21 @@
       <p class="code-comment">// Join us in our mission to code, create, and make a difference</p>
       <div class="features">
         @for (feature of features; track feature) {
-          <div class="feature">
-            <div class="feature-image">
-              <img [src]="feature.image" [alt]="feature.title" />
-            </div>
-            <div class="feature-icon">
-              <i [class]="feature.icon"></i>
-            </div>
-            <h3>{{ feature.title }}</h3>
-            <p>{{ feature.description }}</p>
-            <div class="tech-stack">
-              @for (tech of feature.techStack; track tech) {
-                <span class="tech-tag">{{ tech }}</span>
-              }
-            </div>
+        <div class="feature">
+          <div class="feature-image">
+            <img [src]="feature.image" [alt]="feature.title" />
           </div>
+          <div class="feature-icon">
+            <i [class]="feature.icon"></i>
+          </div>
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.description }}</p>
+          <div class="tech-stack">
+            @for (tech of feature.techStack; track tech) {
+            <span class="tech-tag">{{ tech }}</span>
+            }
+          </div>
+        </div>
         }
       </div>
     </div>
@@ -112,21 +112,21 @@
       <h2>function activities() &#123;</h2>
       <div class="activities-grid">
         @for (activity of activities; track activity) {
-          <div class="activity-card">
-            <div class="activity-image">
-              <img [src]="activity.image" [alt]="activity.title" />
-            </div>
-            <div class="activity-icon">
-              <i [class]="activity.icon"></i>
-            </div>
-            <h3>{{ activity.title }}</h3>
-            <p>{{ activity.description }}</p>
-            <div class="tech-stack">
-              @for (tech of activity.technologies; track tech) {
-                <span class="tech-tag">{{ tech }}</span>
-              }
-            </div>
+        <div class="activity-card">
+          <div class="activity-image">
+            <img [src]="activity.image" [alt]="activity.title" />
           </div>
+          <div class="activity-icon">
+            <i [class]="activity.icon"></i>
+          </div>
+          <h3>{{ activity.title }}</h3>
+          <p>{{ activity.description }}</p>
+          <div class="tech-stack">
+            @for (tech of activity.technologies; track tech) {
+            <span class="tech-tag">{{ tech }}</span>
+            }
+          </div>
+        </div>
         }
       </div>
       <p class="code-text">&#125;</p>
@@ -168,25 +168,24 @@
       <p class="code-comment">// Our upcoming events</p>
       <div class="events-grid">
         @for (event of events; track event) {
-          <div class="event-card">
-            <div class="event-image">
-              <img [src]="event.image" [alt]="event.title" />
-            </div>
-            <h3>{{ event.title }}</h3>
-            <p class="event-time">{{ event.time }}</p>
-            <p class="event-time">{{ event.timeRange }}</p>
-            @if (event.timeRange2) {
-              <p class="event-time">{{ event.timeRange2 }}</p>
-            }
-            @if (event.location) {
-              <p class="event-location">{{ event.location }}</p>
-            }
-            <div class="tech-tags">
-              @for (tag of event.tags; track tag) {
-                <span class="tech-tag">{{ tag }}</span>
-              }
-            </div>
+        <div class="event-card">
+          <div class="event-image">
+            <img [src]="event.image" [alt]="event.title" />
           </div>
+          <h3>{{ event.title }}</h3>
+          <p class="event-time">{{ event.time }}</p>
+          <p class="event-time">{{ event.timeRange }}</p>
+          @if (event.timeRange2) {
+          <p class="event-time">{{ event.timeRange2 }}</p>
+          } @if (event.location) {
+          <p class="event-location">{{ event.location }}</p>
+          }
+          <div class="tech-tags">
+            @for (tag of event.tags; track tag) {
+            <span class="tech-tag">{{ tag }}</span>
+            }
+          </div>
+        </div>
         }
       </div>
       <p class="code-text">&#125;</p>
@@ -198,8 +197,8 @@
     <div class="section-header">
       <h1>About Our Team</h1>
       <p>
-        Meet the talented creators behind our website. Each of them brings a unique set of skills and
-        creativity to our platform.
+        Meet the talented creators behind our website. Each of them brings a unique set of skills
+        and creativity to our platform.
       </p>
     </div>
 
@@ -211,25 +210,24 @@
           <div class="slider-wrapper">
             <div class="slider" #teamSlider>
               @for (member of teamMembers; track member) {
-                <div class="slide">
-                  <img [src]="member.image" [alt]="member.name" />
-                  <div class="slide-content">
-                    <h3>{{ member.name }}</h3>
-                    <p>{{ member.major }}</p>
-                    <div class="social-links">
-                      @if (member.linkedin) {
-                        <a [href]="member.linkedin" target="_blank" rel="noopener noreferrer">
-                          <span class="pi pi-linkedin icon"></span>
-                        </a>
-                      }
-                      @if (member.github) {
-                        <a [href]="member.github" target="_blank" rel="noopener noreferrer">
-                          <span class="pi pi-github icon"></span>
-                        </a>
-                      }
-                    </div>
+              <div class="slide">
+                <img [src]="member.image" [alt]="member.name" />
+                <div class="slide-content">
+                  <h3>{{ member.name }}</h3>
+                  <p>{{ member.major }}</p>
+                  <div class="social-links">
+                    @if (member.linkedin) {
+                    <a [href]="member.linkedin" target="_blank" rel="noopener noreferrer">
+                      <span class="pi pi-linkedin icon"></span>
+                    </a>
+                    } @if (member.github) {
+                    <a [href]="member.github" target="_blank" rel="noopener noreferrer">
+                      <span class="pi pi-github icon"></span>
+                    </a>
+                    }
                   </div>
                 </div>
+              </div>
               }
             </div>
           </div>
@@ -266,10 +264,10 @@
           <h2>Leading Faculty Advisors</h2>
           <div class="professor-cards">
             @for (professor of facultyAdvisors; track professor) {
-              <div class="professor-card">
-                <img [src]="professor.image" [alt]="professor.name" />
-                <h3>{{ professor.name }}</h3>
-              </div>
+            <div class="professor-card">
+              <img [src]="professor.image" [alt]="professor.name" />
+              <h3>{{ professor.name }}</h3>
+            </div>
             }
           </div>
         </section>
@@ -282,11 +280,11 @@
           <h2>The Executive Team</h2>
           <div class="exec-cards">
             @for (exec of execTeam; track exec) {
-              <div class="exec-card">
-                <img [src]="exec.image" [alt]="exec.name" />
-                <h3>{{ exec.name }}</h3>
-                <p>{{ exec.role }}</p>
-              </div>
+            <div class="exec-card">
+              <img [src]="exec.image" [alt]="exec.name" />
+              <h3>{{ exec.name }}</h3>
+              <p>{{ exec.role }}</p>
+            </div>
             }
           </div>
         </section>
@@ -294,19 +292,19 @@
         <div class="shadow-line"></div>
 
         <section class="chairperson-section">
-        <h2>Chairperson Positions</h2>
-        <div class="chairperson-cards">
-          @for (chairperson of chairpersons; track chairperson) {
+          <h2>Chairperson Positions</h2>
+          <div class="chairperson-cards">
+            @for (chairperson of chairpersons; track chairperson) {
             <div class="chairperson-card">
               <img [src]="chairperson.image" [alt]="chairperson.name" />
               <h3>{{ chairperson.name }}</h3>
               <p>{{ chairperson.role }}</p>
             </div>
-          }
-        </div>
-      </section>
+            }
+          </div>
+        </section>
 
-      <div class="shadow-line"></div>
+        <div class="shadow-line"></div>
       </div>
     </div>
   </section>
@@ -317,7 +315,7 @@
       <div class="image-column">
         <div class="image-container">
           <img
-            src="assets/images/People/IMG_7011.png"
+            src="assets/images/people/IMG_7011.png"
             alt="New members welcome event"
             class="membership-image"
           />

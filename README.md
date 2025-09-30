@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="src/assets/images/Logos/logo.png" alt="CODERS logo" width="20%" height="20%">
+<img src="src/assets/images/logos/logo.png" alt="CODERS Club logo" width="20%" height="20%">
 
 # CODERS Club: Website Project
 
@@ -12,7 +12,7 @@
 [![Discord][img-discord]][url-discord]
 [![GitHub][img-github]][url-github]
 
-The official website for the CODERS club at the University of Wisconsin-La Crosse.
+The official website for the CODERS Club at the University of Wisconsin La Crosse.
 
 </div>
 
@@ -21,9 +21,13 @@ The official website for the CODERS club at the University of Wisconsin-La Cross
 Our website is built using the following technologies. We highly suggest you learn about or at least get a feel for them before contributing:
 
 - **HTML**: Builds the basic structure of the website pages.
-- **SCSS**: A fancier version of CSS that helps us style things more easily.
+- **Tailwind CSS**: A utility-first CSS framework that provides pre-built classes to style elements quickly and consistently.
 - **TypeScript**: JavaScript with added features (like types) to help prevent bugs and keep the code organized.
 - **Angular**: The main framework holding everything together and making the site dynamic.
+
+> [!NOTE]
+> We are currently migrating our styling to Tailwind CSS. Some pages may still use legacy CSS during this transition period.
+
 
 ## Further Reading & Resources
 
@@ -34,11 +38,11 @@ Here are some resources to help you get started with the technologies used in th
 - [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML)
 - [freeCodeCamp](https://www.freecodecamp.org/)
 
-### CSS/SCSS
+### CSS & Tailwind CSS
 
 - [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS)
 - [freeCodeCamp](https://www.freecodecamp.org/)
-- [Sass Basics](https://sass-lang.com/guide)
+- [Tailwind CSS](https://tailwindcss.com/)
 
 ### JavaScript
 
@@ -67,7 +71,7 @@ If you encounter issues, have questions, or need assistance with this project, h
 
 - For bug reports, feature requests, or specific technical questions related to the codebase, please [open an issue](https://github.com/UWL-CODERS/website/issues).
 - Join our [CODERS Club Discord server](https://discord.gg/UGupy2CVVq) for general discussion, quick questions, and community interaction.
-- For specific inquiries not suitable for public forums, you can reach out to Brendan Lambrecht at lambrecht5083@uwlax.edu.
+- For specific inquiries not suitable for public view, you can reach out to Brendan Lambrecht at lambrecht5083@uwlax.edu.
 
 ## Top Contributors
 

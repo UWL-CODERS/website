@@ -71,8 +71,8 @@ interface Chairperson {
 @Component({
   selector: 'app-home',
   imports: [LogoTransitionComponent],
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private seoService = inject(SeoService);
@@ -81,12 +81,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   readonly prevSlideBtn = viewChild.required<ElementRef<HTMLButtonElement>>('prevSlideBtn');
   readonly nextSlideBtn = viewChild.required<ElementRef<HTMLButtonElement>>('nextSlideBtn');
   readonly sliderDots = viewChild.required<ElementRef<HTMLElement>>('sliderDots');
-  
+
   readonly teamSlider = viewChild.required<ElementRef<HTMLElement>>('teamSlider');
   readonly prevTeamSlideBtn = viewChild.required<ElementRef<HTMLButtonElement>>('prevTeamSlideBtn');
   readonly nextTeamSlideBtn = viewChild.required<ElementRef<HTMLButtonElement>>('nextTeamSlideBtn');
   readonly teamSliderDots = viewChild.required<ElementRef<HTMLElement>>('teamSliderDots');
-  
+
   readonly logoTransition = viewChild.required(LogoTransitionComponent);
 
   private currentSlide = 0;
@@ -96,22 +96,22 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   bannerSlides: BannerSlide[] = [
     {
-      image: 'assets/images/Other/coding.jpeg',
+      image: 'assets/images/other/coding.jpeg',
       title: '< CODERS />',
       description: 'Where Innovation Meets Community',
     },
     {
-      image: 'assets/images/TrickOrTreat24/IMG_6144_Long.png',
+      image: 'assets/images/trick-or-treat/2024/IMG_6144_Long.png',
       title: 'Code. Create. Connect.',
       description: 'Join Our Community at UW-La Crosse',
     },
     {
-      image: 'assets/images/CookiesCODERS/IMG_7009.png',
+      image: 'assets/images/cookies-with-coders/IMG_7009.png',
       title: 'Learn and Grow',
       description: 'Weekly Coding Sessions with Free Cookies!',
     },
     {
-      image: 'assets/images/KidsCollege/IMG_6887.png',
+      image: 'assets/images/kids-college/IMG_6887.png',
       title: 'Help Us Build the Future',
       description: 'Work On Real Projects That Impact Our Community',
     },
@@ -122,7 +122,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       icon: 'pi pi-code',
       title: 'Coding Workshops',
       description: 'Volunteer and On-Campus hands-on coding sessions covering a variety of topics',
-      image: 'assets/images/KidsCollege/IMG_6923.png',
+      image: 'assets/images/kids-college/IMG_6923.png',
       techStack: ['Python', 'Java', 'Code.org', 'Scratch', 'Git', 'Terminal'],
     },
     {
@@ -130,7 +130,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       title: 'CODERS Projects',
       description:
         'Build real-world applications and contribute to open-source team projects that impact our community',
-      image: 'assets/images/Logos/logo.png',
+      image: 'assets/images/logos/logo.png',
       techStack: ['Typescript', 'SCSS', 'Javascript', 'HTML', 'Angular', 'GitHub'],
     },
     {
@@ -138,7 +138,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       title: 'Tech Community',
       description:
         'Connect with fellow developers and industry professionals for advice and mentorship',
-      image: 'assets/images/Intern_Panel24/IMG_7995.jpg',
+      image: 'assets/images/intern-panels/2024/IMG_7995.jpg',
       techStack: ['Networking', 'College Readiness', 'Internship Advice', 'Career Growth'],
     },
   ];
@@ -149,7 +149,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       title: 'Teaching Computer Science',
       description:
         'Share your knowledge by teaching basic coding conecpts to students and community members.',
-      image: 'assets/images/Other/Codeorg.png',
+      image: 'assets/images/other/Codeorg.png',
       technologies: ['Scratch', 'Code.org', 'Python', 'Presenting New Concepts'],
     },
     {
@@ -157,14 +157,14 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       title: 'Local Volunteering',
       description:
         'Volunteer for good causes to teach Computer Science and Coding Concepts to the next generation of innovators.',
-      image: 'assets/images/Boys_And_Girls/IMG_6759.png',
+      image: 'assets/images/boys-and-girls/IMG_6759.png',
       technologies: ['Volunteer', 'Coding', 'Fun', 'Teaching', 'Presenting'],
     },
     {
       icon: 'pi pi-globe',
       title: 'Cookies With CODERS',
       description: 'Chill and relax with fellow CODERS members while enjoying free cookies!',
-      image: 'assets/images/CookiesCODERS/Cookievar.JPG',
+      image: 'assets/images/cookies-with-coders/Cookievar.JPG',
       technologies: ['Chill', 'Coding', 'Cookies', 'Tasty', 'Friendship'],
     },
   ];
@@ -174,7 +174,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       title: 'DevLab Sessions',
       time: 'Happening Soon!',
       timeRange: 'TBD',
-      image: 'assets/images/Logos/logo.png',
+      image: 'assets/images/logos/logo.png',
       tags: ['Python', 'Scratch', 'Teaching', 'Networking', 'New Concepts'],
     },
     {
@@ -182,117 +182,116 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       time: 'Every Tuesday',
       timeRange: '3:30 PM - 5:30 PM',
       location: 'WING 016',
-      image: 'assets/images/Other/cookiemain.png',
+      image: 'assets/images/other/cookiemain.png',
       tags: ['Coding', 'Cookies', 'Community'],
     },
     {
       title: "Boys' and Girls' Club Volunteering",
       time: 'Happening Again this Fall!',
       timeRange: 'TBD',
-      image: 'assets/images/Logos/BGCNAL-Official-Symbol.png',
+      image: 'assets/images/logos/BGCNAL-Official-Symbol.png',
       tags: ['Conceptual', 'Games', 'Code.org'],
     },
   ];
 
   teamMembers: TeamMember[] = [
     {
-      name: 'Zach Ydunate',
-      image: 'assets/images/People/zach_ydunate.jpg',
-      major: 'Major: Computer Science | Class of 28\'',
-      linkedin: 'https://www.linkedin.com/in/zachary-ydunate/',
-      github: 'https://github.com/zydunate'
-    },
-    {
       name: 'Brendan Lambrecht',
-      image: 'assets/images/People/brendan_lambrecht.jpeg',
-      major: 'Major: Computer Science Master of Software Engineering | Class of 27\'',
+      image: 'assets/images/people/brendan_lambrecht.jpeg',
+      major: "Major: Computer Science Master of Software Engineering | Class of 27'",
       linkedin: 'https://www.linkedin.com/in/brendanlambrecht/',
-      github: 'https://github.com/BlambrechtCodes'
-    },
-    {
-      name: 'Andree Lin',
-      image: 'https://media.licdn.com/dms/image/v2/D5603AQHT4qsWsqPo0g/profile-displayphoto-shrink_400_400/B56ZVZv0UiGQAo-/0/1740967462603?e=1761782400&v=beta&t=BNlXJUWana2qBzkvNeKbWTieAKShg_PpflKPsfljZmU',
-      major: 'Major: Computer Science | Class of 25\'',
-      linkedin: 'https://www.linkedin.com/in/andree-lin-56196a284/',
-      github: 'https://github.com/andreelinyx'
-    },
-    {
-      name: 'Muhammad Fardeen',
-      image: 'https://media.licdn.com/dms/image/v2/D4D03AQG3tlbwKzghRg/profile-displayphoto-shrink_400_400/B4DZVQZak0G8Ag-/0/1740810595075?e=1761782400&v=beta&t=QQHIkNn7uyBbi0JHVniFB0fFp9i9KJ0EUY_N3o9WtD8',
-      major: 'Major: Computer Science | Class of 26\'',
-      linkedin: 'https://www.linkedin.com/in/muhdfdeen/',
-      github: 'https://github.com/muhdfdeen'
-    },
-    {
-      name: 'Bishal Karki',
-      image: 'assets/images/People/IMG_7025.JPG',
-      major: 'Major: Computer Science: Master of Software Engineering | Class of 25\'',
-      linkedin: 'https://www.linkedin.com/in/bishalkarki655/',
-      github: 'https://github.com/bishalkarki01'
-    },
-    {
-      name: 'Leroy Ombogo',
-      image: 'https://media.licdn.com/dms/image/v2/D4D03AQGnxJrH_Ff6Rg/profile-displayphoto-shrink_400_400/B4DZVkqyZsGkAg-/0/1741150694280?e=1761782400&v=beta&t=tLsaD16J3sSwsDm7acepBJYlMtejqo1WbPEDvWfKq3s',
-      major: 'Major: Computer Science | Class of 27\'',
-      linkedin: 'https://www.linkedin.com/in/leroy-o-13b724247/',
-      github: 'https://github.com/Leroy-collab'
-    },
-    {
-      name: 'Ahra Cho',
-      image: 'https://media.licdn.com/dms/image/v2/D4E03AQFygoRxp3Hzog/profile-displayphoto-shrink_400_400/B4EZY7CioRHYAg-/0/1744747244782?e=1761782400&v=beta&t=dzn_38d88L71ZkkuXzdle0AUSUJhGvC2g_ff0fR0iFM',
-      major: 'Major: Computer Science | Class of 27\'',
-      linkedin: 'https://www.linkedin.com/in/ahra-cho-3630a5355/',
-      github: 'https://github.com/Ahrax-x'
+      github: 'https://github.com/BlambrechtCodes',
     },
     {
       name: 'Jack Kern',
-      image: 'https://media.licdn.com/dms/image/v2/D4E03AQGw3r0jjhKSXg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1729082092958?e=1761782400&v=beta&t=8rIb8JwuCK85w0IfSfmA02BNVZZBkLNMegW4u-qX0VE',
-      major: 'Major: Computer Science Master of Software Engineering | Class of 26\'',
+      image:
+        'https://media.licdn.com/dms/image/v2/D4E03AQGw3r0jjhKSXg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1729082092958?e=1761782400&v=beta&t=8rIb8JwuCK85w0IfSfmA02BNVZZBkLNMegW4u-qX0VE',
+      major: "Major: Computer Science Master of Software Engineering | Class of 26'",
       linkedin: 'https://www.linkedin.com/in/jack-kern-b9b501333/',
-      github: 'https://github.com/KernJack'
-    }
+      github: 'https://github.com/KernJack',
+    },
+    {
+      name: 'Zach Ydunate',
+      image: 'assets/images/people/zach_ydunate.jpg',
+      major: "Major: Computer Science | Class of 28'",
+      linkedin: 'https://www.linkedin.com/in/zachary-ydunate/',
+      github: 'https://github.com/zydunate',
+    },
+    {
+      name: 'Muhammad Fardeen',
+      image:
+        'https://media.licdn.com/dms/image/v2/D4D03AQG3tlbwKzghRg/profile-displayphoto-shrink_400_400/B4DZVQZak0G8Ag-/0/1740810595075?e=1761782400&v=beta&t=QQHIkNn7uyBbi0JHVniFB0fFp9i9KJ0EUY_N3o9WtD8',
+      major: "Major: Computer Science | Class of 26'",
+      linkedin: 'https://www.linkedin.com/in/muhdfdeen/',
+      github: 'https://github.com/muhdfdeen',
+    },
+    {
+      name: 'Bishal Karki',
+      image: 'assets/images/people/IMG_7025.JPG',
+      major: "Major: Computer Science: Master of Software Engineering | Class of 25'",
+      linkedin: 'https://www.linkedin.com/in/bishalkarki655/',
+      github: 'https://github.com/bishalkarki01',
+    },
+    {
+      name: 'Andree Lin',
+      image:
+        'https://media.licdn.com/dms/image/v2/D5603AQHT4qsWsqPo0g/profile-displayphoto-shrink_400_400/B56ZVZv0UiGQAo-/0/1740967462603?e=1761782400&v=beta&t=BNlXJUWana2qBzkvNeKbWTieAKShg_PpflKPsfljZmU',
+      major: "Major: Computer Science | Class of 25'",
+      linkedin: 'https://www.linkedin.com/in/andree-lin-56196a284/',
+      github: 'https://github.com/andreelinyx',
+    },
+    {
+      name: 'Leroy Ombogo',
+      image:
+        'https://media.licdn.com/dms/image/v2/D4D03AQGnxJrH_Ff6Rg/profile-displayphoto-shrink_400_400/B4DZVkqyZsGkAg-/0/1741150694280?e=1761782400&v=beta&t=tLsaD16J3sSwsDm7acepBJYlMtejqo1WbPEDvWfKq3s',
+      major: "Major: Computer Science | Class of 27'",
+      linkedin: 'https://www.linkedin.com/in/leroy-o-13b724247/',
+      github: 'https://github.com/Leroy-collab',
+    },
   ];
 
   facultyAdvisors: FacultyAdvisor[] = [
     {
       name: 'Samantha Foley',
-      image: 'https://www.uwlax.edu/User/photo/sfoley.jpg'
+      image: 'https://www.uwlax.edu/User/photo/sfoley.jpg',
     },
     {
       name: 'Allison Sauppé',
-      image: 'https://www.uwlax.edu/User/photo/asauppe.jpg'
-    }
+      image: 'https://www.uwlax.edu/User/photo/asauppe.jpg',
+    },
   ];
 
   execTeam: ExecMember[] = [
     {
       name: 'Brendan Lambrecht',
-      image: 'assets/images/People/brendan_lambrecht.jpeg',
-      role: 'President'
+      image: 'assets/images/people/brendan_lambrecht.jpeg',
+      role: 'President',
     },
     {
       name: 'Jack Kern',
-      image: 'assets/images/People/jack_kern.jpg',
-      role: 'Vice President'
+      image: 'assets/images/people/jack_kern.jpg',
+      role: 'Vice President',
     },
     {
       name: 'Mason Wagner',
-      image: 'assets/images/People/mason_wagner.jpg',
-      role: 'Secretary'
+      image: 'assets/images/people/mason_wagner.jpg',
+      role: 'Secretary',
     },
     {
       name: 'Andree Lin',
-      image: 'https://media.licdn.com/dms/image/v2/D5603AQHT4qsWsqPo0g/profile-displayphoto-shrink_400_400/B56ZVZv0UiGQAo-/0/1740967462603?e=1761782400&v=beta&t=BNlXJUWana2qBzkvNeKbWTieAKShg_PpflKPsfljZmU',
-      role: 'Social Media Coordinator'
-    }
+      image:
+        'https://media.licdn.com/dms/image/v2/D5603AQHT4qsWsqPo0g/profile-displayphoto-shrink_400_400/B56ZVZv0UiGQAo-/0/1740967462603?e=1761782400&v=beta&t=BNlXJUWana2qBzkvNeKbWTieAKShg_PpflKPsfljZmU',
+      role: 'Social Media Coordinator',
+    },
   ];
 
   chairpersons: Chairperson[] = [
     {
       name: 'Muhammad Fardeen',
-      image: 'https://media.licdn.com/dms/image/v2/D4D03AQG3tlbwKzghRg/profile-displayphoto-shrink_400_400/B4DZVQZak0G8Ag-/0/1740810595075?e=1761782400&v=beta&t=QQHIkNn7uyBbi0JHVniFB0fFp9i9KJ0EUY_N3o9WtD8',
-      role: 'Website Development Chair'
-    }
+      image:
+        'https://media.licdn.com/dms/image/v2/D4D03AQG3tlbwKzghRg/profile-displayphoto-shrink_400_400/B4DZVQZak0G8Ag-/0/1740810595075?e=1761782400&v=beta&t=QQHIkNn7uyBbi0JHVniFB0fFp9i9KJ0EUY_N3o9WtD8',
+      role: 'Website Development Chair',
+    },
   ];
 
   ngOnInit(): void {
@@ -422,12 +421,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private activateCurrentSlide(): void {
     const slides = this.bannerSlider().nativeElement.querySelectorAll('.banner-slide');
     slides.forEach((slide: HTMLElement | Element, index: number) => {
-  if (index === this.currentSlide) {
-    slide.classList.add('active');
-  } else {
-    slide.classList.remove('active');
-  }
-});
+      if (index === this.currentSlide) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    });
   }
 
   nextSlide(): void {

@@ -1,11 +1,8 @@
+@import 'tailwindcss';
 @import 'primeicons/primeicons.css';
+@plugin 'daisyui';
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+/* Some font-related improvements coming soon
 body {
   font-family: Anuphan, Arial, Helvetica, sans-serif;
-}
+} */
