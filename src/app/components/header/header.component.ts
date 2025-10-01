@@ -4,7 +4,6 @@ import {
   OnDestroy,
   OnInit,
   ChangeDetectorRef,
-  ChangeDetectionStrategy,
 } from '@angular/core';
 import {Router, RouterModule} from '@angular/router';
 import {gsap} from 'gsap';
@@ -19,7 +18,6 @@ type UpcomingEvent = Record<string, unknown>;
   imports: [RouterModule, NgIf],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   private router = inject(Router);
