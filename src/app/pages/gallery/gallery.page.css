@@ -51,7 +51,7 @@
   margin-bottom: 1.1rem;
   color: #4b5563;
 
-  &-item {
+  & .gallery-item {
     display: flex;
     align-items: center;
     font-size: 1rem;
