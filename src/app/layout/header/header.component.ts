@@ -2,13 +2,26 @@ import {Component, inject, OnDestroy, OnInit, ChangeDetectorRef} from '@angular/
 import {Router, RouterModule} from '@angular/router';
 import {gsap} from 'gsap';
 import {PageTransitionService} from '../../shared/components/page-transition/page-transition.service';
-import { AlternateEmailIconComponent, DiscordIconComponent, GithubIconComponent, InstagramIconComponent, OpenInNewIconComponent } from '../../shared/icons';
+import {
+  AlternateEmailIconComponent,
+  DiscordIconComponent,
+  GithubIconComponent,
+  InstagramIconComponent,
+  OpenInNewIconComponent,
+} from '../../shared/icons';
 
 type UpcomingEvent = Record<string, unknown>;
 
 @Component({
   selector: 'app-header',
-  imports: [RouterModule, DiscordIconComponent, GithubIconComponent, InstagramIconComponent, AlternateEmailIconComponent, OpenInNewIconComponent],
+  imports: [
+    RouterModule,
+    DiscordIconComponent,
+    GithubIconComponent,
+    InstagramIconComponent,
+    AlternateEmailIconComponent,
+    OpenInNewIconComponent,
+  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
