@@ -3,10 +3,10 @@ import {RouterOutlet, Router, NavigationEnd} from '@angular/router';
 import {isPlatformBrowser} from '@angular/common';
 import {Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
-import {CookiesConsentComponent} from './shared/components/cookies-consent/cookies-consent.component';
-import {LogoTransitionComponent} from './shared/components/logo-transition/logo-transition.component';
-import {PageTransitionComponent} from './shared/components/page-transition/page-transition.component';
-import {PageTransitionService} from './shared/components/page-transition/page-transition.service';
+import {CookiesConsentComponent} from './core/cookies-consent/cookies-consent.component';
+import {LogoTransitionComponent} from './core/logo-transition/logo-transition.component';
+import {PageTransitionComponent} from './core/page-transition/page-transition.component';
+import {PageTransitionService} from './core/page-transition/page-transition.service';
 import {gsap} from 'gsap';
 
 @Component({

@@ -1,7 +1,7 @@
 import {Component, inject, OnDestroy, OnInit, ChangeDetectorRef} from '@angular/core';
 import {Router, RouterModule} from '@angular/router';
 import {gsap} from 'gsap';
-import {PageTransitionService} from '../../shared/components/page-transition/page-transition.service';
+import {PageTransitionService} from '../../core/page-transition/page-transition.service';
 import {
   AlternateEmailIconComponent,
   CloseIconComponent,

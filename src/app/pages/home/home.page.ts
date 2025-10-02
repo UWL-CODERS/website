@@ -7,11 +7,10 @@ import {
   inject,
   viewChild,
 } from '@angular/core';
-import {LogoTransitionComponent} from '../../shared/components/logo-transition/logo-transition.component';
+import {LogoTransitionComponent} from '../../core/logo-transition/logo-transition.component';
 import {SeoService} from '../../services/seo.service';
 import {PageMeta} from '../../models/meta.model';
-import {GithubIconComponent} from '../../shared/icons';
-import {LinkedinIconComponent} from '../../shared/icons/linkedin-icon.component';
+import {GithubIconComponent, LinkedinIconComponent} from '../../shared/icons';
 
 interface BannerSlide {
   image: string;
