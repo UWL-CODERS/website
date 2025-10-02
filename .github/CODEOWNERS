@@ -3,8 +3,8 @@
 
 # App areas (we will add more members as the team grows)
 
-# Components and shared UI
-# /src/app/components/ @muhdfdeen
+# Shared components
+# /src/app/shared/ @muhdfdeen
 
 # Pages
 # /src/app/pages/ @muhdfdeen

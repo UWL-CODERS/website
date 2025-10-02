@@ -7,7 +7,7 @@ import {
   inject,
   viewChild,
 } from '@angular/core';
-import {LogoTransitionComponent} from '../../components/logo-transition/logo-transition.component';
+import {LogoTransitionComponent} from '../../shared/components/logo-transition/logo-transition.component';
 import {SeoService} from '../../services/seo.service';
 import {PageMeta} from '../../models/meta.model';
 

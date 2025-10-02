@@ -1,21 +1,14 @@
-import {
-  Component,
-  inject,
-  OnDestroy,
-  OnInit,
-  ChangeDetectorRef,
-} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit, ChangeDetectorRef} from '@angular/core';
 import {Router, RouterModule} from '@angular/router';
 import {gsap} from 'gsap';
-import {NgIf} from '@angular/common';
-
-import {PageTransitionService} from '../page-transition/page-transition.service'; // Adjust path as needed
+import {PageTransitionService} from '../page-transition/page-transition.service';
+import { AlternateEmailIconComponent, DiscordIconComponent, GithubIconComponent, InstagramIconComponent, OpenInNewIconComponent } from '../../icons';
 
 type UpcomingEvent = Record<string, unknown>;
 
 @Component({
   selector: 'app-header',
-  imports: [RouterModule, NgIf],
+  imports: [RouterModule, DiscordIconComponent, GithubIconComponent, InstagramIconComponent, AlternateEmailIconComponent, OpenInNewIconComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
