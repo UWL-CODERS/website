@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {Router, RouterModule} from '@angular/router';
-import {PageTransitionService} from '../page-transition/page-transition.service';
+import { PageTransitionService } from '../../shared/components/page-transition/page-transition.service';
 
 @Component({
   selector: 'app-footer',

@@ -1,8 +1,8 @@
 import {Component, inject, OnDestroy, OnInit, ChangeDetectorRef} from '@angular/core';
 import {Router, RouterModule} from '@angular/router';
 import {gsap} from 'gsap';
-import {PageTransitionService} from '../page-transition/page-transition.service';
-import { AlternateEmailIconComponent, DiscordIconComponent, GithubIconComponent, InstagramIconComponent, OpenInNewIconComponent } from '../../icons';
+import {PageTransitionService} from '../../shared/components/page-transition/page-transition.service';
+import { AlternateEmailIconComponent, DiscordIconComponent, GithubIconComponent, InstagramIconComponent, OpenInNewIconComponent } from '../../shared/icons';
 
 type UpcomingEvent = Record<string, unknown>;
 
