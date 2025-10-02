@@ -1,7 +1,7 @@
 contact_links:
-  - name: Development Guide
-    url: https://github.com/UWL-CODERS/website/blob/main/DEVELOPMENT.md
-    about: Learn how to contribute or develop for the CODERS Club website
+  - name: Contribution Guide
+    url: https://github.com/UWL-CODERS/website/blob/main/CONTRIBUTING.md
+    about: Learn how to contribute to the CODERS Club website
   - name: General Support
     url: https://github.com/UWL-CODERS/website?tab=readme-ov-file#getting-help
     about: Ask questions or request help for the CODERS Club website

@@ -1,10 +1,22 @@
 import {Component, inject} from '@angular/core';
 import {Router, RouterModule} from '@angular/router';
-import {PageTransitionService} from '../page-transition/page-transition.service';
+import {PageTransitionService} from '../../core/page-transition/page-transition.service';
+import {
+  AlternateEmailIconComponent,
+  DiscordIconComponent,
+  GithubIconComponent,
+  InstagramIconComponent,
+} from '../../shared/icons';
 
 @Component({
   selector: 'app-footer',
-  imports: [RouterModule],
+  imports: [
+    RouterModule,
+    DiscordIconComponent,
+    GithubIconComponent,
+    InstagramIconComponent,
+    AlternateEmailIconComponent,
+  ],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css',
 })

@@ -4,21 +4,20 @@
 
 # CODERS Club: Website Project
 
-[![Installation Guide][img-install]][url-install]
-[![Development Guide][img-develop]][url-develop]
+[![Contribution Guide][img-contribute]][url-contribute]
 [![Security Policy][img-security]][url-security]
 [![Getting Help][img-help]][url-help]
 
 [![Discord][img-discord]][url-discord]
 [![GitHub][img-github]][url-github]
 
-The official website for the CODERS Club at the University of Wisconsin La Crosse.
+The official website for the CODERS Club at the University of Wisconsin-La Crosse.
 
 </div>
 
 ## Technology Stack
 
-Our website is built using the following technologies. We highly suggest you learn about or at least get a feel for them before contributing:
+Our website is built on a modern technology stack. This project is a great opportunity to get hands-on experience with these tools. If you're new to any of them, don't worry—we're here to help you learn!
 
 - **HTML**: Builds the basic structure of the website pages.
 - **Tailwind CSS**: A utility-first CSS framework that provides pre-built classes to style elements quickly and consistently.
@@ -30,39 +29,20 @@ Our website is built using the following technologies. We highly suggest you lea
 
 ## Further Reading & Resources
 
-Here are some resources to help you get started with the technologies used in this project:
+Here are some of our favorite resources for learning the technologies used in this project:
 
-### HTML
+- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML): The ultimate reference for any web standard (HTML, CSS, JavaScript). When in doubt, start here.
+- [freeCodeCamp](https://www.freecodecamp.org/): Offers excellent, free, hands-on tutorials for beginners.
+- [Tailwind CSS](https://tailwindcss.com/): The official docs are fantastic and have great examples.
+- [Eloquent JavaScript](https://eloquentjavascript.net/): A classic book for truly understanding how JavaScript works.
+- [TypeScript Official Docs](https://www.typescriptlang.org/): The best place to learn about TypeScript's features.
+- [Angular Official Docs](https://angular.io/docs): Comprehensive guides and tutorials for the Angular framework.
 
-- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML)
-- [freeCodeCamp](https://www.freecodecamp.org/)
+## Contributing
 
-### CSS & Tailwind CSS
+This project is built by and for the students at the University of Wisconsin-La Crosse. We welcome contributions from all UWL students and CODERS Club members!
 
-- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS)
-- [freeCodeCamp](https://www.freecodecamp.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-
-### JavaScript
-
-- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [Eloquent JavaScript](https://eloquentjavascript.net/)
-
-### TypeScript
-
-- [Official Documentation](https://www.typescriptlang.org/)
-
-### Angular
-
-- [Official Documentation](https://angular.io/docs)
-
-## Contribution Guide
-
-Ready to contribute?
-
-1. Set up your development environment using the [Installation Guide](./docs/INSTALL.md).
-2. Follow the guidelines in the [Development Guide](./docs/DEVELOPMENT.md) for coding standards and contribution process.
-3. Review our [Security Policy](./SECURITY.md).
+To get started, please read our [Contribution Guide](CONTRIBUTING.md), which outlines our development workflow, coding standards, and project structure.
 
 ## Getting Help
 
@@ -70,9 +50,9 @@ If you encounter issues, have questions, or need assistance with this project, h
 
 - For bug reports, feature requests, or specific technical questions related to the codebase, please [open an issue](https://github.com/UWL-CODERS/website/issues).
 - Join our [CODERS Club Discord server](https://discord.gg/UGupy2CVVq) for general discussion, quick questions, and community interaction.
-- For specific inquiries not suitable for public view, you can reach out to Brendan Lambrecht at lambrecht5083@uwlax.edu.
+- For specific inquiries not suitable for public view, you can reach out to the current Website Development Leader on Discord or by mentioning @muhdfdeen in a GitHub issue.
 
-## Top Contributors
+## Contributors
 
 Thanks to these amazing people who have contributed to this project:
 
@@ -80,10 +60,8 @@ Thanks to these amazing people who have contributed to this project:
   <img src="https://contrib.rocks/image?repo=UWL-CODERS/website" />
 </a>
 
-[img-install]: https://img.shields.io/badge/Installation-black?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9ImZlYXRoZXIgZmVhdGhlci1kb3dubG9hZCI+PHBhdGggZD0iTTIxIDE1djRhMiAyIDAgMCAxLTIgMkg1YTIgMiAwIDAgMS0yLTJ2LTQiPjwvcGF0aD48cG9seWxpbmUgcG9pbnRzPSI3IDEwIDEyIDE1IDE3IDEwIj48L3BvbHlsaW5lPjxsaW5lIHgxPSIxMiIgeTE9IjE1IiB4Mj0iMTIiIHkyPSIzIj48L2xpbmU+PC9zdmc+
-[url-install]: ./docs/INSTALL.md
-[img-develop]: https://img.shields.io/badge/Development-black?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9ImZlYXRoZXIgZmVhdGhlci1jb2RlIj48cG9seWxpbmUgcG9pbnRzPSIxNiAxOCAyMiAxMiAxNiA2Ij48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjggNiAyIDEyIDggMTgiPjwvcG9seWxpbmU+PC9zdmc+
-[url-develop]: ./docs/DEVELOPMENT.md
+[img-contribute]: https://img.shields.io/badge/Contribution%20Guide-black?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9ImZlYXRoZXIgZmVhdGhlci1jb2RlIj48cG9seWxpbmUgcG9pbnRzPSIxNiAxOCAyMiAxMiAxNiA2Ij48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjggNiAyIDEyIDggMTgiPjwvcG9seWxpbmU+PC9zdmc+
+[url-contribute]: ./CONTRIBUTING.md
 [img-security]: https://img.shields.io/badge/Security-black?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9ImZlYXRoZXIgZmVhdGhlci1sb2NrIj48cmVjdCB4PSIzIiB5PSIxMSIgd2lkdGg9IjE4IiBoZWlnaHQ9IjExIiByeD0iMiIgcnk9IjIiPjwvcmVjdD48cGF0aCBkPSJNNyAxMVY3YTUgNSAwIDAgMSAxMCAwdjQiPjwvcGF0aD48L3N2Zz4=
 [url-security]: ./SECURITY.md
 [img-help]: https://img.shields.io/badge/Getting%20Help-black?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9ImZlYXRoZXIgZmVhdGhlci1oZWxwLWNpcmNsZSI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiPjwvY2lyY2xlPjxwYXRoIGQ9Ik05LjA5IDlhMyAzIDAgMCAxIDUuODMgMWMwIDItMyAzLTMgMyI+PC9wYXRoPjxsaW5lIHgxPSIxMiIgeTE9IjE3IiB4Mj0iMTIuMDEiIHkyPSIxNyI+PC9saW5lPjwvc3ZnPg==

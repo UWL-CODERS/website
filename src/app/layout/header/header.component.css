@@ -13,11 +13,6 @@
     align-items: center;
   }
 
-  .icon {
-    margin: 5px;
-    vertical-align: middle;
-  }
-
   .social-links,
   .contact-info {
     a {

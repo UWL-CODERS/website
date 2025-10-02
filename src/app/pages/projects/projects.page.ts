@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, inject, OnInit} from '@angular/core';
-import {CarouselComponent} from '../../components/carousel/carousel.component';
+import {CarouselComponent} from '../../shared/components/carousel/carousel.component';
 import {Project} from '../../models/project.model';
 import {SeoService} from '../../services/seo.service';
 import {PageMeta} from '../../models/meta.model';

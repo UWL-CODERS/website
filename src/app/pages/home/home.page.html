@@ -54,9 +54,6 @@
           common interests of coding, technology, and computer science.
         </p>
         <div class="mission-container">
-          <div class="icon-container">
-            <i class="pi pi-code"></i>
-          </div>
           <div class="mission-content">
             <h3>Our Mission</h3>
             <p>
@@ -90,9 +87,6 @@
           <div class="feature-image">
             <img [src]="feature.image" [alt]="feature.title" />
           </div>
-          <div class="feature-icon">
-            <i [class]="feature.icon"></i>
-          </div>
           <h3>{{ feature.title }}</h3>
           <p>{{ feature.description }}</p>
           <div class="tech-stack">
@@ -116,9 +110,6 @@
           <div class="activity-image">
             <img [src]="activity.image" [alt]="activity.title" />
           </div>
-          <div class="activity-icon">
-            <i [class]="activity.icon"></i>
-          </div>
           <h3>{{ activity.title }}</h3>
           <p>{{ activity.description }}</p>
           <div class="tech-stack">
@@ -132,34 +123,6 @@
       <p class="code-text">&#125;</p>
     </div>
   </section>
-
-  <!-- Join Us Section -->
-  <!-- <section class="howtojoin">
-    <div class="section-content">
-      <h2>npm install uwl/coders</h2>
-      <p class="code-comment">// Start your coding journey with us</p>
-      <div class="terminal">
-        <div class="terminal-header">
-          <span class="terminal-button"></span>
-          <span class="terminal-button"></span>
-          <span class="terminal-button"></span>
-        </div>
-        <div class="terminal-content">
-          <p><span class="prompt">$</span> git clone your-future</p>
-          <p><span class="prompt">$</span> cd coders-community</p>
-          <p><span class="prompt">$</span> npm run start-journey</p>
-        </div>
-      </div>
-      <a
-        href="https://orgs.uwlax.edu/organization/coders"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="join-button"
-      >
-        Join Now
-      </a>
-    </div>
-  </section> -->
 
   <!-- Schedule Section -->
   <section class="schedule">
@@ -215,17 +178,15 @@
                 <div class="slide-content">
                   <h3>{{ member.name }}</h3>
                   <p>{{ member.major }}</p>
-                  <div class="social-links">
-                    @if (member.linkedin) {
-                    <a [href]="member.linkedin" target="_blank" rel="noopener noreferrer">
-                      <span class="pi pi-linkedin icon"></span>
-                    </a>
-                    } @if (member.github) {
-                    <a [href]="member.github" target="_blank" rel="noopener noreferrer">
-                      <span class="pi pi-github icon"></span>
-                    </a>
-                    }
-                  </div>
+                  @if (member.linkedin) {
+                  <a [href]="member.linkedin" target="_blank" rel="noopener noreferrer">
+                    <svg app-linkedin-icon fill="currentColor" class="size-7 m-1 text-gray-600 hover:text-blue-600"></svg>
+                  </a>
+                  } @if (member.github) {
+                  <a [href]="member.github" target="_blank" rel="noopener noreferrer">
+                    <svg app-github-icon fill="currentColor" class="size-7 m-1 text-gray-600 hover:text-blue-600"></svg>
+                  </a>
+                  }
                 </div>
               </div>
               }
