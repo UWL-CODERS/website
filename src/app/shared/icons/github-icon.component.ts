@@ -9,5 +9,8 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
   `,
   styles: [':host { display: inline-block; }'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '[attr.viewBox]': '"0 0 24 24"',
+  },
 })
 export class GithubIconComponent {}
