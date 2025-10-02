@@ -62,10 +62,10 @@
         type="button"
       >
         @if (!isMenuOpen) {
-          <i class="pi pi-bars"></i>
+          <svg app-menu-icon fill="currentColor" class="size-5"></svg>
         }
         @if (isMenuOpen) {
-          <i class="pi pi-times"></i>
+          <svg app-close-icon fill="currentColor" class="size-5"></svg>
         }
       </button>
       <nav class="main-nav" [class.menu-open]="isMenuOpen" [class.menu-closing]="isMenuClosing">

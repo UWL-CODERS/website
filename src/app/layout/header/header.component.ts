@@ -4,9 +4,11 @@ import {gsap} from 'gsap';
 import {PageTransitionService} from '../../shared/components/page-transition/page-transition.service';
 import {
   AlternateEmailIconComponent,
+  CloseIconComponent,
   DiscordIconComponent,
   GithubIconComponent,
   InstagramIconComponent,
+  MenuIconComponent,
   OpenInNewIconComponent,
 } from '../../shared/icons';
 
@@ -21,6 +23,8 @@ type UpcomingEvent = Record<string, unknown>;
     InstagramIconComponent,
     AlternateEmailIconComponent,
     OpenInNewIconComponent,
+    MenuIconComponent,
+    CloseIconComponent,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',

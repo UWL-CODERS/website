@@ -10,6 +10,8 @@ import {
 import {LogoTransitionComponent} from '../../shared/components/logo-transition/logo-transition.component';
 import {SeoService} from '../../services/seo.service';
 import {PageMeta} from '../../models/meta.model';
+import {GithubIconComponent} from '../../shared/icons';
+import {LinkedinIconComponent} from '../../shared/icons/linkedin-icon.component';
 
 interface BannerSlide {
   image: string;
@@ -18,7 +20,6 @@ interface BannerSlide {
 }
 
 interface Feature {
-  icon: string;
   title: string;
   description: string;
   image: string;
@@ -26,7 +27,6 @@ interface Feature {
 }
 
 interface Activity {
-  icon: string;
   title: string;
   description: string;
   image: string;
@@ -70,7 +70,7 @@ interface Chairperson {
 
 @Component({
   selector: 'app-home',
-  imports: [LogoTransitionComponent],
+  imports: [LogoTransitionComponent, GithubIconComponent, LinkedinIconComponent],
   templateUrl: './home.page.html',
   styleUrl: './home.page.scss',
 })
@@ -119,14 +119,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   features: Feature[] = [
     {
-      icon: 'pi pi-code',
       title: 'Coding Workshops',
       description: 'Volunteer and On-Campus hands-on coding sessions covering a variety of topics',
       image: 'assets/images/kids-college/IMG_6923.png',
       techStack: ['Python', 'Java', 'Code.org', 'Scratch', 'Git', 'Terminal'],
     },
     {
-      icon: 'pi pi-globe',
       title: 'CODERS Projects',
       description:
         'Build real-world applications and contribute to open-source team projects that impact our community',
@@ -134,7 +132,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       techStack: ['Typescript', 'SCSS', 'Javascript', 'HTML', 'Angular', 'GitHub'],
     },
     {
-      icon: 'pi pi-users',
       title: 'Tech Community',
       description:
         'Connect with fellow developers and industry professionals for advice and mentorship',
@@ -145,7 +142,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   activities: Activity[] = [
     {
-      icon: 'pi pi-desktop',
       title: 'Teaching Computer Science',
       description:
         'Share your knowledge by teaching basic coding conecpts to students and community members.',
@@ -153,7 +149,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       technologies: ['Scratch', 'Code.org', 'Python', 'Presenting New Concepts'],
     },
     {
-      icon: 'pi pi-briefcase',
       title: 'Local Volunteering',
       description:
         'Volunteer for good causes to teach Computer Science and Coding Concepts to the next generation of innovators.',
@@ -161,7 +156,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       technologies: ['Volunteer', 'Coding', 'Fun', 'Teaching', 'Presenting'],
     },
     {
-      icon: 'pi pi-globe',
       title: 'Cookies With CODERS',
       description: 'Chill and relax with fellow CODERS members while enjoying free cookies!',
       image: 'assets/images/cookies-with-coders/Cookievar.JPG',
