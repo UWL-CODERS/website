@@ -3,6 +3,9 @@
 
 # App areas (we will add more members as the team grows)
 
+# Layout components
+# /src/app/layout/ @muhdfdeen
+
 # Shared components
 # /src/app/shared/ @muhdfdeen
 
@@ -10,7 +13,7 @@
 # /src/app/pages/ @muhdfdeen
 
 # Global styles
-# /src/styles.scss @muhdfdeen
+# /src/styles.css @muhdfdeen
 
 # CI/config
 # /.github/ @muhdfdeen
