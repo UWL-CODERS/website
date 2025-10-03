@@ -213,6 +213,10 @@ $transition-speed: 0.3s;
           overflow: hidden;
           transform-style: preserve-3d;
           transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
 
           &::before {
             content: '';
@@ -525,6 +529,10 @@ $transition-speed: 0.3s;
       border-radius: 20px;
       font-size: 0.9rem;
       margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
     h2 {
@@ -595,6 +603,7 @@ $transition-speed: 0.3s;
 .whatCLUB {
   padding: 4rem 0;
   background-color: $light-color;
+  
 
   .section-content {
     text-align: center;
@@ -677,6 +686,7 @@ $transition-speed: 0.3s;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
+      
       margin-bottom: 2rem;
 
       .activity-card {
@@ -841,6 +851,7 @@ $transition-speed: 0.3s;
       .event-card {
         @include card-style;
         overflow: hidden;
+        
 
         .event-image {
           height: 200px;
@@ -1026,6 +1037,7 @@ $transition-speed: 0.3s;
       width: 150px;
       height: 150px;
       object-fit: cover;
+      margin: 0 auto;
       border-radius: 50%;
       transition:
         transform 0.35s cubic-bezier(0.77, 0, 0.18, 1),
@@ -1161,7 +1173,7 @@ $transition-speed: 0.3s;
 
   .slider-dots {
     display: flex;
-    justify-content: center;
+    align-items: center;
     margin-top: 12px;
   }
 
@@ -1197,7 +1209,8 @@ $transition-speed: 0.3s;
   .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 2rem;
+    justify-content: center;
     align-items: center;
 
     @media (max-width: 768px) {
@@ -1234,6 +1247,10 @@ $transition-speed: 0.3s;
       border-radius: 20px;
       font-size: 0.9rem;
       margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
     h2 {
@@ -1250,63 +1267,96 @@ $transition-speed: 0.3s;
     }
 
     .steps-container {
-      background-color: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      margin-bottom: 2rem;
-
-      h3 {
-        font-size: 1.3rem;
-        margin-bottom: 1.5rem;
-        color: $dark-color;
-      }
-
-      .steps-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-
-        .step-item {
-          display: flex;
-          gap: 1rem;
-          margin-bottom: 1.5rem;
-
-          &:last-child {
-            margin-bottom: 0;
-          }
-
-          .step-number {
-            width: 30px;
-            height: 30px;
-            background-color: $primary-color;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-          }
-
-          .step-content {
-            p {
-              color: $secondary-color;
-              line-height: 1.5;
-
-              a {
-                color: $primary-color;
-                text-decoration: none;
-                font-weight: 600;
-
-                &:hover {
-                  text-decoration: underline;
-                }
-              }
-            }
-          }
-        }
-      }
+      background: linear-gradient(135deg, #f9fafc 75%, #e4eaf7 100%);
+      padding: 2.5rem 2rem;
+      border-radius: 18px;
+      box-shadow: 0 8px 28px rgba(54, 104, 255, 0.07), 0 2px 4px rgba(56, 20, 98, 0.07);
+      max-width: 540px;
+      margin: 2rem auto;
+      transition: box-shadow 0.3s;
     }
+
+    .steps-container:hover {
+      box-shadow: 0 12px 40px rgba(54, 104, 255, 0.13), 0 2px 4px rgba(56, 20, 98, 0.09);
+    }
+
+    .steps-container h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: #233352;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+
+    .steps-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      margin-bottom: 2.3rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: stepFadeIn 0.6s cubic-bezier(.46,.03,.52,.96) forwards;
+    }
+    .step-item:nth-child(1) { animation-delay: 0.1s; }
+    .step-item:nth-child(2) { animation-delay: 0.25s; }
+    .step-item:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes stepFadeIn {
+      100% { opacity: 1; transform: none; }
+    }
+
+    .step-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-number {
+      min-width: 40px;
+      min-height: 40px;
+      background: linear-gradient(135deg, #315cf6 60%, #6ccfee 100%);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      font-size: 1.25rem;
+      font-weight: 700;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 12px rgba(49, 92, 246, 0.16);
+      border: 2.5px solid #f6fafe;
+      margin-top: 2px;
+      transition: transform 0.2s;
+    }
+
+    .step-item:hover .step-number {
+      transform: scale(1.08);
+    }
+
+    .step-content p {
+      color: #576387;
+      line-height: 1.7;
+      font-size: 1.08rem;
+      margin: 0;
+    }
+
+    .step-content a {
+      color: #315cf6;
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 0.2s, text-decoration 0.2s;
+      border-bottom: 1.5px dashed #baebff;
+    }
+    .step-content a:hover,
+    .step-content a:focus {
+      color: #1877ff;
+      text-decoration: underline;
+    }
+
 
     .action-buttons {
       display: flex;
@@ -1316,6 +1366,10 @@ $transition-speed: 0.3s;
         @include button-style;
         text-decoration: none;
 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
         &.btn-primary {
           background-color: $primary-color;
           color: white;
