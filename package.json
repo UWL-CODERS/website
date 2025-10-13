@@ -24,7 +24,7 @@
     "@angular/ssr": "^20.3.4",
     "@primeng/themes": "^20.2.0",
     "@tailwindcss/postcss": "^4.1.13",
-    "daisyui": "^5.1.23",
+    "daisyui": "^5.2.3",
     "express": "^5.1.0",
     "gsap": "^3.13.0",
     "postcss": "^8.5.6",
