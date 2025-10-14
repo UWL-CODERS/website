@@ -2,6 +2,7 @@
   color: #ddd;
   background-color: #1864ab;
   width: 100%;
+  font-size: 1rem;
 
   /* Mobile-first layout */
   .row {
