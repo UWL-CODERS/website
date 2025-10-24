@@ -38,7 +38,7 @@
     "@angular/cli": "^20.3.7",
     "@angular/compiler-cli": "^20.3.7",
     "@types/express": "^5.0.2",
-    "@types/node": "^24.5.2",
+    "@types/node": "^24.9.1",
     "angular-eslint": "20.4.0",
     "eslint": "^9.35.0",
     "jsdom": "^27.0.0",
