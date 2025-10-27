@@ -290,7 +290,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
     // Set default SEO metadata for home page - explicitly set title and description to undefined to use defaults
     const pageMeta: Partial<PageMeta> = {
-      title: undefined,
+      title: 'Home',
       description: undefined,
       keywords: undefined,
     };
