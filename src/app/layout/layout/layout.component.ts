@@ -6,8 +6,10 @@ import {HeaderComponent} from '../header/header.component';
 @Component({
   selector: 'app-layout',
   imports: [HeaderComponent, FooterComponent, RouterModule],
-  templateUrl: './layout.component.html',
-  styleUrl: './layout.component.css',
+  template: `<app-header />
+    <router-outlet />
+    <app-footer />`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
 export class LayoutComponent {}
