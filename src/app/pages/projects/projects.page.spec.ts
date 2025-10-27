@@ -1,18 +1,18 @@
 import {describe, it, expect} from 'vitest';
-import {ProjectsComponent} from './projects.page';
+import {ProjectsPage} from './projects.page';
 import {TestBed} from '@angular/core/testing';
 import {provideZonelessChangeDetection, provideCheckNoChangesConfig} from '@angular/core';
 
-describe('ProjectsComponent (minimal)', () => {
+describe('ProjectsPage (minimal)', () => {
   it('should create', async () => {
     TestBed.configureTestingModule({
-      imports: [ProjectsComponent],
+      imports: [ProjectsPage],
       providers: [
         provideZonelessChangeDetection(),
         provideCheckNoChangesConfig({exhaustive: true, interval: 100}),
       ],
     });
-    const fixture = TestBed.createComponent(ProjectsComponent);
+    const fixture = TestBed.createComponent(ProjectsPage);
     await fixture.whenStable();
     expect(fixture.componentInstance).toBeTruthy();
   });

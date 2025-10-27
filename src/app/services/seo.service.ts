@@ -22,9 +22,7 @@ export class SeoService {
     'CODERS Club, UWL, University of Wisconsin La Crosse, coding club, programming community, computer science, student organization, tech community, coding workshops, volunteer opportunities';
 
   public setPageMeta(config: Partial<PageMeta>): void {
-    const title = config.title
-      ? `${config.title} | ${this.siteName}`
-      : `${this.siteName}`;
+    const title = config.title ? `${config.title} | ${this.siteName}` : `${this.siteName}`;
     const description = config.description ?? this.defaultDescription;
     const imageUrl = config.imageUrl ?? this.defaultImageUrl;
     const ogType = config.ogType ?? this.defaultOgType;

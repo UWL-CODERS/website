@@ -11,7 +11,7 @@ import {PageMeta} from '../../models/meta.model';
   styleUrl: './projects.page.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsPage implements OnInit {
   private seoService = inject(SeoService);
 
   ngOnInit(): void {

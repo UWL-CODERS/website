@@ -434,7 +434,7 @@ class CardCarousel extends DraggingEvent {
   styleUrl: './opportunities.page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OpportunitiesComponent implements AfterViewInit, OnDestroy, OnInit {
+export class OpportunitiesPage implements AfterViewInit, OnDestroy, OnInit {
   private seoService = inject(SeoService);
 
   @ViewChildren('carouselContainer') carouselContainers!: QueryList<ElementRef<HTMLElement>>;

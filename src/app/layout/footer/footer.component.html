@@ -1,81 +1,110 @@
 <section class="footer md:text-left text-center py-10">
   <div class="container mx-auto px-10 max-w-7xl">
-      <div class="flex flex-wrap -mx-4 md:gap-0 gap-10">
+    <div class="flex flex-wrap -mx-4 md:gap-0 gap-10">
+      <div class="w-full md:w-1/2 px-4">
+        <div class="flex flex-wrap -mx-4">
           <div class="w-full md:w-1/2 px-4">
-              <div class="flex flex-wrap -mx-4">
-                  <div class="w-full md:w-1/2 px-4">
-                      <div class="footer-logo">
-                          <img src="assets/images/logos/footerlogo.png" draggable="false" class="w-1/3 md:w-2/3">
-                          <p>1705 State St, Wing Technology Center, La Crosse, WI 54601, United States</p>
-                      </div>
-                  </div>
-                  <div class="w-full md:w-1/2 px-4 md:order-1">
-                      <h6 class="font-medium">About Us</h6>
-                      <p>CODERS is committed to enriching the La Crosse community by volunteering, teaching fundamental Computer Science skills, supporting student development and career readiness, and fostering diversity and inclusion in technology.</p>
-                  </div>
-              </div>
+            <div class="footer-logo">
+              <img
+                src="assets/images/logos/footerlogo.png"
+                draggable="false"
+                class="w-1/3 md:w-2/3"
+              />
+              <p>1705 State St, Wing Technology Center, La Crosse, WI 54601, United States</p>
+            </div>
           </div>
-          <div class="w-full md:w-1/2 px-10">
-              <div class="flex flex-wrap -mx-4 md:gap-0 gap-10">
-                  <div class="w-full md:w-1/2 px-4 order-2 md:order-3">
-                      <h6 class="font-medium">Pages</h6>
-                      <div class="flex flex-wrap -mx-4">
-                          <div class="w-full md:w-1/2 px-4">
-                              <ul class="flex gap-1 flex-col">
-                                  <li>
-                                      <a (click)="!isActiveRoute('/') && navigateAndReload('/')"
-                                          [class.disabled]="isActiveRoute('/')"
-                                          [attr.aria-disabled]="isActiveRoute('/') ? 'true' : null">
-                                          Home
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a (click)="!isActiveRoute('/opportunities') && navigateAndReload('/opportunities')"
-                                          [class.disabled]="isActiveRoute('/opportunities')"
-                                          [attr.aria-disabled]="isActiveRoute('/opportunities') ? 'true' : null">
-                                          Opportunities
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a (click)="!isActiveRoute('/projects') && navigateAndReload('/projects')"
-                                          [class.disabled]="isActiveRoute('/projects')"
-                                          [attr.aria-disabled]="isActiveRoute('/projects') ? 'true' : null">
-                                          Projects
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a (click)="!isActiveRoute('/gallery') && navigateAndReload('/gallery')"
-                                          [class.disabled]="isActiveRoute('/gallery')"
-                                          [attr.aria-disabled]="isActiveRoute('/gallery') ? 'true' : null">
-                                          Gallery
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a (click)="!isActiveRoute('/about') && navigateAndReload('/about')"
-                                          [class.disabled]="isActiveRoute('/about')"
-                                          [attr.aria-disabled]="isActiveRoute('/about') ? 'true' : null">
-                                          About
-                                      </a>
-                                  </li>
-                              </ul>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="w-full md:w-1/2 px-4 md:order-3">
-                      <h6 class="font-medium">Our Socials</h6>
-                      <div class="contact-info">
-                          <a href="https://www.instagram.com/uwlcoders/" target="_blank"><svg app-instagram-icon fill="#ddd" class="icon size-4"></svg></a>
-                          <a href="https://discord.gg/UGupy2CVVq" target="_blank"><svg app-discord-icon fill="#ddd" class="icon size-4"></svg></a>
-                          <a href="https://github.com/UWL-CODERS" target="_blank"><svg app-github-icon fill="#ddd" class="icon size-4"></svg></a>
-                          <br>
-                          <svg app-alternate-email-icon fill="#ddd" class="icon size-4"></svg>Contact us on <a href="https://uwlmyorgs.campuslabs.com/engage/organization/coders/contact" target="_blank">MyOrgs</a>
-                      </div>
-                  </div>
-              </div>
+          <div class="w-full md:w-1/2 px-4 md:order-1">
+            <h6 class="font-medium">About Us</h6>
+            <p>
+              CODERS is committed to enriching the La Crosse community by volunteering, teaching
+              fundamental Computer Science skills, supporting student development and career
+              readiness, and fostering diversity and inclusion in technology.
+            </p>
           </div>
+        </div>
       </div>
+      <div class="w-full md:w-1/2 px-10">
+        <div class="flex flex-wrap -mx-4 md:gap-0 gap-10">
+          <div class="w-full md:w-1/2 px-4 order-2 md:order-3">
+            <h6 class="font-medium">Pages</h6>
+            <div class="flex flex-wrap -mx-4">
+              <div class="w-full md:w-1/2 px-4">
+                <ul class="flex gap-1 flex-col">
+                  <li>
+                    <a
+                      (click)="!isActiveRoute('/') && navigateAndReload('/')"
+                      [class.disabled]="isActiveRoute('/')"
+                      [attr.aria-disabled]="isActiveRoute('/') ? 'true' : null"
+                    >
+                      Home
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      (click)="!isActiveRoute('/opportunities') && navigateAndReload('/opportunities')"
+                      [class.disabled]="isActiveRoute('/opportunities')"
+                      [attr.aria-disabled]="isActiveRoute('/opportunities') ? 'true' : null"
+                    >
+                      Opportunities
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      (click)="!isActiveRoute('/projects') && navigateAndReload('/projects')"
+                      [class.disabled]="isActiveRoute('/projects')"
+                      [attr.aria-disabled]="isActiveRoute('/projects') ? 'true' : null"
+                    >
+                      Projects
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      (click)="!isActiveRoute('/gallery') && navigateAndReload('/gallery')"
+                      [class.disabled]="isActiveRoute('/gallery')"
+                      [attr.aria-disabled]="isActiveRoute('/gallery') ? 'true' : null"
+                    >
+                      Gallery
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      (click)="!isActiveRoute('/about') && navigateAndReload('/about')"
+                      [class.disabled]="isActiveRoute('/about')"
+                      [attr.aria-disabled]="isActiveRoute('/about') ? 'true' : null"
+                    >
+                      About
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="w-full md:w-1/2 px-4 md:order-3">
+            <h6 class="font-medium">Our Socials</h6>
+            <div class="contact-info">
+              <a href="https://www.instagram.com/uwlcoders/" target="_blank"
+                ><svg app-instagram-icon fill="#ddd" class="icon size-4"></svg
+              ></a>
+              <a href="https://discord.gg/UGupy2CVVq" target="_blank"
+                ><svg app-discord-icon fill="#ddd" class="icon size-4"></svg
+              ></a>
+              <a href="https://github.com/UWL-CODERS" target="_blank"
+                ><svg app-github-icon fill="#ddd" class="icon size-4"></svg
+              ></a>
+              <br />
+              <svg app-alternate-email-icon fill="#ddd" class="icon size-4"></svg>Contact us on
+              <a
+                href="https://uwlmyorgs.campuslabs.com/engage/organization/coders/contact"
+                target="_blank"
+                >MyOrgs</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="w-full justify-center text-center mt-4 copyright-section">
-      <p>&copy; 2025 CODERS Club. All rights reserved.</p>
+    <p>&copy; 2025 CODERS Club. All rights reserved.</p>
   </div>
 </section>

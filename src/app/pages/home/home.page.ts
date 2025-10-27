@@ -73,7 +73,7 @@ interface Chairperson {
   templateUrl: './home.page.html',
   styleUrl: './home.page.scss',
 })
-export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+export class HomePage implements OnInit, AfterViewInit, OnDestroy {
   private seoService = inject(SeoService);
 
   readonly bannerSlider = viewChild.required<ElementRef<HTMLElement>>('bannerSlider');

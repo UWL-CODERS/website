@@ -11,5 +11,4 @@ import {HeaderComponent} from '../header/header.component';
     <app-footer />`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class LayoutComponent {}

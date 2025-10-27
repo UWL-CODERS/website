@@ -27,7 +27,7 @@ interface Album {
   styleUrl: './gallery.page.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GalleryComponent implements OnInit {
+export class GalleryPage implements OnInit {
   private seoService = inject(SeoService);
 
   selectedImage: GalleryImage | null = null;

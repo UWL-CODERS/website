@@ -7,25 +7,25 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        loadComponent: () => import('./pages/home/home.page').then((m) => m.HomeComponent),
+        loadComponent: () => import('./pages/home/home.page').then((m) => m.HomePage),
       },
       {
         path: 'opportunities',
         loadComponent: () =>
-          import('./pages/opportunities/opportunities.page').then((m) => m.OpportunitiesComponent),
+          import('./pages/opportunities/opportunities.page').then((m) => m.OpportunitiesPage),
       },
       {
         path: 'projects',
-        loadComponent: () =>
-          import('./pages/projects/projects.page').then((m) => m.ProjectsComponent),
+        loadComponent: () => import('./pages/projects/projects.page').then((m) => m.ProjectsPage),
       },
       {
         path: 'gallery',
-        loadComponent: () => import('./pages/gallery/gallery.page').then((m) => m.GalleryComponent),
+        loadComponent: () => import('./pages/gallery/gallery.page').then((m) => m.GalleryPage),
       },
       {
         path: '**',
-        loadComponent: () => import('./pages/home/home.page').then((m) => m.HomeComponent),
+        redirectTo: '',
+        pathMatch: 'full',
       },
     ],
   },
