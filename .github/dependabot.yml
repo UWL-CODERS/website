@@ -6,25 +6,25 @@
 version: 2
 updates:
   # Keep npm dependencies up to date
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     groups:
       angular:
         applies-to: version-updates
         patterns:
-          - "@angular*"
+          - '@angular*'
         update-types:
-          - "minor"
-          - "patch"
+          - 'minor'
+          - 'patch'
       minor-and-patch:
         applies-to: security-updates
         patterns:
-          - "@angular*"
+          - '@angular*'
         update-types:
-          - "patch"
-          - "minor"
+          - 'patch'
+          - 'minor'
     ignore:
-      - dependency-name: "@angular*"
-        update-types: ["version-update:semver-major"]
+      - dependency-name: '@angular*'
+        update-types: ['version-update:semver-major']

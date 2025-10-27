@@ -18,6 +18,7 @@ If you are not in one of these groups but have found a bug or have a suggestion,
 Ready to get the code running? Here's what you'll need:
 
 ### Prerequisites
+
 - [Git](https://git-scm.com/)
 - [Node.js](https://nodejs.org/) (v20.19.0 or newer)
 - [Angular CLI](https://angular.dev/installation)
@@ -32,19 +33,26 @@ We have two primary workflows for contributing, depending on your role. Please c
 This workflow is for trusted club members who have been granted collaborator access to the repository.
 
 1. Clone the main repository directly to your local machine:
+
 ```
 git clone https://github.com/UWL-CODERS/website.git
 cd website
 ```
+
 2. Create your new branch before making any changes. Please follow our [branching conventions](#branching):
+
 ```
 git checkout -b feature/your-feature-name
 ```
+
 3. Install the dependencies:
+
 ```
 npm install
 ```
+
 4. Run the development server:
+
 ```
 ng serve
 ```
@@ -55,15 +63,20 @@ If you are not a direct collaborator on the repository, please use the standard 
 
 1. Fork the repository on GitHub.
 2. Clone your fork to your local machine, replacing `YOUR_USERNAME` with your GitHub username:
+
 ```
 git clone https://github.com/YOUR_USERNAME/website.git
 cd website
 ```
+
 3. Install the dependencies:
+
 ```
 npm install
 ```
+
 4. Run the development server:
+
 ```
 ng serve
 ```
@@ -75,6 +88,7 @@ The development server will be running at `http://localhost:4200/`.
 We follow a structured workflow to keep the codebase clean and maintainable.
 
 ### Branching
+
 All work should be done on a separate branch. Please use the following naming convention:
 
 - **Features**: `feature/short-description` (e.g., `feature/add-event-sponsors`)
@@ -93,9 +107,11 @@ To keep our project organized, we group files based on what they do. When you're
 - `src/app/models/`: Contains the TypeScript "blueprints" for our data. For example, `project.model.ts` defines what information a "Project" object must have.
 
 ### Styling with Tailwind CSS
+
 All styling in this project is done using [Tailwind CSS](https://tailwindcss.com/). Please use Tailwind's utility classes directly in the HTML templates. Try to avoid writing custom CSS in `.scss` files unless it's for a complex, non-utility-based style.
 
 ### Our Custom Icon System
+
 We use a custom, in-house SVG icon system built on Angular's attribute selectors. This allows us to use icons easily while maintaining a clean DOM.
 
 #### To create a new icon:
@@ -109,22 +125,27 @@ The easiest way to create a new icon is to use an existing one as a template.
 5.  Finally, don't forget to add your new component to the `index.ts` barrel file in the same folder so it can be easily imported elsewhere.
 
 #### To use an icon:
+
 ```
 <svg app-icon-name fill="currentColor" class="size-6 text-gray-600 hover:text-blue-600"></svg>
 ```
 
 ### Code Quality
+
 We use ESLint and Prettier to maintain a consistent code style.
 
 > [!NOTE]
 > In the near future, these will be set up to run automatically before you commit using Husky pre-commit hooks. You won't need to do anything extra—just commit your code, and it will be formatted for you!
 
 ## Submitting a Pull Request
+
 1. Commit your changes with a clear and descriptive commit message.
 2. Push your branch to your fork:
+
 ```
 git push origin feature/your-feature-name
 ```
+
 3. Open a Pull Request (PR) from your fork to the `main` branch of the `UWL-CODERS/website` repository.
 4. Fill out the PR, and optionally linking to the issue it resolves.
 5. Request a review from the team lead (@muhdfdeen) or other core contributors.
