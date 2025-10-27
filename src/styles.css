@@ -2,3 +2,226 @@
 @plugin 'daisyui' {
   themes: light --default;
 }
+
+/*
+ * Temporary compatibility layer for Bootstrap-like classes
+ * after its removal. This uses Tailwind CSS's @apply directive
+ * to map common Bootstrap class names to their Tailwind/DaisyUI equivalents.
+ *
+ * This approach minimizes custom CSS and leverages the existing utility
+ * framework, encouraging future refactoring of HTML to native Tailwind/DaisyUI classes.
+ * This file addresses immediate styling regressions on pages like 'opportunities' or 'gallery'.
+ */
+
+/* --- Layout --- */
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8; /* Responsive padding */
+}
+
+.row {
+  @apply flex flex-wrap -mx-3; /* Negative margin to offset column padding */
+}
+
+/* Base column styling for all sizes */
+.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6,
+.col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12,
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6,
+.col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12,
+.col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6,
+.col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12,
+.col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6,
+.col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12 {
+  @apply relative w-full px-3; /* Base column styling */
+}
+
+/* Small breakpoint (sm) */
+@media (min-width: 640px) {
+  .col-sm-1 { @apply sm:flex-none sm:w-1/12; }
+  .col-sm-2 { @apply sm:flex-none sm:w-2/12; }
+  .col-sm-3 { @apply sm:flex-none sm:w-3/12; }
+  .col-sm-4 { @apply sm:flex-none sm:w-4/12; }
+  .col-sm-5 { @apply sm:flex-none sm:w-5/12; }
+  .col-sm-6 { @apply sm:flex-none sm:w-6/12; }
+  .col-sm-7 { @apply sm:flex-none sm:w-7/12; }
+  .col-sm-8 { @apply sm:flex-none sm:w-8/12; }
+  .col-sm-9 { @apply sm:flex-none sm:w-9/12; }
+  .col-sm-10 { @apply sm:flex-none sm:w-10/12; }
+  .col-sm-11 { @apply sm:flex-none sm:w-11/12; }
+  .col-sm-12 { @apply sm:flex-none sm:w-full; }
+  .offset-sm-1 { @apply sm:ml-1/12; }
+  .offset-sm-2 { @apply sm:ml-2/12; }
+  .offset-sm-3 { @apply sm:ml-3/12; }
+  .offset-sm-4 { @apply sm:ml-4/12; }
+  .offset-sm-5 { @apply sm:ml-5/12; }
+  .offset-sm-6 { @apply sm:ml-6/12; }
+}
+
+/* Medium breakpoint (md) */
+@media (min-width: 768px) {
+  .col-md-1 { @apply md:flex-none md:w-1/12; }
+  .col-md-2 { @apply md:flex-none md:w-2/12; }
+  .col-md-3 { @apply md:flex-none md:w-3/12; }
+  .col-md-4 { @apply md:flex-none md:w-4/12; }
+  .col-md-5 { @apply md:flex-none md:w-5/12; }
+  .col-md-6 { @apply md:flex-none md:w-6/12; }
+  .col-md-7 { @apply md:flex-none md:w-7/12; }
+  .col-md-8 { @apply md:flex-none md:w-8/12; }
+  .col-md-9 { @apply md:flex-none md:w-9/12; }
+  .col-md-10 { @apply md:flex-none md:w-10/12; }
+  .col-md-11 { @apply md:flex-none md:w-11/12; }
+  .col-md-12 { @apply md:flex-none md:w-full; }
+  .offset-md-1 { @apply md:ml-1/12; }
+  .offset-md-2 { @apply md:ml-2/12; }
+  .offset-md-3 { @apply md:ml-3/12; }
+  .offset-md-4 { @apply md:ml-4/12; }
+  .offset-md-5 { @apply md:ml-5/12; }
+  .offset-md-6 { @apply md:ml-6/12; }
+}
+
+/* Large breakpoint (lg) */
+@media (min-width: 1024px) {
+  .col-lg-1 { @apply lg:flex-none lg:w-1/12; }
+  .col-lg-2 { @apply lg:flex-none lg:w-2/12; }
+  .col-lg-3 { @apply lg:flex-none lg:w-3/12; }
+  .col-lg-4 { @apply lg:flex-none lg:w-4/12; }
+  .col-lg-5 { @apply lg:flex-none lg:w-5/12; }
+  .col-lg-6 { @apply lg:flex-none lg:w-6/12; }
+  .col-lg-7 { @apply lg:flex-none lg:w-7/12; }
+  .col-lg-8 { @apply lg:flex-none lg:w-8/12; }
+  .col-lg-9 { @apply lg:flex-none lg:w-9/12; }
+  .col-lg-10 { @apply lg:flex-none lg:w-10/12; }
+  .col-lg-11 { @apply lg:flex-none lg:w-11/12; }
+  .col-lg-12 { @apply lg:flex-none lg:w-full; }
+  .offset-lg-1 { @apply lg:ml-1/12; }
+  .offset-lg-2 { @apply lg:ml-2/12; }
+  .offset-lg-3 { @apply lg:ml-3/12; }
+  .offset-lg-4 { @apply lg:ml-4/12; }
+  .offset-lg-5 { @apply lg:ml-5/12; }
+  .offset-lg-6 { @apply lg:ml-6/12; }
+}
+
+/* Extra large breakpoint (xl) */
+@media (min-width: 1280px) {
+  .col-xl-1 { @apply xl:flex-none xl:w-1/12; }
+  .col-xl-2 { @apply xl:flex-none xl:w-2/12; }
+  .col-xl-3 { @apply xl:flex-none xl:w-3/12; }
+  .col-xl-4 { @apply xl:flex-none xl:w-4/12; }
+  .col-xl-5 { @apply xl:flex-none xl:w-5/12; }
+  .col-xl-6 { @apply xl:flex-none xl:w-6/12; }
+  .col-xl-7 { @apply xl:flex-none xl:w-7/12; }
+  .col-xl-8 { @apply xl:flex-none xl:w-8/12; }
+  .col-xl-9 { @apply xl:flex-none xl:w-9/12; }
+  .col-xl-10 { @apply xl:flex-none xl:w-10/12; }
+  .col-xl-11 { @apply xl:flex-none xl:w-11/12; }
+  .col-xl-12 { @apply xl:flex-none xl:w-full; }
+  .offset-xl-1 { @apply xl:ml-1/12; }
+  .offset-xl-2 { @apply xl:ml-2/12; }
+  .offset-xl-3 { @apply xl:ml-3/12; }
+  .offset-xl-4 { @apply xl:ml-4/12; }
+  .offset-xl-5 { @apply xl:ml-5/12; }
+  .offset-xl-6 { @apply xl:ml-6/12; }
+}
+
+/* --- Typography --- */
+h1 { @apply text-4xl font-extrabold leading-tight mb-4; }
+h2 { @apply text-3xl font-bold leading-tight mb-3; }
+h3 { @apply text-2xl font-semibold leading-snug mb-2; }
+h4 { @apply text-xl font-semibold mb-2; }
+h5 { @apply text-lg font-medium mb-1; }
+h6 { @apply text-base font-medium mb-1; }
+
+.lead { @apply text-lg font-light leading-relaxed mb-4; }
+.text-muted { @apply text-gray-500; }
+.text-primary { @apply text-primary; } /* DaisyUI primary color */
+.text-secondary { @apply text-secondary; } /* DaisyUI secondary color */
+.text-success { @apply text-success; } /* DaisyUI success color */
+.text-danger { @apply text-error; } /* DaisyUI error color */
+.text-warning { @apply text-warning; } /* DaisyUI warning color */
+.text-info { @apply text-info; } /* DaisyUI info color */
+.text-dark { @apply text-neutral-content; }
+.text-light { @apply text-base-100; }
+.text-center { @apply text-center; }
+.text-left { @apply text-left; }
+.text-right { @apply text-right; }
+.font-weight-bold { @apply font-bold; }
+.font-weight-normal { @apply font-normal; }
+.font-weight-light { @apply font-light; }
+
+/* --- Buttons (Leveraging DaisyUI extensively) --- */
+/* Base button style - DaisyUI's .btn is comprehensive */
+.btn {
+  @apply btn;
+}
+
+/* Bootstrap button variants mapped to DaisyUI */
+.btn-primary { @apply btn-primary; }
+.btn-secondary { @apply btn-secondary; }
+.btn-success { @apply btn-success; }
+.btn-danger { @apply btn-error; } /* DaisyUI uses btn-error for danger */
+.btn-warning { @apply btn-warning; }
+.btn-info { @apply btn-info; }
+.btn-light { @apply btn-ghost text-neutral-content; } /* Closest DaisyUI equivalent */
+.btn-dark { @apply btn-neutral; }
+.btn-link { @apply btn-link; }
+
+/* Button sizes */
+.btn-lg { @apply btn-lg; }
+.btn-sm { @apply btn-sm; }
+.btn-block { @apply w-full; } /* Bootstrap's btn-block */
+
+/* Outline buttons */
+.btn-outline-primary { @apply btn-outline btn-primary; }
+.btn-outline-secondary { @apply btn-outline btn-secondary; }
+.btn-outline-success { @apply btn-outline btn-success; }
+.btn-outline-danger { @apply btn-outline btn-error; }
+.btn-outline-warning { @apply btn-outline btn-warning; }
+.btn-outline-info { @apply btn-outline btn-info; }
+.btn-outline-light { @apply btn-outline btn-ghost; }
+.btn-outline-dark { @apply btn-outline btn-neutral; }
+
+/* --- Cards (Leveraging DaisyUI) --- */
+.card {
+  @apply card bg-base-100 shadow-xl; /* DaisyUI base card style */
+}
+.card-header {
+  @apply card-title text-xl font-bold p-4 bg-base-200 rounded-t-xl; /* Mimic header look */
+}
+.card-body {
+  @apply card-body; /* DaisyUI card body */
+}
+.card-title {
+  @apply card-title; /* DaisyUI card title */
+}
+.card-text {
+  @apply text-base;
+}
+.card-footer {
+  @apply p-4 bg-base-200 rounded-b-xl border-t border-base-300; /* Mimic footer look */
+}
+.img-fluid {
+  @apply max-w-full h-auto; /* Bootstrap img-fluid */
+}
+
+/* --- Forms (Simplified) --- */
+.form-control {
+  @apply input input-bordered w-full; /* DaisyUI input style */
+}
+.form-group {
+  @apply mb-4; /* Spacing for form groups */
+}
+.input-group {
+  @apply relative flex flex-wrap items-stretch w-full;
+}
+
+/* Handle rounded corners for elements inside an input group */
+.input-group > *:not(:last-child) {
+  @apply rounded-r-none;
+}
+.input-group > *:not(:first-child) {
+  @apply rounded-l-none;
+}
+
+/* Prevent double borders when elements are stacked */
+.input-group > *:not(:first-child) {
+  @apply -ml-px;
+}
