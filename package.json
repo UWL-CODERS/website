@@ -22,7 +22,7 @@
     "@angular/platform-server": "^20.3.9",
     "@angular/router": "^20.3.9",
     "@angular/ssr": "^20.3.8",
-    "@primeng/themes": "^20.2.0",
+    "@primeng/themes": "^20.3.0",
     "@tailwindcss/postcss": "^4.1.16",
     "daisyui": "^5.3.10",
     "express": "^5.1.0",
