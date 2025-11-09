@@ -24,7 +24,7 @@ interface Album {
 @Component({
   selector: 'app-pictures',
   templateUrl: './gallery.page.html',
-  styleUrl: './gallery.page.css',
+  styleUrls: ['./gallery.page.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GalleryPage implements OnInit {
