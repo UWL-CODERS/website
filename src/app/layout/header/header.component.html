@@ -1,82 +1,123 @@
-<div class="top-bar">
-  <div class="container">
-    <div class="social-links">
-      Follow us on
-      <a href="https://www.instagram.com/uwlcoders/" target="_blank" rel="noopener noreferrer">
-        <svg app-instagram-icon fill="currentColor" class="size-4 m-1"></svg>
-      </a>
-      <a href="https://discord.gg/UGupy2CVVq" target="_blank" rel="noopener noreferrer">
-        <svg app-discord-icon fill="currentColor" class="size-4 m-1"></svg>
-      </a>
-      <a href="https://github.com/UWL-CODERS" target="_blank" rel="noopener noreferrer">
-        <svg app-github-icon fill="currentColor" class="size-4 m-1"></svg>
-      </a>
-    </div>
-    <a
-      href="https://calendar.google.com/calendar/embed?src=61d2c536ecd3a2b20ec4b8693e7193b78600b2970188ec7d2e3d26f5412de18d%40group.calendar.google.com&ctz=America%2FChicago"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <div class="event-bar">
-        <div class="container">
-          Check Out Our Upcoming Events!<svg
-            app-open-in-new-icon
-            fill="currentColor"
-            class="size-5 m-1"
-          ></svg>
-        </div>
+<!-- Skip link for keyboard users -->
+<a href="#site-nav" class="sr-only focus:not-sr-only focus:absolute focus:z-[1000] focus:top-2 focus:left-2 focus:bg-base-100 focus:text-base-content focus:px-3 focus:py-2 focus:rounded-md focus:shadow">
+  Skip to navigation
+</a>
+
+<header class="w-full" role="banner">
+  <!-- Top bar -->
+  <div class="bg-[#1864ab] text-[#dddddd] text-sm">
+    <div class="max-w-screen-xl mx-auto px-4 py-2 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="hidden sm:inline">Follow us on</span>
+        <a href="https://www.instagram.com/uwlcoders/" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center p-2 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-offset-2 focus-visible:ring-white rounded cursor-pointer"
+           aria-label="Instagram">
+          <svg app-instagram-icon fill="currentColor" class="size-4"></svg>
+        </a>
+        <a href="https://discord.gg/UGupy2CVVq" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center p-2 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-offset-2 focus-visible:ring-white rounded cursor-pointer"
+           aria-label="Discord">
+          <svg app-discord-icon fill="currentColor" class="size-4"></svg>
+        </a>
+        <a href="https://github.com/UWL-CODERS" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center p-2 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-offset-2 focus-visible:ring-white rounded cursor-pointer"
+           aria-label="GitHub">
+          <svg app-github-icon fill="currentColor" class="size-4"></svg>
+        </a>
       </div>
-    </a>
-    <div class="contact-info">
-      <svg app-alternate-email-icon fill="currentColor" class="size-4 m-1"></svg>Contact us on
+
       <a
-        href="https://uwlmyorgs.campuslabs.com/engage/organization/coders/contact"
+        href="https://calendar.google.com/calendar/embed?src=61d2c536ecd3a2b20ec4b8693e7193b78600b2970188ec7d2e3d26f5412de18d%40group.calendar.google.com&ctz=America%2FChicago"
         target="_blank"
         rel="noopener noreferrer"
+        class="inline-block cursor-pointer"
       >
-        MyOrgs
+        <div
+          class="event-bar inline-block text-white font-extrabold text-base md:text-lg px-4 py-2 rounded-3xl shadow cursor-pointer transition-transform"
+        >
+          <div class="flex items-center justify-center gap-2">
+            <span>Check Out Our Upcoming Events!</span>
+            <svg app-open-in-new-icon fill="currentColor" class="size-5"></svg>
+          </div>
+        </div>
       </a>
+
+      <div class="flex items-center gap-2">
+        <svg app-alternate-email-icon fill="currentColor" class="size-4"></svg>
+        <span class="hidden sm:inline">Contact us on</span>
+        <a
+          href="https://uwlmyorgs.campuslabs.com/engage/organization/coders/contact"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline-offset-2 hover:underline focus:outline-none focus-visible:ring focus-visible:ring-offset-2 focus-visible:ring-white rounded px-1 cursor-pointer"
+        >
+          MyOrgs
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<div>
-  <section class="main-header">
-    <div class="container">
-      <div class="logo">
+  <!-- Main header -->
+  <section class="w-full shadow-sm">
+    <div class="max-w-screen-xl mx-auto px-4 py-3 flex items-center justify-between">
+      <!-- Logo -->
+      <div class="shrink-0">
         <a
           (click)="navigateAndReload('/')"
           (keydown.enter)="navigateAndReload('/')"
           tabindex="0"
           role="link"
+          class="inline-flex items-center cursor-pointer"
+          aria-label="Go to home"
         >
-          <img src="assets/images/logos/headerlogo.png" alt="CODERS Club logo" />
+          <img
+            src="assets/images/logos/headerlogo.png"
+            alt="CODERS Club logo"
+            class="h-12 w-auto transition-transform duration-300 hover:scale-105"
+            width="180"
+            height="60"
+            decoding="async"
+          />
         </a>
       </div>
+
+      <!-- Mobile toggle -->
       <button
-        class="mobile-menu-toggle"
+        class="mobile-menu-toggle inline-flex items-center justify-center p-2 lg:hidden rounded-md text-gray-700 hover:text-[#0983ff] hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-offset-2 focus-visible:ring-[#0983ff] cursor-pointer"
         (click)="toggleMenu()"
         (keydown.enter)="toggleMenu()"
         (keydown.space)="toggleMenu()"
+        (keydown.escape)="closeMenuWithEscape()"
+        [attr.aria-expanded]="isMenuOpen"
+        aria-haspopup="true"
+        [attr.aria-controls]="'site-nav'"
         aria-label="Toggle menu"
         type="button"
       >
         @if (!isMenuOpen) {
-          <svg app-menu-icon fill="currentColor" class="size-5"></svg>
+          <svg app-menu-icon fill="currentColor" class="size-6"></svg>
         }
         @if (isMenuOpen) {
-          <svg app-close-icon fill="currentColor" class="size-5"></svg>
+          <svg app-close-icon fill="currentColor" class="size-6"></svg>
         }
       </button>
-      <nav class="main-nav" [class.menu-open]="isMenuOpen" [class.menu-closing]="isMenuClosing">
-        <ul>
+
+      <!-- Desktop nav -->
+      <nav
+        id="site-nav"
+        class="main-nav hidden lg:block"
+        role="navigation"
+        aria-label="Main"
+      >
+        <ul class="flex items-center gap-6 list-none m-0 p-0">
           <li>
             <a
               (click)="!isActiveRoute('/') && navigateAndReload('/')"
               (keydown.enter)="!isActiveRoute('/') && navigateAndReload('/')"
               tabindex="0"
-              [class.disabled]="isActiveRoute('/')"
-              [attr.aria-disabled]="isActiveRoute('/') ? 'true' : null"
+              [class.opacity-50]="isActiveRoute('/')"
+              [attr.aria-current]="isActiveRoute('/') ? 'page' : null"
+              class="cursor-pointer text-gray-600 hover:text-gray-900 relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:scale-x-0 after:bg-[#0983ff] after:transition-transform hover:after:scale-x-100 px-1 py-2"
             >
               Home
             </a>
@@ -86,8 +127,9 @@
               (click)="!isActiveRoute('/opportunities') && navigateAndReload('/opportunities')"
               (keydown.enter)="!isActiveRoute('/opportunities') && navigateAndReload('/opportunities')"
               tabindex="0"
-              [class.disabled]="isActiveRoute('/opportunities')"
-              [attr.aria-disabled]="isActiveRoute('/opportunities') ? 'true' : null"
+              [class.opacity-50]="isActiveRoute('/opportunities')"
+              [attr.aria-current]="isActiveRoute('/opportunities') ? 'page' : null"
+              class="cursor-pointer text-gray-600 hover:text-gray-900 relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:scale-x-0 after:bg-[#0983ff] after:transition-transform hover:after:scale-x-100 px-1 py-2"
             >
               Opportunities
             </a>
@@ -97,8 +139,9 @@
               (click)="!isActiveRoute('/projects') && navigateAndReload('/projects')"
               (keydown.enter)="!isActiveRoute('/projects') && navigateAndReload('/projects')"
               tabindex="0"
-              [class.disabled]="isActiveRoute('/projects')"
-              [attr.aria-disabled]="isActiveRoute('/projects') ? 'true' : null"
+              [class.opacity-50]="isActiveRoute('/projects')"
+              [attr.aria-current]="isActiveRoute('/projects') ? 'page' : null"
+              class="cursor-pointer text-gray-600 hover:text-gray-900 relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:scale-x-0 after:bg-[#0983ff] after:transition-transform hover:after:scale-x-100 px-1 py-2"
             >
               Projects
             </a>
@@ -108,26 +151,40 @@
               (click)="!isActiveRoute('/gallery') && navigateAndReload('/gallery')"
               (keydown.enter)="!isActiveRoute('/gallery') && navigateAndReload('/gallery')"
               tabindex="0"
-              [class.disabled]="isActiveRoute('/gallery')"
-              [attr.aria-disabled]="isActiveRoute('/gallery') ? 'true' : null"
+              [class.opacity-50]="isActiveRoute('/gallery')"
+              [attr.aria-current]="isActiveRoute('/gallery') ? 'page' : null"
+              class="cursor-pointer text-gray-600 hover:text-gray-900 relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:scale-x-0 after:bg-[#0983ff] after:transition-transform hover:after:scale-x-100 px-1 py-2"
             >
               Gallery
             </a>
           </li>
-          <!-- Removed for now -->
-          <!-- <li>
-            <a
-              (click)="!isActiveRoute('/about') && navigateAndReload('/about')"
-              (keydown.enter)="!isActiveRoute('/about') && navigateAndReload('/about')"
-              tabindex="0"
-              [class.disabled]="isActiveRoute('/about')"
-              [attr.aria-disabled]="isActiveRoute('/about') ? 'true' : null"
-            >
-              About
-            </a>
-          </li> -->
         </ul>
       </nav>
     </div>
+
+    <!-- Mobile nav wrapper: grid-based collapsible -->
+    <div
+      class="mobile-shell lg:hidden grid transition-[grid-template-rows,opacity] duration-300 ease-out"
+      [class.pointer-events-none]="!isMenuOpen"
+      [style.gridTemplateRows]="isMenuOpen ? '1fr' : '0fr'"
+      [style.opacity]="isMenuOpen ? '1' : '0'"
+      aria-hidden="false"
+    >
+      <div class="overflow-hidden">
+        <nav
+          class="main-nav"
+          role="navigation"
+          aria-label="Mobile"
+          [attr.aria-hidden]="!isMenuOpen"
+        >
+          <ul class="mobile-nav-list m-0 p-4 border-t border-gray-200 bg-white space-y-2">
+            <li><a (click)="!isActiveRoute('/') && navigateAndReload('/')" (keydown.enter)="!isActiveRoute('/') && navigateAndReload('/')" tabindex="0" [class.opacity-50]="isActiveRoute('/')" [attr.aria-current]="isActiveRoute('/') ? 'page' : null" class="block text-gray-700 hover:bg-gray-50 rounded px-3 py-2 cursor-pointer">Home</a></li>
+            <li><a (click)="!isActiveRoute('/opportunities') && navigateAndReload('/opportunities')" (keydown.enter)="!isActiveRoute('/opportunities') && navigateAndReload('/opportunities')" tabindex="0" [class.opacity-50]="isActiveRoute('/opportunities')" [attr.aria-current]="isActiveRoute('/opportunities') ? 'page' : null" class="block text-gray-700 hover:bg-gray-50 rounded px-3 py-2 cursor-pointer">Opportunities</a></li>
+            <li><a (click)="!isActiveRoute('/projects') && navigateAndReload('/projects')" (keydown.enter)="!isActiveRoute('/projects') && navigateAndReload('/projects')" tabindex="0" [class.opacity-50]="isActiveRoute('/projects')" [attr.aria-current]="isActiveRoute('/projects') ? 'page' : null" class="block text-gray-700 hover:bg-gray-50 rounded px-3 py-2 cursor-pointer">Projects</a></li>
+            <li><a (click)="!isActiveRoute('/gallery') && navigateAndReload('/gallery')" (keydown.enter)="!isActiveRoute('/gallery') && navigateAndReload('/gallery')" tabindex="0" [class.opacity-50]="isActiveRoute('/gallery')" [attr.aria-current]="isActiveRoute('/gallery') ? 'page' : null" class="block text-gray-700 hover:bg-gray-50 rounded px-3 py-2 cursor-pointer">Gallery</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
   </section>
-</div>
+</header>
