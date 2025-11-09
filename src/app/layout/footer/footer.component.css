@@ -12,6 +12,9 @@
     text-align: center;
     gap: 40px;
   }
+  :host ::ng-deep a[aria-disabled="true"] { pointer-events: none; }
+  :host ::ng-deep a[aria-disabled="true"] { opacity: 0.6; }
+
 
   .footer-logo {
     border-right: none; /* Remove border for mobile */
