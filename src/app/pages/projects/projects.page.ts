@@ -1,14 +1,30 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
-import { CarouselComponent } from '../../shared/components/carousel/carousel.component';
-import { Project } from '../../models/project.model';
-import { SeoService } from '../../services/seo.service';
-import { PageMeta } from '../../models/meta.model';
+import {ChangeDetectionStrategy, Component, inject, OnInit} from '@angular/core';
+import {CarouselComponent} from '../../shared/components/carousel/carousel.component';
+import {Project} from '../../models/project.model';
+import {SeoService} from '../../services/seo.service';
+import {PageMeta} from '../../models/meta.model';
 
 @Component({
   selector: 'app-projects',
   imports: [CarouselComponent],
-  templateUrl: './projects.page.html',
-  styleUrl: './projects.page.css',
+  template: `
+  <section class="text-center m-8">
+    <h1 class="w-fit mx-auto mb-2 border-b-2 border-gray-300">Projects</h1>
+    <p class="mb-8">
+      Check out the projects our members have been working on. Contact an executive to showcase your
+      work!
+    </p>
+    <app-carousel [itemsInput]="projectData" cardClass="border rounded-xl p-8" />
+  </section>
+  <section class="text-center m-8">
+    <h1 class="w-fit mx-auto mb-2 border-b-2 border-gray-300">CS Lightning Talks</h1>
+    <p class="mb-8">
+      At the annual CS Lightning Talks, faculty give quick presentations on their research to inspire
+      student projects.
+    </p>
+    <app-carousel [itemsInput]="lightningTalksData" cardClass="border rounded-xl p-8" />
+  </section>
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectsPage implements OnInit {
@@ -55,8 +71,6 @@ export class ProjectsPage implements OnInit {
       button: 'View Project',
     },
   ];
-
-  // researchData: Project[] = [ ... ];
 
   lightningTalksData: Project[] = [
     {
