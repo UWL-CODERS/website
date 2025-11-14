@@ -14,7 +14,7 @@ import {PageMeta} from '../../models/meta.model';
       Check out the projects our members have been working on. Contact an executive to showcase your
       work!
     </p>
-    <app-carousel [itemsInput]="projectData" cardClass="border rounded-xl p-8" />
+    <app-carousel [itemsInput]="projectData" />
   </section>
   <section class="text-center m-8">
     <h1 class="w-fit mx-auto mb-2 border-b-2 border-gray-300">CS Lightning Talks</h1>
@@ -22,7 +22,7 @@ import {PageMeta} from '../../models/meta.model';
       At the annual CS Lightning Talks, faculty give quick presentations on their research to inspire
       student projects.
     </p>
-    <app-carousel [itemsInput]="lightningTalksData" cardClass="border rounded-xl p-8" />
+    <app-carousel [itemsInput]="lightningTalksData" />
   </section>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

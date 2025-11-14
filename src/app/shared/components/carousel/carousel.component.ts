@@ -26,9 +26,9 @@ interface CarouselItem {
     <div class="flex items-center gap-4">
       <!-- Prev -->
       <button type="button"
-        class="inline-flex items-center justify-center size-9 rounded-full bg-white border shadow hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-black/20"
+        class="cursor-pointer inline-flex items-center justify-center size-12 rounded-full bg-white border shadow hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-black/20"
         (click)="prev()" aria-label="Previous slide">
-        <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
         </svg>
       </button>
@@ -38,23 +38,21 @@ interface CarouselItem {
         <div class="flex transition-transform duration-500 ease-in-out"
              [style.transform]="'translateX(-' + (currentIndex() * 100) + '%)'">
           <div *ngFor="let item of items(); let i = index"
-               class="min-w-full px-2 sm:px-4"
+               class="min-w-full"
                [attr.aria-hidden]="currentIndex() !== i">
-            <div class="grid md:grid-cols-2 gap-6 items-center"
-                 [ngClass]="cardClass || 'bg-white border rounded-xl shadow p-6'">
-              <div class="aspect-video w-full overflow-hidden rounded-lg">
+            <div class="grid md:grid-cols-2 items-center rounded-xl border m-8">
+              <div class="aspect-auto overflow-hidden rounded-lg p-8">
                 <img *ngIf="item.imageUrl"
                      [ngSrc]="item.imageUrl!"
                      alt="{{ item.title }}"
-                     class="h-full w-full object-contain"
                      width="800" height="450" />
               </div>
-              <div class="flex flex-col gap-3">
+              <div class="flex flex-col gap-4 p-8">
                 <h2>{{ item.title }}</h2>
                 <p class="text-lg" *ngIf="item.description">{{ item.description }}</p>
-                <ul class="flex flex-wrap gap-4 mt-1 justify-center" *ngIf="item.tags?.length">
+                <ul class="flex flex-wrap gap-2 justify-center" *ngIf="item.tags?.length">
                   <li *ngFor="let t of item.tags"
-                      class="px-2 py-0.5 text-xs rounded-full bg-neutral-100 text-neutral-700 border">
+                      class="px-2 py-1 text-sm rounded-full bg-neutral-100 text-neutral-700 border">
                     {{ t }}
                   </li>
                 </ul>
@@ -62,7 +60,7 @@ interface CarouselItem {
                   <a *ngIf="item.externalUrl"
                      [href]="item.externalUrl"
                      target="_blank" rel="noopener noreferrer"
-                     class="inline-flex items-center gap-2 px-3 py-2 rounded-md bg-black text-white hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-black/30">
+                     class="inline-flex items-center gap-2 px-3 py-2 rounded-md bg-blue-700 text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-black/30">
                     <span>{{ item.button || 'Open' }}</span>
                     <!-- External link icon -->
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -80,35 +78,21 @@ interface CarouselItem {
 
       <!-- Next -->
       <button type="button"
-        class="inline-flex items-center justify-center size-9 rounded-full bg-white border shadow hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-black/20"
+        class="cursor-pointer inline-flex items-center justify-center size-12 rounded-full bg-white border shadow hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-black/20"
         (click)="next()" aria-label="Next slide">
-        <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
         </svg>
       </button>
     </div>
-
-    <!-- Dots -->
-    <div class="mt-4 flex items-center justify-center gap-2">
-      <button type="button"
-              *ngFor="let _ of items(); let i = index"
-              class="size-2.5 rounded-full transition-colors"
-              [ngClass]="currentIndex() === i ? 'bg-black' : 'bg-neutral-300 hover:bg-neutral-400'"
-              (click)="goTo(i)"
-              aria-label="Go to slide {{ i + 1 }}">
-      </button>
-    </div>
-  </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CarouselComponent {
-  // Preserve your signal-style API while removing PrimeNG
   readonly items = signal<CarouselItem[]>([]);
   @Input() set itemsInput(value: CarouselItem[]) {
     this.items.set(value ?? []);
   }
-  @Input() cardClass = '';
 
   private index = signal(0);
   currentIndex = computed(() => this.index());
