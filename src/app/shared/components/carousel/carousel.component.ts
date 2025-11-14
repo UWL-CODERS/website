@@ -38,7 +38,7 @@ interface CarouselItem {
         <div class="flex transition-transform duration-500 ease-in-out"
              [style.transform]="'translateX(-' + (currentIndex() * 100) + '%)'">
           <div *ngFor="let item of items(); let i = index"
-               class="min-w-full"
+               class="min-w-full text-center"
                [attr.aria-hidden]="currentIndex() !== i">
             <div class="grid md:grid-cols-2 items-center rounded-xl border m-8">
               <div class="aspect-auto overflow-hidden rounded-lg p-8">

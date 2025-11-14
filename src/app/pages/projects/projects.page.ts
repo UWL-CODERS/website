@@ -8,22 +8,20 @@ import {PageMeta} from '../../models/meta.model';
   selector: 'app-projects',
   imports: [CarouselComponent],
   template: `
-  <section class="text-center m-8">
-    <h1 class="w-fit mx-auto mb-2 border-b-2 border-gray-300">Projects</h1>
-    <p class="mb-8">
+    <h1 class="text-center w-fit mx-auto mt-8 mb-2 border-b-2 border-gray-300">
+      Projects
+    </h1>
+    <p class="text-center">
       Check out the projects our members have been working on. Contact an executive to showcase your
       work!
     </p>
     <app-carousel [itemsInput]="projectData" />
-  </section>
-  <section class="text-center m-8">
-    <h1 class="w-fit mx-auto mb-2 border-b-2 border-gray-300">CS Lightning Talks</h1>
-    <p class="mb-8">
+    <h1 class="text-center w-fit mx-auto mt-8 mb-2 border-b-2 border-gray-300">CS Lightning Talks</h1>
+    <p class="text-center">
       At the annual CS Lightning Talks, faculty give quick presentations on their research to inspire
       student projects.
     </p>
     <app-carousel [itemsInput]="lightningTalksData" />
-  </section>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
