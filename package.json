@@ -23,7 +23,7 @@
     "@angular/router": "^20.3.12",
     "@angular/ssr": "^20.3.10",
     "@tailwindcss/postcss": "^4.1.17",
-    "daisyui": "^5.3.10",
+    "daisyui": "^5.5.5",
     "express": "^5.1.0",
     "gsap": "^3.13.0",
     "postcss": "^8.5.6",
@@ -36,13 +36,13 @@
     "@angular/cli": "^20.3.10",
     "@angular/compiler-cli": "^20.3.12",
     "@types/express": "^5.0.5",
-    "@types/node": "^24.10.0",
+    "@types/node": "^24.10.1",
     "angular-eslint": "20.6.0",
     "eslint": "^9.39.1",
-    "jsdom": "^27.0.1",
+    "jsdom": "^27.2.0",
     "prettier": "3.6.2",
     "typescript": "^5.9.2",
     "typescript-eslint": "8.46.2",
-    "vitest": "^4.0.8"
+    "vitest": "^4.0.10"
   }
 }
