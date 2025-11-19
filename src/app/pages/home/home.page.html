@@ -50,9 +50,9 @@
   </div>
 
   <!-- Controls (banner only). TS will populate .banner-dot here -->
-  <div class="pointer-events-none absolute inset-x-0 bottom-6 flex items-center justify-between px-4 sm:px-6 lg:px-8">
+  <div class="pointer-events-none absolute inset-0">
     <button
-      class="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-md ring-1 ring-white/25 hover:bg-sky-600/30 hover:ring-sky-400 transition"
+      class="pointer-events-auto absolute left-4 top-1/2 -translate-y-1/2 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-md ring-1 ring-white/25 hover:bg-sky-600/30 hover:ring-sky-400 transition"
       type="button"
       #prevSlideBtn
       (click)="prevSlide()"
@@ -60,9 +60,9 @@
     >
       <span class="text-xl">&lt;</span>
     </button>
-    <div class="pointer-events-auto flex items-center gap-2" #sliderDots></div>
+    <div class="pointer-events-auto absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2" #sliderDots></div>
     <button
-      class="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-md ring-1 ring-white/25 hover:bg-sky-600/30 hover:ring-sky-400 transition"
+      class="pointer-events-auto absolute right-4 top-1/2 -translate-y-1/2 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-md ring-1 ring-white/25 hover:bg-sky-600/30 hover:ring-sky-400 transition"
       type="button"
       #nextSlideBtn
       (click)="nextSlide()"
