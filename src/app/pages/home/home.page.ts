@@ -7,6 +7,7 @@ import {
   inject,
   viewChild,
 } from '@angular/core';
+import { NgClass } from '@angular/common';
 import { LogoTransitionComponent } from '../../core/logo-transition/logo-transition.component';
 import { SeoService } from '../../services/seo.service';
 import { PageMeta } from '../../models/meta.model';
@@ -16,7 +17,18 @@ interface BannerSlide { image: string; title: string; description: string; }
 interface Feature { title: string; description: string; image: string; techStack: string[]; }
 interface Activity { title: string; description: string; image: string; technologies: string[]; }
 interface Event { title: string; time: string; timeRange: string; timeRange2?: string; location?: string; image: string; tags: string[]; }
-interface TeamMember { name: string; image: string; major: string; linkedin?: string; github?: string; }
+
+type HighlightColor = 'sky' | 'indigo' | 'fuchsia' | 'emerald' | 'rose' | 'amber';
+interface HighlightPoint { text: string; color?: HighlightColor; }
+
+interface TeamMember {
+  name: string;
+  image: string;
+  major: string;
+  linkedin?: string;
+  github?: string;
+  highlights?: HighlightPoint[];
+}
 interface FacultyAdvisor { name: string; image: string; }
 interface ExecMember { name: string; image: string; role: string; }
 interface Chairperson { name: string; image: string; role: string; }
@@ -24,7 +36,14 @@ interface Chairperson { name: string; image: string; role: string; }
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [LogoTransitionComponent, GithubIconComponent, LinkedinIconComponent],
+  imports: [
+    // Needed so [ngClass] works in the template
+    NgClass,
+    // Existing components
+    LogoTransitionComponent,
+    GithubIconComponent,
+    LinkedinIconComponent,
+  ],
   templateUrl: './home.page.html',
   styleUrl: './home.page.css',
 })
@@ -75,29 +94,113 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
   ];
 
   teamMembers: TeamMember[] = [
-    { name: 'Brendan Lambrecht', image: 'assets/images/people/brendan_lambrecht.jpeg', major: "Major: Computer Science Master of Software Engineering | Class of 27'", linkedin: 'https://www.linkedin.com/in/brendanlambrecht/', github: 'https://github.com/BlambrechtCodes' },
-    { name: 'Jack Kern', image: 'assets/images/people/jack_kern.jpg', major: "Major: Computer Science Master of Software Engineering | Class of 26'", linkedin: 'https://www.linkedin.com/in/jack-kern-b9b501333/', github: 'https://github.com/KernJack' },
-    { name: 'Zach Ydunate', image: 'assets/images/people/zach_ydunate.jpg', major: "Major: Computer Science | Class of 28'", linkedin: 'https://www.linkedin.com/in/zachary-ydunate/', github: 'https://github.com/zydunate' },
-    { name: 'Muhammad Fardeen', image: 'https://media.licdn.com/dms/image/v2/D4D03AQG3tlbwKzghRg/profile-displayphoto-shrink_400_400/B4DZVQZak0G8Ag-/0/1740810595075?e=1761782400&v=beta&t=QQHIkNn7uyBbi0JHVniFB0fFp9i9KJ0EUY_N3o9WtD8', major: "Major: Computer Science | Class of 26'", linkedin: 'https://www.linkedin.com/in/muhdfdeen/', github: 'https://github.com/muhdfdeen' },
-    { name: 'Bishal Karki', image: 'assets/images/people/IMG_7025.JPG', major: "Major: Computer Science: Master of Software Engineering | Class of 25'", linkedin: 'https://www.linkedin.com/in/bishalkarki655/', github: 'https://github.com/bishalkarki01' },
-    { name: 'Andree Lin', image: 'assets/images/people/Andree.jpeg', major: "Major: Computer Science | Class of 25'", linkedin: 'https://www.linkedin.com/in/andree-lin-56196a284/', github: 'https://github.com/andreelinyx' },
-    { name: 'Leroy Ombogo', image: 'assets/images/people/Leroy.jpeg', major: "Major: Computer Science | Class of 27'", linkedin: 'https://www.linkedin.com/in/leroy-o-13b724247/', github: 'https://github.com/Leroy-collab' },
-  ];
-
-  facultyAdvisors: FacultyAdvisor[] = [
-    { name: 'Samantha Foley', image: 'https://www.uwlax.edu/User/photo/sfoley.jpg' },
-    { name: 'Allison Sauppé', image: 'https://www.uwlax.edu/User/photo/asauppe.jpg' },
-  ];
-
-  execTeam: ExecMember[] = [
-    { name: 'Brendan Lambrecht', image: 'assets/images/people/brendan_lambrecht.jpeg', role: 'President' },
-    { name: 'Jack Kern', image: 'assets/images/people/jack_kern.jpg', role: 'Vice President' },
-    { name: 'Mason Wagner', image: 'assets/images/people/mason_wagner.jpg', role: 'Secretary' },
-    { name: 'Andree Lin', image: 'assets/images/people/Andree.jpeg', role: 'Social Media Coordinator' },
-  ];
-
-  chairpersons: Chairperson[] = [
-    { name: 'Muhammad Fardeen', image: 'https://media.licdn.com/dms/image/v2/D4D03AQG3tlbwKzghRg/profile-displayphoto-shrink_400_400/B4DZVQZak0G8Ag-/0/1740810595075?e=1761782400&v=beta&t=QQHIkNn7uyBbi0JHVniFB0fFp9i9KJ0EUY_N3o9WtD8', role: 'Website Development Chair' },
+    {
+      name: 'Brendan Lambrecht',
+      image: 'assets/images/people/brendan_lambrecht.jpeg',
+      major: "Major: Computer Science Master of Software Engineering | Class of 27'",
+      linkedin: 'https://www.linkedin.com/in/brendanlambrecht/',
+      github: 'https://github.com/BlambrechtCodes',
+      highlights: [
+        { text: 'President of CODERS (2024-Current)', color: 'sky' },
+        { text: 'Built a phishing-detection ML system in Collaboration with the UW System.', color: 'indigo' },
+        { text: 'Mentored Members on Git, Angular, and Internship best Practices and Advice.', color: 'fuchsia' },
+      ],
+    },
+    {
+      name: 'Jack Kern',
+      image: 'assets/images/people/jack_kern.jpg',
+      major: "Major: Computer Science Master of Software Engineering | Class of 26'",
+      linkedin: 'https://www.linkedin.com/in/jack-kern-b9b501333/',
+      github: 'https://github.com/KernJack',
+      highlights: [
+        { text: 'Vice President of CODERS (2024-Current)', color: 'emerald' },
+        { text: 'Served as a Leader During Boys and Girls Club Volunteering Events.', color: 'indigo' },
+        { text: 'Co-led Cookies With CODERS community events.', color: 'amber' },
+      ],
+    },
+    {
+      name: 'Zach Ydunate',
+      image: 'assets/images/people/zach_ydunate.jpg',
+      major: "Major: Computer Science | Class of 28'",
+      linkedin: 'https://www.linkedin.com/in/zachary-ydunate/',
+      github: 'https://github.com/zydunate',
+      highlights: [
+        { text: 'Built the Home and Gallery Pages of the Website', color: 'sky' },
+        { text: 'Helped form Ideas for Website Redesign.', color: 'rose' },
+        { text: 'Contributed Advice at the 2025 CODERS Internship Panel.', color: 'sky' },
+      ],
+    },
+    {
+      name: 'Muhammad Fardeen',
+      image: 'https://media.licdn.com/dms/image/v2/D4D03AQG3tlbwKzghRg/profile-displayphoto-shrink_400_400/B4DZVQZak0G8Ag-/0/1740810595075?e=1761782400&v=beta&t=QQHIkNn7uyBbi0JHVniFB0fFp9i9KJ0EUY_N3o9WtD8',
+      major: "Major: Computer Science | Class of 26'",
+      linkedin: 'https://www.linkedin.com/in/muhdfdeen/',
+      github: 'https://github.com/muhdfdeen',
+      highlights: [
+        { text: 'Website Development Chair (2024-Current).', color: 'indigo' },
+        { text: 'Built Contributor Tooling and PR Templates.', color: 'emerald' },
+        { text: 'Reviewed and Approved Pull Requests.', color: 'sky' },
+        
+      ],
+    },
+    {
+      name: 'Bishal Karki',
+      image: 'assets/images/people/IMG_7025.JPG',
+      major: "Major: Computer Science: Master of Software Engineering | Class of 25'",
+      linkedin: 'https://www.linkedin.com/in/bishalkarki655/',
+      github: 'https://github.com/bishalkarki01',
+      highlights: [
+        { text: 'Contrubuted to Home Page and Header/Footer Development.', color: 'sky' },
+        { text: 'Helped form Ideas for Website Redesign.', color: 'rose' },
+        { text: 'Amazing at Pair Programming.', color: 'emerald' },
+      ],
+    },
+    {
+      name: 'Andree Lin',
+      image: 'assets/images/people/Andree.jpeg',
+      major: "Major: Computer Science | Class of 25'",
+      linkedin: 'https://www.linkedin.com/in/andree-lin-56196a284/',
+      github: 'https://github.com/andreelinyx',
+      highlights: [
+        { text: 'Social media coordinator (2024-Current).', color: 'fuchsia' },
+        { text: 'Launched event promomotions and social media posts.', color: 'sky' },
+        { text: 'Designed graphics for social media and events.', color: 'rose' },
+      ],
+    },
+    {
+      name: 'Leroy Ombogo',
+      image: 'assets/images/people/Leroy.jpeg',
+      major: "Major: Computer Science | Class of 27'",
+      linkedin: 'https://www.linkedin.com/in/leroy-o-13b724247/',
+      github: 'https://github.com/Leroy-collab',
+      highlights: [
+        { text: 'Is THAT Guy.', color: 'emerald' },
+        { text: 'Contributed to UI/UX polishing and testing.', color: 'indigo' },
+        { text: 'Has a great sense of humor.', color: 'emerald' },
+      ],
+    },
+        {
+      name: 'Dr. Samantha Foley',
+      image: 'https://www.uwlax.edu/User/photo/sfoley.jpg',
+      major: 'Faculty Advisor — CODERS',
+      linkedin: 'https://www.linkedin.com/in/samantha-foley-47aab4a/',
+      highlights: [
+        { text: 'Guides CODERS strategy and academic alignment.', color: 'indigo' },
+        { text: 'Actively promotes CODERS Events Throughout the CS & CPE Department.', color: 'emerald' },
+        { text: 'Super Helpful to Plan and Coordinate Department-Wide Events!!!', color: 'sky' },
+      ],
+    },
+    {
+      name: 'Dr. Allison Sauppé',
+      image: 'https://www.uwlax.edu/User/photo/asauppe.jpg',
+      major: 'Faculty Advisor — CODERS',
+      linkedin: 'https://www.linkedin.com/in/allisonsauppe/',
+      highlights: [
+        { text: 'Actively Promotes CODERS Events Throughout the CS & CPE Department.', color: 'amber' },
+        { text: 'Encourages Student Excellence in Teaching and Volunteerism.', color: 'rose' },
+        { text: 'Buys Cookies for Our \'Cookies With CODERS\' Events!!!', color: 'fuchsia' },
+      ],
+    },
   ];
 
   ngOnInit(): void {

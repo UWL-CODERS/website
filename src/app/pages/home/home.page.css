@@ -8,9 +8,7 @@
   will-change: opacity, transform, clip-path, filter;
 }
 
-.banner-slide.active {
-  opacity: 1;
-}
+.banner-slide.active { opacity: 1; }
 
 .banner-slide.active img {
   transform: scale(1.08) translate3d(0, 0, 0);
@@ -56,30 +54,16 @@
   pointer-events: none;
 }
 
-.banner-slide.active::after {
-  opacity: .8;
-}
+.banner-slide.active::after { opacity: .8; }
 
 @keyframes revealRadial {
-  from {
-    -webkit-mask-size: 0% 0%;
-            mask-size: 0% 0%;
-  }
-  to {
-    -webkit-mask-size: 140% 140%;
-            mask-size: 140% 140%;
-  }
+  from { -webkit-mask-size: 0% 0%; mask-size: 0% 0%; }
+  to { -webkit-mask-size: 140% 140%; mask-size: 140% 140%; }
 }
 
 @keyframes revealDiagonal {
-  from {
-    -webkit-mask-position: 0% 0%;
-            mask-position: 0% 0%;
-  }
-  to {
-    -webkit-mask-position: 100% 100%;
-            mask-position: 100% 100%;
-  }
+  from { -webkit-mask-position: 0% 0%; mask-position: 0% 0%; }
+  to { -webkit-mask-position: 100% 100%; mask-position: 100% 100%; }
 }
 
 /* Banner slide base state: hidden */
@@ -105,6 +89,4 @@
   border: 1px solid rgba(255,255,255,0.9);
   cursor: pointer;
 }
-.banner-dot.active {
-  background: white;
-}
+.banner-dot.active { background: white; }
