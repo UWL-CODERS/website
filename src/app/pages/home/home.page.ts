@@ -96,7 +96,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
   teamMembers: TeamMember[] = [
     {
       name: 'Brendan Lambrecht',
-      image: 'assets/images/people/brendan_lambrecht.jpeg',
+      image: 'assets/images/people/brendan-lambrecht.jpeg',
       major: "Major: Computer Science Master of Software Engineering | Class of 27'",
       linkedin: 'https://www.linkedin.com/in/brendanlambrecht/',
       github: 'https://github.com/BlambrechtCodes',
@@ -108,7 +108,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       name: 'Jack Kern',
-      image: 'assets/images/people/jack_kern.jpg',
+      image: 'assets/images/people/jack-kern.jpg',
       major: "Major: Computer Science Master of Software Engineering | Class of 26'",
       linkedin: 'https://www.linkedin.com/in/jack-kern-b9b501333/',
       github: 'https://github.com/KernJack',
@@ -120,7 +120,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       name: 'Zach Ydunate',
-      image: 'assets/images/people/zach_ydunate.jpg',
+      image: 'assets/images/people/zach-ydunate.jpg',
       major: "Major: Computer Science | Class of 28'",
       linkedin: 'https://www.linkedin.com/in/zachary-ydunate/',
       github: 'https://github.com/zydunate',
@@ -132,7 +132,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       name: 'Muhammad Fardeen',
-      image: 'https://media.licdn.com/dms/image/v2/D4D03AQG3tlbwKzghRg/profile-displayphoto-shrink_400_400/B4DZVQZak0G8Ag-/0/1740810595075?e=1761782400&v=beta&t=QQHIkNn7uyBbi0JHVniFB0fFp9i9KJ0EUY_N3o9WtD8',
+      image: 'assets/images/people/muhammad-fardeen.jpg',
       major: "Major: Computer Science | Class of 26'",
       linkedin: 'https://www.linkedin.com/in/muhdfdeen/',
       github: 'https://github.com/muhdfdeen',
@@ -145,19 +145,19 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       name: 'Bishal Karki',
-      image: 'assets/images/people/IMG_7025.JPG',
+      image: 'assets/images/people/bishal-karki.jpg',
       major: "Major: Computer Science: Master of Software Engineering | Class of 25'",
       linkedin: 'https://www.linkedin.com/in/bishalkarki655/',
       github: 'https://github.com/bishalkarki01',
       highlights: [
-        { text: 'Contrubuted to Home Page and Header/Footer Development.', color: 'sky' },
+        { text: 'Contributed to Home Page and Header/Footer Development.', color: 'sky' },
         { text: 'Helped form Ideas for Website Redesign.', color: 'rose' },
         { text: 'Amazing at Pair Programming.', color: 'emerald' },
       ],
     },
     {
       name: 'Andree Lin',
-      image: 'assets/images/people/Andree.jpeg',
+      image: 'assets/images/people/andree-lin.jpeg',
       major: "Major: Computer Science | Class of 25'",
       linkedin: 'https://www.linkedin.com/in/andree-lin-56196a284/',
       github: 'https://github.com/andreelinyx',
@@ -169,7 +169,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       name: 'Leroy Ombogo',
-      image: 'assets/images/people/Leroy.jpeg',
+      image: 'assets/images/people/leroy-ombogo.jpeg',
       major: "Major: Computer Science | Class of 27'",
       linkedin: 'https://www.linkedin.com/in/leroy-o-13b724247/',
       github: 'https://github.com/Leroy-collab',
