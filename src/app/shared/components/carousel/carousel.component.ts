@@ -6,7 +6,7 @@ import {
   computed,
   HostListener,
 } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
+import {NgOptimizedImage} from '@angular/common';
 import {RouterModule} from '@angular/router';
 
 interface CarouselItem {

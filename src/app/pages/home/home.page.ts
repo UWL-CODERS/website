@@ -7,19 +7,44 @@ import {
   inject,
   viewChild,
 } from '@angular/core';
-import { NgClass } from '@angular/common';
-import { LogoTransitionComponent } from '../../core/logo-transition/logo-transition.component';
-import { SeoService } from '../../services/seo.service';
-import { PageMeta } from '../../models/meta.model';
-import { GithubIconComponent, LinkedinIconComponent } from '../../shared/icons';
+import {NgClass} from '@angular/common';
+import {LogoTransitionComponent} from '../../core/logo-transition/logo-transition.component';
+import {SeoService} from '../../services/seo.service';
+import {PageMeta} from '../../models/meta.model';
+import {GithubIconComponent, LinkedinIconComponent} from '../../shared/icons';
 
-interface BannerSlide { image: string; title: string; description: string; }
-interface Feature { title: string; description: string; image: string; techStack: string[]; }
-interface Activity { title: string; description: string; image: string; technologies: string[]; }
-interface Event { title: string; time: string; timeRange: string; timeRange2?: string; location?: string; image: string; tags: string[]; }
+interface BannerSlide {
+  image: string;
+  title: string;
+  description: string;
+}
+interface Feature {
+  title: string;
+  description: string;
+  image: string;
+  techStack: string[];
+}
+interface Activity {
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+}
+interface Event {
+  title: string;
+  time: string;
+  timeRange: string;
+  timeRange2?: string;
+  location?: string;
+  image: string;
+  tags: string[];
+}
 
 type HighlightColor = 'sky' | 'indigo' | 'fuchsia' | 'emerald' | 'rose' | 'amber';
-interface HighlightPoint { text: string; color?: HighlightColor; }
+interface HighlightPoint {
+  text: string;
+  color?: HighlightColor;
+}
 
 interface TeamMember {
   name: string;
@@ -29,9 +54,20 @@ interface TeamMember {
   github?: string;
   highlights?: HighlightPoint[];
 }
-interface FacultyAdvisor { name: string; image: string; }
-interface ExecMember { name: string; image: string; role: string; }
-interface Chairperson { name: string; image: string; role: string; }
+interface FacultyAdvisor {
+  name: string;
+  image: string;
+}
+interface ExecMember {
+  name: string;
+  image: string;
+  role: string;
+}
+interface Chairperson {
+  name: string;
+  image: string;
+  role: string;
+}
 
 @Component({
   selector: 'app-home',
@@ -69,28 +105,99 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
   private teamAnimating = false;
 
   bannerSlides: BannerSlide[] = [
-    { image: 'assets/images/other/coding.jpeg', title: '< CODERS />', description: 'Where Innovation Meets Community' },
-    { image: 'assets/images/trick-or-treat/2024/IMG_6144_Long.png', title: 'Code. Create. Connect.', description: 'Join Our Community at UW-La Crosse' },
-    { image: 'assets/images/cookies-with-coders/IMG_7009.png', title: 'Learn and Grow', description: 'Weekly Coding Sessions with Free Cookies!' },
-    { image: 'assets/images/kids-college/IMG_6887.png', title: 'Help Us Build the Future', description: 'Work On Real Projects That Impact Our Community' },
+    {
+      image: 'assets/images/other/coding.jpeg',
+      title: '< CODERS />',
+      description: 'Where Innovation Meets Community',
+    },
+    {
+      image: 'assets/images/trick-or-treat/2024/IMG_6144_Long.png',
+      title: 'Code. Create. Connect.',
+      description: 'Join Our Community at UW-La Crosse',
+    },
+    {
+      image: 'assets/images/cookies-with-coders/IMG_7009.png',
+      title: 'Learn and Grow',
+      description: 'Weekly Coding Sessions with Free Cookies!',
+    },
+    {
+      image: 'assets/images/kids-college/IMG_6887.png',
+      title: 'Help Us Build the Future',
+      description: 'Work On Real Projects That Impact Our Community',
+    },
   ];
 
   features: Feature[] = [
-    { title: 'Coding Workshops', description: 'Volunteer and On-Campus hands-on coding sessions covering a variety of topics', image: 'assets/images/kids-college/IMG_6923.png', techStack: ['Python','Java','Code.org','Scratch','Git','Terminal'] },
-    { title: 'CODERS Projects', description: 'Build real-world applications and contribute to open-source team projects that impact our community', image: 'assets/images/logos/logo.png', techStack: ['Typescript','SCSS','Javascript','HTML','Angular','GitHub'] },
-    { title: 'Tech Community', description: 'Connect with fellow developers and industry professionals for advice and mentorship', image: 'assets/images/intern-panels/2024/IMG_7995.jpg', techStack: ['Networking','College Readiness','Internship Advice','Career Growth'] },
+    {
+      title: 'Coding Workshops',
+      description: 'Volunteer and On-Campus hands-on coding sessions covering a variety of topics',
+      image: 'assets/images/kids-college/IMG_6923.png',
+      techStack: ['Python', 'Java', 'Code.org', 'Scratch', 'Git', 'Terminal'],
+    },
+    {
+      title: 'CODERS Projects',
+      description:
+        'Build real-world applications and contribute to open-source team projects that impact our community',
+      image: 'assets/images/logos/logo.png',
+      techStack: ['Typescript', 'SCSS', 'Javascript', 'HTML', 'Angular', 'GitHub'],
+    },
+    {
+      title: 'Tech Community',
+      description:
+        'Connect with fellow developers and industry professionals for advice and mentorship',
+      image: 'assets/images/intern-panels/2024/IMG_7995.jpg',
+      techStack: ['Networking', 'College Readiness', 'Internship Advice', 'Career Growth'],
+    },
   ];
 
   activities: Activity[] = [
-    { title: 'Teaching Computer Science', description: 'Share your knowledge by teaching basic coding conecpts to students and community members.', image: 'assets/images/other/Codeorg.png', technologies: ['Scratch','Code.org','Python','Presenting New Concepts'] },
-    { title: 'Local Volunteering', description: 'Volunteer for good causes to teach Computer Science and Coding Concepts to the next generation of innovators.', image: 'assets/images/boys-and-girls/IMG_6759.png', technologies: ['Volunteer','Coding','Fun','Teaching','Presenting'] },
-    { title: 'Cookies With CODERS', description: 'Chill and relax with fellow CODERS members while enjoying free cookies!', image: 'assets/images/cookies-with-coders/Cookievar.JPG', technologies: ['Chill','Coding','Cookies','Tasty','Friendship'] },
+    {
+      title: 'Teaching Computer Science',
+      description:
+        'Share your knowledge by teaching basic coding conecpts to students and community members.',
+      image: 'assets/images/other/Codeorg.png',
+      technologies: ['Scratch', 'Code.org', 'Python', 'Presenting New Concepts'],
+    },
+    {
+      title: 'Local Volunteering',
+      description:
+        'Volunteer for good causes to teach Computer Science and Coding Concepts to the next generation of innovators.',
+      image: 'assets/images/boys-and-girls/IMG_6759.png',
+      technologies: ['Volunteer', 'Coding', 'Fun', 'Teaching', 'Presenting'],
+    },
+    {
+      title: 'Cookies With CODERS',
+      description: 'Chill and relax with fellow CODERS members while enjoying free cookies!',
+      image: 'assets/images/cookies-with-coders/Cookievar.JPG',
+      technologies: ['Chill', 'Coding', 'Cookies', 'Tasty', 'Friendship'],
+    },
   ];
 
   events: Event[] = [
-    { title: 'DevLab Sessions', time: 'Every Tuesday!', timeRange: '4:30 PM - 5:00 PM', location: 'WING 016', image: 'assets/images/logos/logo.png', tags: ['Python','Scratch','Teaching','Networking','New Concepts'] },
-    { title: 'Cookies With CODERS', time: 'Every Tuesday', timeRange: '3:30 PM - 5:30 PM', location: 'WING 016', image: 'assets/images/other/cookiemain.png', tags: ['Coding','Cookies','Community'] },
-    { title: "Boys' and Girls' Club Volunteering", time: 'Happening Throughout The Year!', timeRange: 'September - May', location: 'La Crosse County', image: 'assets/images/logos/BGCNAL-Official-Symbol.png', tags: ['Conceptual','Games','Code.org'] },
+    {
+      title: 'DevLab Sessions',
+      time: 'Every Tuesday!',
+      timeRange: '4:30 PM - 5:00 PM',
+      location: 'WING 016',
+      image: 'assets/images/logos/logo.png',
+      tags: ['Python', 'Scratch', 'Teaching', 'Networking', 'New Concepts'],
+    },
+    {
+      title: 'Cookies With CODERS',
+      time: 'Every Tuesday',
+      timeRange: '3:30 PM - 5:30 PM',
+      location: 'WING 016',
+      image: 'assets/images/other/cookiemain.png',
+      tags: ['Coding', 'Cookies', 'Community'],
+    },
+    {
+      title: "Boys' and Girls' Club Volunteering",
+      time: 'Happening Throughout The Year!',
+      timeRange: 'September - May',
+      location: 'La Crosse County',
+      image: 'assets/images/logos/BGCNAL-Official-Symbol.png',
+      tags: ['Conceptual', 'Games', 'Code.org'],
+    },
   ];
 
   teamMembers: TeamMember[] = [
@@ -101,9 +208,15 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
       linkedin: 'https://www.linkedin.com/in/brendanlambrecht/',
       github: 'https://github.com/BlambrechtCodes',
       highlights: [
-        { text: 'President of CODERS (2024-Current)', color: 'sky' },
-        { text: 'Built a phishing-detection ML system in Collaboration with the UW System.', color: 'indigo' },
-        { text: 'Mentored Members on Git, Angular, and Internship best Practices and Advice.', color: 'fuchsia' },
+        {text: 'President of CODERS (2024-Current)', color: 'sky'},
+        {
+          text: 'Built a phishing-detection ML system in Collaboration with the UW System.',
+          color: 'indigo',
+        },
+        {
+          text: 'Mentored Members on Git, Angular, and Internship best Practices and Advice.',
+          color: 'fuchsia',
+        },
       ],
     },
     {
@@ -113,9 +226,12 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
       linkedin: 'https://www.linkedin.com/in/jack-kern-b9b501333/',
       github: 'https://github.com/KernJack',
       highlights: [
-        { text: 'Vice President of CODERS (2024-Current)', color: 'emerald' },
-        { text: 'Served as a Leader During Boys and Girls Club Volunteering Events.', color: 'indigo' },
-        { text: 'Co-led Cookies With CODERS community events.', color: 'amber' },
+        {text: 'Vice President of CODERS (2024-Current)', color: 'emerald'},
+        {
+          text: 'Served as a Leader During Boys and Girls Club Volunteering Events.',
+          color: 'indigo',
+        },
+        {text: 'Co-led Cookies With CODERS community events.', color: 'amber'},
       ],
     },
     {
@@ -125,9 +241,9 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
       linkedin: 'https://www.linkedin.com/in/zachary-ydunate/',
       github: 'https://github.com/zydunate',
       highlights: [
-        { text: 'Built the Home and Gallery Pages of the Website', color: 'sky' },
-        { text: 'Helped form Ideas for Website Redesign.', color: 'rose' },
-        { text: 'Contributed Advice at the 2025 CODERS Internship Panel.', color: 'sky' },
+        {text: 'Built the Home and Gallery Pages of the Website', color: 'sky'},
+        {text: 'Helped form Ideas for Website Redesign.', color: 'rose'},
+        {text: 'Contributed Advice at the 2025 CODERS Internship Panel.', color: 'sky'},
       ],
     },
     {
@@ -137,10 +253,9 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
       linkedin: 'https://www.linkedin.com/in/muhdfdeen/',
       github: 'https://github.com/muhdfdeen',
       highlights: [
-        { text: 'Website Development Chair (2024-Current).', color: 'indigo' },
-        { text: 'Built Contributor Tooling and PR Templates.', color: 'emerald' },
-        { text: 'Reviewed and Approved Pull Requests.', color: 'sky' },
-        
+        {text: 'Website Development Chair (2024-Current).', color: 'indigo'},
+        {text: 'Built Contributor Tooling and PR Templates.', color: 'emerald'},
+        {text: 'Reviewed and Approved Pull Requests.', color: 'sky'},
       ],
     },
     {
@@ -150,9 +265,9 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
       linkedin: 'https://www.linkedin.com/in/bishalkarki655/',
       github: 'https://github.com/bishalkarki01',
       highlights: [
-        { text: 'Contributed to Home Page and Header/Footer Development.', color: 'sky' },
-        { text: 'Helped form Ideas for Website Redesign.', color: 'rose' },
-        { text: 'Amazing at Pair Programming.', color: 'emerald' },
+        {text: 'Contributed to Home Page and Header/Footer Development.', color: 'sky'},
+        {text: 'Helped form Ideas for Website Redesign.', color: 'rose'},
+        {text: 'Amazing at Pair Programming.', color: 'emerald'},
       ],
     },
     {
@@ -162,9 +277,9 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
       linkedin: 'https://www.linkedin.com/in/andree-lin-56196a284/',
       github: 'https://github.com/andreelinyx',
       highlights: [
-        { text: 'Social media coordinator (2024-Current).', color: 'fuchsia' },
-        { text: 'Launched event promomotions and social media posts.', color: 'sky' },
-        { text: 'Designed graphics for social media and events.', color: 'rose' },
+        {text: 'Social media coordinator (2024-Current).', color: 'fuchsia'},
+        {text: 'Launched event promomotions and social media posts.', color: 'sky'},
+        {text: 'Designed graphics for social media and events.', color: 'rose'},
       ],
     },
     {
@@ -174,20 +289,23 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
       linkedin: 'https://www.linkedin.com/in/leroy-o-13b724247/',
       github: 'https://github.com/Leroy-collab',
       highlights: [
-        { text: 'Is THAT Guy.', color: 'emerald' },
-        { text: 'Contributed to UI/UX polishing and testing.', color: 'indigo' },
-        { text: 'Has a great sense of humor.', color: 'emerald' },
+        {text: 'Is THAT Guy.', color: 'emerald'},
+        {text: 'Contributed to UI/UX polishing and testing.', color: 'indigo'},
+        {text: 'Has a great sense of humor.', color: 'emerald'},
       ],
     },
-        {
+    {
       name: 'Dr. Samantha Foley',
       image: 'https://www.uwlax.edu/User/photo/sfoley.jpg',
       major: 'Faculty Advisor — CODERS',
       linkedin: 'https://www.linkedin.com/in/samantha-foley-47aab4a/',
       highlights: [
-        { text: 'Guides CODERS strategy and academic alignment.', color: 'indigo' },
-        { text: 'Actively promotes CODERS Events Throughout the CS & CPE Department.', color: 'emerald' },
-        { text: 'Super Helpful to Plan and Coordinate Department-Wide Events!!!', color: 'sky' },
+        {text: 'Guides CODERS strategy and academic alignment.', color: 'indigo'},
+        {
+          text: 'Actively promotes CODERS Events Throughout the CS & CPE Department.',
+          color: 'emerald',
+        },
+        {text: 'Super Helpful to Plan and Coordinate Department-Wide Events!!!', color: 'sky'},
       ],
     },
     {
@@ -196,15 +314,22 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
       major: 'Faculty Advisor — CODERS',
       linkedin: 'https://www.linkedin.com/in/allisonsauppe/',
       highlights: [
-        { text: 'Actively Promotes CODERS Events Throughout the CS & CPE Department.', color: 'amber' },
-        { text: 'Encourages Student Excellence in Teaching and Volunteerism.', color: 'rose' },
-        { text: 'Buys Cookies for Our \'Cookies With CODERS\' Events!!!', color: 'fuchsia' },
+        {
+          text: 'Actively Promotes CODERS Events Throughout the CS & CPE Department.',
+          color: 'amber',
+        },
+        {text: 'Encourages Student Excellence in Teaching and Volunteerism.', color: 'rose'},
+        {text: "Buys Cookies for Our 'Cookies With CODERS' Events!!!", color: 'fuchsia'},
       ],
     },
   ];
 
   ngOnInit(): void {
-    const pageMeta: Partial<PageMeta> = { title: 'Home', description: undefined, keywords: undefined };
+    const pageMeta: Partial<PageMeta> = {
+      title: 'Home',
+      description: undefined,
+      keywords: undefined,
+    };
     this.seoService.setPageMeta(pageMeta);
   }
 
@@ -234,7 +359,8 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     slides.forEach((s, i) => {
       s.style.position = 'absolute';
       s.style.inset = '0';
-      if (i === 0) s.classList.add('active'); else s.classList.remove('active');
+      if (i === 0) s.classList.add('active');
+      else s.classList.remove('active');
     });
 
     this.createBannerDots(this.bannerSlides.length, sliderDots.nativeElement);
@@ -264,14 +390,16 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
   private syncBannerDots(): void {
     const dots = this.sliderDots().nativeElement.querySelectorAll('.banner-dot');
     dots.forEach((dot: Element, index: number) => {
-      if (index === this.currentSlide) dot.classList.add('active'); else dot.classList.remove('active');
+      if (index === this.currentSlide) dot.classList.add('active');
+      else dot.classList.remove('active');
     });
   }
 
   private applyBannerActive(): void {
     const slides = this.bannerSlider().nativeElement.querySelectorAll<HTMLElement>('.banner-slide');
     slides.forEach((slide, index) => {
-      if (index === this.currentSlide) slide.classList.add('active'); else slide.classList.remove('active');
+      if (index === this.currentSlide) slide.classList.add('active');
+      else slide.classList.remove('active');
     });
   }
 
@@ -281,7 +409,8 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     this.syncBannerDots();
   }
   prevSlide(): void {
-    this.currentSlide = (this.currentSlide - 1 + this.bannerSlides.length) % this.bannerSlides.length;
+    this.currentSlide =
+      (this.currentSlide - 1 + this.bannerSlides.length) % this.bannerSlides.length;
     this.applyBannerActive();
     this.syncBannerDots();
   }
@@ -296,7 +425,10 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     this.slideInterval = setInterval(() => this.nextSlide(), 5000);
   }
   private pauseAutoSlide(): void {
-    if (this.slideInterval) { clearInterval(this.slideInterval); this.slideInterval = undefined; }
+    if (this.slideInterval) {
+      clearInterval(this.slideInterval);
+      this.slideInterval = undefined;
+    }
   }
 
   // ===== Team slider (layout + namespaced dots) =====
@@ -327,7 +459,9 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     const slider = teamSlider.nativeElement;
     const dotsContainer = dotsRef.nativeElement;
 
-    slider.addEventListener('transitionend', () => { this.teamAnimating = false; });
+    slider.addEventListener('transitionend', () => {
+      this.teamAnimating = false;
+    });
 
     this.createTeamDots(this.teamMembers.length, dotsContainer);
     this.updateTeamSlider();
@@ -359,7 +493,8 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     const dots = this.teamSliderDots().nativeElement.querySelectorAll('.team-dot');
     slider.style.transform = `translateX(-${this.currentTeamSlide * 100}%)`;
     dots.forEach((dot: Element, index: number) => {
-      if (index === this.currentTeamSlide) dot.classList.add('active'); else dot.classList.remove('active');
+      if (index === this.currentTeamSlide) dot.classList.add('active');
+      else dot.classList.remove('active');
     });
   }
 
@@ -377,7 +512,8 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
   prevTeamSlide(): void {
     if (this.teamAnimating) return;
     this.teamAnimating = true;
-    this.currentTeamSlide = (this.currentTeamSlide - 1 + this.teamMembers.length) % this.teamMembers.length;
+    this.currentTeamSlide =
+      (this.currentTeamSlide - 1 + this.teamMembers.length) % this.teamMembers.length;
     this.updateTeamSlider();
   }
   goToTeamSlide(index: number): void {
@@ -392,17 +528,22 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     this.teamSlideInterval = setInterval(() => this.nextTeamSlide(), 5000);
   }
   private pauseTeamAutoSlide(): void {
-    if (this.teamSlideInterval) { clearInterval(this.teamSlideInterval); this.teamSlideInterval = undefined; }
+    if (this.teamSlideInterval) {
+      clearInterval(this.teamSlideInterval);
+      this.teamSlideInterval = undefined;
+    }
   }
 
   onPrevTeamClick = (evt?: MouseEvent | PointerEvent): void => {
-    evt?.preventDefault?.(); evt?.stopPropagation?.();
+    evt?.preventDefault?.();
+    evt?.stopPropagation?.();
     this.pauseTeamAutoSlide();
     this.prevTeamSlide();
     this.startTeamAutoSlide();
   };
   onNextTeamClick = (evt?: MouseEvent | PointerEvent): void => {
-    evt?.preventDefault?.(); evt?.stopPropagation?.();
+    evt?.preventDefault?.();
+    evt?.stopPropagation?.();
     this.pauseTeamAutoSlide();
     this.nextTeamSlide();
     this.startTeamAutoSlide();

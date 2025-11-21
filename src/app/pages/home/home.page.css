@@ -8,7 +8,9 @@
   will-change: opacity, transform, clip-path, filter;
 }
 
-.banner-slide.active { opacity: 1; }
+.banner-slide.active {
+  opacity: 1;
+}
 
 .banner-slide.active img {
   transform: scale(1.08) translate3d(0, 0, 0);
@@ -19,7 +21,9 @@
 .banner-slide:not(.active) img {
   transform: scale(1) translate3d(0, 0, 0);
   filter: blur(1px) saturate(0.95);
-  transition: transform 700ms ease, filter 700ms ease;
+  transition:
+    transform 700ms ease,
+    filter 700ms ease;
 }
 
 .banner-slide.revealing {
@@ -43,41 +47,59 @@
 }
 
 .banner-slide::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(120% 120% at 80% 20%, rgba(56, 189, 248, .18), transparent 60%),
-    radial-gradient(120% 120% at 20% 80%, rgba(99, 102, 241, .18), transparent 60%);
+    radial-gradient(120% 120% at 80% 20%, rgba(56, 189, 248, 0.18), transparent 60%),
+    radial-gradient(120% 120% at 20% 80%, rgba(99, 102, 241, 0.18), transparent 60%);
   opacity: 0;
   transition: opacity 700ms ease;
   pointer-events: none;
 }
 
-.banner-slide.active::after { opacity: .8; }
+.banner-slide.active::after {
+  opacity: 0.8;
+}
 
 @keyframes revealRadial {
-  from { -webkit-mask-size: 0% 0%; mask-size: 0% 0%; }
-  to { -webkit-mask-size: 140% 140%; mask-size: 140% 140%; }
+  from {
+    -webkit-mask-size: 0% 0%;
+    mask-size: 0% 0%;
+  }
+  to {
+    -webkit-mask-size: 140% 140%;
+    mask-size: 140% 140%;
+  }
 }
 
 @keyframes revealDiagonal {
-  from { -webkit-mask-position: 0% 0%; mask-position: 0% 0%; }
-  to { -webkit-mask-position: 100% 100%; mask-position: 100% 100%; }
+  from {
+    -webkit-mask-position: 0% 0%;
+    mask-position: 0% 0%;
+  }
+  to {
+    -webkit-mask-position: 100% 100%;
+    mask-position: 100% 100%;
+  }
 }
 
 /* Banner slide base state: hidden */
 .banner-slide {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 700ms ease-out, visibility 0ms linear 700ms;
+  transition:
+    opacity 700ms ease-out,
+    visibility 0ms linear 700ms;
 }
 
 /* Active slide: visible */
 .banner-slide.active {
   opacity: 1;
   visibility: visible;
-  transition: opacity 700ms ease-out, visibility 0ms;
+  transition:
+    opacity 700ms ease-out,
+    visibility 0ms;
 }
 
 /* Optional: style dots */
@@ -85,8 +107,10 @@
   width: 10px;
   height: 10px;
   border-radius: 9999px;
-  background: rgba(255,255,255,0.5);
-  border: 1px solid rgba(255,255,255,0.9);
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.9);
   cursor: pointer;
 }
-.banner-dot.active { background: white; }
+.banner-dot.active {
+  background: white;
+}
