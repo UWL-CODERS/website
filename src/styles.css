@@ -2,3 +2,18 @@
 @plugin 'daisyui' {
   themes: light --default;
 }
+
+@layer base {
+  h1 {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+  }
+  h2 {
+    font-size: var(--text-3xl);
+    font-weight: 600;
+  }
+  h3 {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+  }
+}
