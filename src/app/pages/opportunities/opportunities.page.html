@@ -1,6 +1,6 @@
 <body>
   <div class="shadow-line"></div>
-  <div class="header">
+  <div class="header" role="region" aria-label="Opportunities Intro">
     <h1>Shape Your Future with CODERS</h1>
     <p>
       Explore our community outreach initiatives, campus events, and volunteer opportunities. From
@@ -9,24 +9,24 @@
     </p>
   </div>
 
-  <section id="categories">
+  <section id="categories" role="region" aria-label="Club Collaborations">
     <h2>Joining Forces: Our Club Collaborations</h2>
     <div class="container">
-      <div #carouselContainer class="card-carousel">
-        <div class="card" id="carousel1-card1">
-          <div class="image-container"></div>
+      <div #carouselContainer class="card-carousel" role="group" aria-roledescription="carousel" aria-label="Collaborations carousel">
+        <div class="card" id="carousel1-card1" tabindex="0" aria-label="Boy's and Girls Club card">
+          <div class="image-container" aria-hidden="true"></div>
           <p>Boy's and Girls Club</p>
           <h6>Active Volunteering to Showcase and Teach Computer Science to K-12 Students</h6>
         </div>
 
-        <div class="card" id="carousel1-card2">
-          <div class="image-container"></div>
+        <div class="card" id="carousel1-card2" tabindex="0" aria-label="IEEE - UWL Chapter card">
+          <div class="image-container" aria-hidden="true"></div>
           <p>IEEE - UWL Chapter</p>
           <h6>Collaborating on Fun Events, Academic Research, and Promoting STEM Initiatives</h6>
         </div>
 
-        <div class="card" id="carousel1-card4">
-          <div class="image-container"></div>
+        <div class="card" id="carousel1-card4" tabindex="0" aria-label="Di-STEM card">
+          <div class="image-container" aria-hidden="true"></div>
           <p>Di-STEM</p>
           <h6>
             Supporting Inclusive STEM Support, Providing Valuable Resources, and Hosting Monthly
@@ -35,14 +35,14 @@
           </h6>
         </div>
 
-        <div class="card" id="carousel1-card5">
-          <div class="image-container"></div>
+        <div class="card" id="carousel1-card5" tabindex="0" aria-label="Real Estate Club card">
+          <div class="image-container" aria-hidden="true"></div>
           <p>Real Estate Club</p>
           <h6>Showcasing and Promoting the Future of Real Estate Operations</h6>
         </div>
 
-        <div class="card" id="carousel1-card3">
-          <div class="image-container"></div>
+        <div class="card" id="carousel1-card3" tabindex="0" aria-label="Black Student Unity card">
+          <div class="image-container" aria-hidden="true"></div>
           <p>Black Student Unity</p>
           <h6>
             Aiming to foster unity and multicultural awareness among students while supporting their
@@ -50,31 +50,28 @@
           </h6>
         </div>
       </div>
-      <a
-        href="javascript:void(0)"
-        class="visuallyhidden card-controller"
-        aria-label="Carousel controller"
-        >Carousel controller</a
-      >
+      <a href="javascript:void(0)" class="visuallyhidden card-controller" aria-label="Carousel controller. Use left and right arrow keys to move slides.">
+        Carousel controller
+      </a>
     </div>
 
     <h2 style="text-align: center;">Looking Back, Moving Forward: Past Events and Opportunities</h2>
     <div class="container">
-      <div #carouselContainer class="card-carousel">
-        <div class="card" id="carousel2-card1">
-          <div class="image-container"></div>
+      <div #carouselContainer class="card-carousel" role="group" aria-roledescription="carousel" aria-label="Past events carousel">
+        <div class="card" id="carousel2-card1" tabindex="0" aria-label="Kids' College card">
+          <div class="image-container" aria-hidden="true"></div>
           <p>Kids' College</p>
           <h6>Teaching 6-8th Graders Computer Science Concepts for Career Inspiration</h6>
         </div>
 
-        <div class="card" id="carousel2-card2">
-          <div class="image-container"></div>
+        <div class="card" id="carousel2-card2" tabindex="0" aria-label="Enchanted Forest Trail card">
+          <div class="image-container" aria-hidden="true"></div>
           <p>Enchanted Forst Trick or Treat Trail</p>
           <h6>Handing Out Candy to Children of All Ages While Also Promoting CODERS Club!</h6>
         </div>
 
-        <div class="card" id="carousel2-card3">
-          <div class="image-container"></div>
+        <div class="card" id="carousel2-card3" tabindex="0" aria-label="CODERS X IEEE Banquet card">
+          <div class="image-container" aria-hidden="true"></div>
           <p>CODERS X IEEE Year-End Banquet</p>
           <h6>
             A Yearly Transition in the Making! <br />
@@ -82,31 +79,28 @@
           </h6>
         </div>
 
-        <div class="card" id="carousel2-card4">
-          <div class="image-container"></div>
+        <div class="card" id="carousel2-card4" tabindex="0" aria-label="Career Services card">
+          <div class="image-container" aria-hidden="true"></div>
           <p>Internship Support - Career Services</p>
           <h6>
             Working With UWL CSH Career Services to Find Internship Opportunities for CS Students
           </h6>
         </div>
 
-        <div class="card" id="carousel2-card5">
-          <div class="image-container"></div>
+        <div class="card" id="carousel2-card5" tabindex="0" aria-label="STEM Forum card">
+          <div class="image-container" aria-hidden="true"></div>
           <p>Science and Math Career Forum</p>
           <h6>Promoting CODERS and Showcasing the Awesome Field of STEM!</h6>
         </div>
       </div>
-      <a
-        href="javascript:void(0)"
-        class="visuallyhidden card-controller"
-        aria-label="Carousel controller"
-        >Carousel controller</a
-      >
+      <a href="javascript:void(0)" class="visuallyhidden card-controller" aria-label="Carousel controller. Use left and right arrow keys to move slides.">
+        Carousel controller
+      </a>
     </div>
   </section>
 
   <div class="stats-and-featured">
-    <div class="stats-container">
+    <div class="stats-container" role="region" aria-label="Club Statistics">
       <table class="stats-table">
         <thead>
           <tr>
@@ -143,20 +137,20 @@
       </table>
     </div>
 
-    <section id="featured">
+    <section id="featured" role="region" aria-label="Featured Event">
       <div class="featured-cards">
         <div class="featured-card stats-container">
           <div class="blue-header">
             <h3>Highlighted Event</h3>
             <div class="centered-title">
-              <h2>🍪COOKIES WITH CODERS🍪</h2>
+              <h2>COOKIES WITH <br> 🍪 CODERS 🍪</h2>
             </div>
           </div>
           <div class="card-content">
             <p>Our Main Event Right Here at UWL!</p>
             <p>Come hangout, relax, have some cookies, let loose, and get some work done!</p>
             <p><b>All are Welcome!</b></p>
-            <p>Happening Every Tuesday from 3:30 PM - 5:00 PM</p>
+            <p>Happening Every Tuesday from 3:30 PM - 5:30 PM</p>
             <a
               href="https://uwlmyorgs.campuslabs.com/engage/event/10479860"
               target="_blank"
@@ -169,7 +163,7 @@
     </section>
   </div>
 
-  <section id="resources">
+  <section id="resources" role="region" aria-label="Outreach Resources">
     <h2 class="section-title">Outreach Resources</h2>
     <div class="resource-grid">
       <a href="https://www.uwlax.edu" class="resource-item">
@@ -209,7 +203,7 @@
     </div>
   </section>
 
-  <section id="contact" class="contact-section">
+  <section id="contact" class="contact-section" role="region" aria-label="Get involved">
     <div class="contact-container">
       <h2 class="contact-title">Want to Be Involved?</h2>
       <p class="contact-description">

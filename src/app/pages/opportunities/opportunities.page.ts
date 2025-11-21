@@ -12,21 +12,8 @@ import {
 import {PageMeta} from '../../models/meta.model';
 import {SeoService} from '../../services/seo.service';
 
-// --- Interfaces (for better type definition) ---
-
-interface DragDistance {
-  x: number;
-  y: number;
-}
-
-interface CardUpdateData {
-  x?: number; // The logical position
-  scale?: number;
-  leftPos?: number; // Percentage
-  zIndex?: number;
-}
-
-// --- DraggingEvent Class (TypeScript) ---
+interface DragDistance { x: number; y: number; }
+interface CardUpdateData { x?: number; scale?: number; leftPos?: number; zIndex?: number; }
 
 class DraggingEvent {
   private target: HTMLElement;
@@ -41,9 +28,7 @@ class DraggingEvent {
   private touchStartListener: (e: TouchEvent) => void;
 
   constructor(target: HTMLElement) {
-    if (!target) {
-      throw new Error('DraggingEvent requires a target element.');
-    }
+    if (!target) throw new Error('DraggingEvent requires a target element.');
     this.target = target;
     this.mouseDownListener = () => void 0;
     this.touchStartListener = () => void 0;
@@ -73,11 +58,11 @@ class DraggingEvent {
       this.touchEndHandler = () => this.clearTouchEventListeners(handler);
       this.bodyMouseLeaveHandler = () => this.clearTouchEventListeners(handler);
 
-      window.addEventListener('touchmove', this.touchMoveHandler);
+      window.addEventListener('touchmove', this.touchMoveHandler, { passive: true });
       window.addEventListener('touchend', this.touchEndHandler);
       document.body.addEventListener('mouseleave', this.bodyMouseLeaveHandler);
     };
-    this.target.addEventListener('touchstart', this.touchStartListener);
+    this.target.addEventListener('touchstart', this.touchStartListener, { passive: true });
   }
 
   private clearMouseEventListeners(handler: (e: MouseEvent | TouchEvent | null) => void): void {
@@ -153,8 +138,6 @@ class DraggingEvent {
   }
 }
 
-// --- CardCarousel Class (TypeScript) ---
-
 class CardCarousel extends DraggingEvent {
   private container: HTMLElement;
   private controllerElement: HTMLElement | null;
@@ -162,7 +145,7 @@ class CardCarousel extends DraggingEvent {
 
   private centerIndex: number;
   private cardWidth = 30;
-  private xScale: Record<number, HTMLElement> = {}; // Maps logical index (e.g., -2, -1, 0, 1, 2) to card element
+  private xScale: Record<number, HTMLElement> = {};
 
   private resizeListener: () => void;
   private keydownListener: (e: KeyboardEvent) => void;
@@ -177,23 +160,21 @@ class CardCarousel extends DraggingEvent {
     if (this.cards.length === 0) {
       console.warn('CardCarousel: No card elements found.');
       this.centerIndex = 0;
-      this.resizeListener = () => void 0; // no-op function
-      this.keydownListener = () => void 0; // no-op function
+      this.resizeListener = () => void 0;
+      this.keydownListener = () => void 0;
       return;
     }
 
     this.centerIndex = (this.cards.length - 1) / 2;
 
-    // Defer initial width calculation slightly to help ensure layout is stable
+    // Wait for layout
     setTimeout(() => {
       if (this.container.offsetWidth > 0 && this.cards.length > 0) {
         this.cardWidth = (this.cards[0].offsetWidth / this.container.offsetWidth) * 100;
       } else {
-        console.warn(
-          'CardCarousel: Container width is zero or no cards after timeout. Width calculation failed.',
-        );
+        console.warn('CardCarousel: Container width is zero or no cards after timeout. Width calculation failed.');
       }
-      this.build(); // Build after width calculation
+      this.build();
     }, 0);
 
     this.resizeListener = this.updateCardWidth.bind(this);
@@ -203,10 +184,26 @@ class CardCarousel extends DraggingEvent {
     if (this.controllerElement) {
       this.controllerElement.setAttribute('tabindex', '0');
       this.controllerElement.addEventListener('keydown', this.keydownListener);
+      // Add role to hint keyboard usage
+      this.controllerElement.setAttribute('role', 'button');
+      this.controllerElement.setAttribute('aria-roledescription', 'carousel controller');
+      this.controllerElement.setAttribute('aria-label', 'Use left and right arrow keys to move slides');
     }
 
-    // Bind dragging event from parent class
+    // Drag interactions
     super.getDistance(this.moveCards.bind(this));
+
+    // Also allow arrow keys directly when focus is within container
+    this.container.setAttribute('tabindex', '0');
+    this.container.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        this.nudge(1);
+        e.preventDefault();
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        this.nudge(-1);
+        e.preventDefault();
+      }
+    });
   }
 
   private updateCardWidth(): void {
@@ -216,7 +213,7 @@ class CardCarousel extends DraggingEvent {
   }
 
   private build(): void {
-    this.xScale = {}; // Reset mapping
+    this.xScale = {};
     for (const [i, card] of Array.from(this.cards).entries()) {
       const x = i - this.centerIndex;
       const scale = this.calcScale(x);
@@ -225,22 +222,35 @@ class CardCarousel extends DraggingEvent {
       const leftPos = this.calcPos(x, scale2);
 
       this.xScale[x] = card;
-
-      this.updateCards(card, {
-        x,
-        scale,
-        leftPos,
-        zIndex,
-      });
+      this.updateCards(card, { x, scale, leftPos, zIndex });
     }
   }
 
-  // Method to handle keyboard controls
-  private controller(e: KeyboardEvent): void {
-    const temp: Record<number, HTMLElement> = {...this.xScale};
+  // Small step left/right
+  private nudge(dir: number): void {
+    const temp: Record<number, HTMLElement> = { ...this.xScale };
+    for (const xStr in this.xScale) {
+      const x = parseInt(xStr, 10);
+      const newX = x + dir;
+      const wrapped = newX > this.centerIndex ? -this.centerIndex : (newX < -this.centerIndex ? this.centerIndex : newX);
+      temp[wrapped] = this.xScale[x];
+    }
+    this.xScale = temp;
 
-    if (e.keyCode === 39) {
-      // Left arrow
+    for (const xStr in temp) {
+      const x = parseInt(xStr, 10);
+      const scale = this.calcScale(x);
+      const scale2 = this.calcScale2(x);
+      const leftPos = this.calcPos(x, scale2);
+      const zIndex = -Math.abs(x);
+      this.updateCards(this.xScale[x], { x, scale, leftPos, zIndex });
+    }
+  }
+
+  private controller(e: KeyboardEvent): void {
+    const temp: Record<number, HTMLElement> = { ...this.xScale };
+
+    if (e.keyCode === 39) { // Right
       for (const xStr in this.xScale) {
         const x = parseInt(xStr, 10);
         const newX = x - 1 < -this.centerIndex ? this.centerIndex : x - 1;
@@ -248,8 +258,7 @@ class CardCarousel extends DraggingEvent {
       }
     }
 
-    if (e.keyCode === 37) {
-      // Right arrow
+    if (e.keyCode === 37) { // Left
       for (const xStr in this.xScale) {
         const x = parseInt(xStr, 10);
         const newX = x + 1 > this.centerIndex ? -this.centerIndex : x + 1;
@@ -266,12 +275,7 @@ class CardCarousel extends DraggingEvent {
       const leftPos = this.calcPos(x, scale2);
       const zIndex = -Math.abs(x);
 
-      this.updateCards(this.xScale[x], {
-        x,
-        scale,
-        leftPos,
-        zIndex,
-      });
+      this.updateCards(this.xScale[x], { x, scale, leftPos, zIndex });
     }
   }
 
@@ -287,33 +291,25 @@ class CardCarousel extends DraggingEvent {
     if (data.x !== undefined) {
       card.setAttribute('data-x', data.x.toString());
     }
-
     if (data.scale !== undefined) {
       card.style.transform = `scale(${data.scale})`;
-
       card.style.opacity = data.scale === 0 ? '0' : '1';
     }
-
     if (data.leftPos !== undefined) {
       card.style.left = `${data.leftPos}%`;
     }
-
     if (data.zIndex !== undefined) {
       card.style.zIndex = data.zIndex.toString();
     }
   }
 
   private calcScale2(x: number): number {
-    if (x <= 0) {
-      return 1 - (-1 / 5) * x;
-    } else {
-      return 1 - (1 / 5) * x;
-    }
+    return x <= 0 ? 1 - (-1 / 5) * x : 1 - (1 / 5) * x;
   }
 
   private calcScale(x: number): number {
     const formula = 1 - (1 / 5) * Math.pow(x, 2);
-    return formula <= 0 ? 0 : formula;
+    return formula <= 0 ? 0 : Number(formula.toFixed(4));
   }
 
   private checkOrdering(card: HTMLElement, x: number, xDist: number): number {
@@ -334,8 +330,7 @@ class CardCarousel extends DraggingEvent {
       this.xScale[newX + rounded] = card;
     }
 
-    this.updateCards(card, {zIndex: -Math.abs(newX + rounded)});
-
+    this.updateCards(card, { zIndex: -Math.abs(newX + rounded) });
     return newX;
   }
 
@@ -354,10 +349,7 @@ class CardCarousel extends DraggingEvent {
         const scale2 = this.calcScale2(targetX);
         const leftPos = this.calcPos(targetX, scale2);
 
-        this.updateCards(card, {
-          scale,
-          leftPos,
-        });
+        this.updateCards(card, { scale, leftPos });
       }
     } else {
       this.container.classList.add('smooth-return');
@@ -377,7 +369,7 @@ class CardCarousel extends DraggingEvent {
   }
 
   private centerCard(targetX: number): void {
-    const deltaX = -targetX; // Calculate the difference to move targetX to 0
+    const deltaX = -targetX;
     const nextXScale: Record<number, HTMLElement> = {};
 
     for (const xStr in this.xScale) {
@@ -390,12 +382,7 @@ class CardCarousel extends DraggingEvent {
       const leftPos = this.calcPos(newLogicalX, scale2);
       const zIndex = -Math.abs(newLogicalX);
 
-      this.updateCards(card, {
-        x: newLogicalX,
-        scale,
-        leftPos,
-        zIndex,
-      });
+      this.updateCards(card, { x: newLogicalX, scale, leftPos, zIndex });
       nextXScale[newLogicalX] = card;
     }
     this.xScale = nextXScale;
@@ -431,7 +418,7 @@ class CardCarousel extends DraggingEvent {
 @Component({
   selector: 'app-opportunities',
   templateUrl: './opportunities.page.html',
-  styleUrl: './opportunities.page.scss',
+  styleUrl: './opportunities.page.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OpportunitiesPage implements AfterViewInit, OnDestroy, OnInit {
