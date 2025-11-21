@@ -1,5 +1,6 @@
 /* Fix: ensure nothing globally hides content */
-html, body {
+html,
+body {
   min-height: 100%;
 }
 
@@ -36,7 +37,9 @@ html, body {
   box-shadow: 0 4px 24px rgba(24, 100, 171, 0.09);
   overflow: hidden;
   margin-bottom: 4rem;
-  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 240ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Event content */
@@ -100,7 +103,9 @@ html, body {
   border-radius: 1rem;
   cursor: pointer;
   box-shadow: 0 2px 16px #1864ab11;
-  transition: box-shadow 260ms cubic-bezier(0.22, 1, 0.36, 1), transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    box-shadow 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
   background: #ffffff;
 }
 .image-item .image-wrapper {
@@ -115,14 +120,18 @@ html, body {
   object-fit: cover;
   border-radius: 1rem;
   transform: scale(1);
-  transition: transform 480ms cubic-bezier(0.32, 0, 0.2, 1), filter 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    transform 480ms cubic-bezier(0.32, 0, 0.2, 1),
+    filter 420ms cubic-bezier(0.22, 1, 0.36, 1);
   filter: brightness(0.96) saturate(1.08);
 }
 .image-item .image-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(0deg, #1864abcc 0%, transparent 80%);
-  transition: background 240ms cubic-bezier(0.22, 1, 0.36, 1), opacity 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    background 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 240ms cubic-bezier(0.22, 1, 0.36, 1);
   display: flex;
   align-items: flex-end;
   border-radius: 1rem;
@@ -137,7 +146,9 @@ html, body {
   font-size: 1.06rem;
   font-weight: 500;
   text-shadow: 0 2px 8px #1864ab55;
-  transition: opacity 260ms cubic-bezier(0.22, 1, 0.36, 1), transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    opacity 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
   background: rgba(24, 100, 171, 0.45);
   border-radius: 0 0 1rem 1rem;
   transform: translateY(6px);
@@ -188,7 +199,9 @@ html, body {
   box-shadow: 0 8px 48px #1864ab22;
   transform: translateY(14px) scale(0.97);
   opacity: 0.01;
-  transition: transform 420ms cubic-bezier(0.32, 0, 0.2, 1), opacity 420ms cubic-bezier(0.32, 0, 0.2, 1);
+  transition:
+    transform 420ms cubic-bezier(0.32, 0, 0.2, 1),
+    opacity 420ms cubic-bezier(0.32, 0, 0.2, 1);
 }
 .modal-backdrop.active .modal-content {
   transform: translateY(0) scale(1);
@@ -206,7 +219,9 @@ html, body {
   color: #1864ab;
   padding: 0;
   line-height: 1;
-  transition: color 160ms cubic-bezier(0.22, 1, 0.36, 1), transform 160ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    color 160ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 160ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .modal-close:hover,
 .modal-close:focus-visible {

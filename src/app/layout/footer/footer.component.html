@@ -66,15 +66,6 @@
                       Gallery
                     </a>
                   </li>
-                  <li>
-                    <a
-                      (click)="!isActiveRoute('/about') && navigateAndReload('/about')"
-                      [class.disabled]="isActiveRoute('/about')"
-                      [attr.aria-disabled]="isActiveRoute('/about') ? 'true' : null"
-                    >
-                      About
-                    </a>
-                  </li>
                 </ul>
               </div>
             </div>

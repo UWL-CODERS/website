@@ -12,8 +12,16 @@ import {
 import {PageMeta} from '../../models/meta.model';
 import {SeoService} from '../../services/seo.service';
 
-interface DragDistance { x: number; y: number; }
-interface CardUpdateData { x?: number; scale?: number; leftPos?: number; zIndex?: number; }
+interface DragDistance {
+  x: number;
+  y: number;
+}
+interface CardUpdateData {
+  x?: number;
+  scale?: number;
+  leftPos?: number;
+  zIndex?: number;
+}
 
 class DraggingEvent {
   private target: HTMLElement;
@@ -58,11 +66,11 @@ class DraggingEvent {
       this.touchEndHandler = () => this.clearTouchEventListeners(handler);
       this.bodyMouseLeaveHandler = () => this.clearTouchEventListeners(handler);
 
-      window.addEventListener('touchmove', this.touchMoveHandler, { passive: true });
+      window.addEventListener('touchmove', this.touchMoveHandler, {passive: true});
       window.addEventListener('touchend', this.touchEndHandler);
       document.body.addEventListener('mouseleave', this.bodyMouseLeaveHandler);
     };
-    this.target.addEventListener('touchstart', this.touchStartListener, { passive: true });
+    this.target.addEventListener('touchstart', this.touchStartListener, {passive: true});
   }
 
   private clearMouseEventListeners(handler: (e: MouseEvent | TouchEvent | null) => void): void {
@@ -172,7 +180,9 @@ class CardCarousel extends DraggingEvent {
       if (this.container.offsetWidth > 0 && this.cards.length > 0) {
         this.cardWidth = (this.cards[0].offsetWidth / this.container.offsetWidth) * 100;
       } else {
-        console.warn('CardCarousel: Container width is zero or no cards after timeout. Width calculation failed.');
+        console.warn(
+          'CardCarousel: Container width is zero or no cards after timeout. Width calculation failed.',
+        );
       }
       this.build();
     }, 0);
@@ -187,7 +197,10 @@ class CardCarousel extends DraggingEvent {
       // Add role to hint keyboard usage
       this.controllerElement.setAttribute('role', 'button');
       this.controllerElement.setAttribute('aria-roledescription', 'carousel controller');
-      this.controllerElement.setAttribute('aria-label', 'Use left and right arrow keys to move slides');
+      this.controllerElement.setAttribute(
+        'aria-label',
+        'Use left and right arrow keys to move slides',
+      );
     }
 
     // Drag interactions
@@ -222,17 +235,22 @@ class CardCarousel extends DraggingEvent {
       const leftPos = this.calcPos(x, scale2);
 
       this.xScale[x] = card;
-      this.updateCards(card, { x, scale, leftPos, zIndex });
+      this.updateCards(card, {x, scale, leftPos, zIndex});
     }
   }
 
   // Small step left/right
   private nudge(dir: number): void {
-    const temp: Record<number, HTMLElement> = { ...this.xScale };
+    const temp: Record<number, HTMLElement> = {...this.xScale};
     for (const xStr in this.xScale) {
       const x = parseInt(xStr, 10);
       const newX = x + dir;
-      const wrapped = newX > this.centerIndex ? -this.centerIndex : (newX < -this.centerIndex ? this.centerIndex : newX);
+      const wrapped =
+        newX > this.centerIndex
+          ? -this.centerIndex
+          : newX < -this.centerIndex
+            ? this.centerIndex
+            : newX;
       temp[wrapped] = this.xScale[x];
     }
     this.xScale = temp;
@@ -243,14 +261,15 @@ class CardCarousel extends DraggingEvent {
       const scale2 = this.calcScale2(x);
       const leftPos = this.calcPos(x, scale2);
       const zIndex = -Math.abs(x);
-      this.updateCards(this.xScale[x], { x, scale, leftPos, zIndex });
+      this.updateCards(this.xScale[x], {x, scale, leftPos, zIndex});
     }
   }
 
   private controller(e: KeyboardEvent): void {
-    const temp: Record<number, HTMLElement> = { ...this.xScale };
+    const temp: Record<number, HTMLElement> = {...this.xScale};
 
-    if (e.keyCode === 39) { // Right
+    if (e.keyCode === 39) {
+      // Right
       for (const xStr in this.xScale) {
         const x = parseInt(xStr, 10);
         const newX = x - 1 < -this.centerIndex ? this.centerIndex : x - 1;
@@ -258,7 +277,8 @@ class CardCarousel extends DraggingEvent {
       }
     }
 
-    if (e.keyCode === 37) { // Left
+    if (e.keyCode === 37) {
+      // Left
       for (const xStr in this.xScale) {
         const x = parseInt(xStr, 10);
         const newX = x + 1 > this.centerIndex ? -this.centerIndex : x + 1;
@@ -275,7 +295,7 @@ class CardCarousel extends DraggingEvent {
       const leftPos = this.calcPos(x, scale2);
       const zIndex = -Math.abs(x);
 
-      this.updateCards(this.xScale[x], { x, scale, leftPos, zIndex });
+      this.updateCards(this.xScale[x], {x, scale, leftPos, zIndex});
     }
   }
 
@@ -330,7 +350,7 @@ class CardCarousel extends DraggingEvent {
       this.xScale[newX + rounded] = card;
     }
 
-    this.updateCards(card, { zIndex: -Math.abs(newX + rounded) });
+    this.updateCards(card, {zIndex: -Math.abs(newX + rounded)});
     return newX;
   }
 
@@ -349,7 +369,7 @@ class CardCarousel extends DraggingEvent {
         const scale2 = this.calcScale2(targetX);
         const leftPos = this.calcPos(targetX, scale2);
 
-        this.updateCards(card, { scale, leftPos });
+        this.updateCards(card, {scale, leftPos});
       }
     } else {
       this.container.classList.add('smooth-return');
@@ -382,7 +402,7 @@ class CardCarousel extends DraggingEvent {
       const leftPos = this.calcPos(newLogicalX, scale2);
       const zIndex = -Math.abs(newLogicalX);
 
-      this.updateCards(card, { x: newLogicalX, scale, leftPos, zIndex });
+      this.updateCards(card, {x: newLogicalX, scale, leftPos, zIndex});
       nextXScale[newLogicalX] = card;
     }
     this.xScale = nextXScale;

@@ -7,43 +7,47 @@
     <div class="h-full w-full">
       <div class="h-full w-full" #bannerSlider>
         @for (slide of bannerSlides; track slide) {
-          <div class="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out banner-slide">
-            <img
-              [src]="slide.image"
-              [alt]="slide.title"
-              class="h-full w-full object-cover brightness-[.65]"
-              loading="eager"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/20 to-slate-900/60"></div>
-            <div class="absolute inset-0 flex items-center justify-center p-4">
-              <div class="max-w-3xl text-center text-white mx-auto">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
-                  {{ slide.title }}
-                </h2>
-                <p class="mt-4 text-base sm:text-lg md:text-xl text-slate-100/90">
-                  {{ slide.description }}
-                </p>
-                <div class="mt-6 flex items-center justify-center gap-3">
-                  <a
-                    class="inline-flex items-center justify-center rounded-full bg-sky-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-sky-500 hover:bg-sky-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky-300 transition"
-                    href="https://uwlmyorgs.campuslabs.com/engage/organization/coders/contact"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Join Us
-                  </a>
-                  <a
-                    class="inline-flex items-center justify-center rounded-full bg-transparent px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-inset ring-white/70 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white transition"
-                    href="https://orgs.uwlax.edu/organization/coders/events"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Events
-                  </a>
-                </div>
+        <div
+          class="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out banner-slide"
+        >
+          <img
+            [src]="slide.image"
+            [alt]="slide.title"
+            class="h-full w-full object-cover brightness-[.65]"
+            loading="eager"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/20 to-slate-900/60"
+          ></div>
+          <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="max-w-3xl text-center text-white mx-auto">
+              <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
+                {{ slide.title }}
+              </h2>
+              <p class="mt-4 text-base sm:text-lg md:text-xl text-slate-100/90">
+                {{ slide.description }}
+              </p>
+              <div class="mt-6 flex items-center justify-center gap-3">
+                <a
+                  class="inline-flex items-center justify-center rounded-full bg-sky-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-sky-500 hover:bg-sky-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky-300 transition"
+                  href="https://uwlmyorgs.campuslabs.com/engage/organization/coders/contact"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Join Us
+                </a>
+                <a
+                  class="inline-flex items-center justify-center rounded-full bg-transparent px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-inset ring-white/70 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white transition"
+                  href="https://orgs.uwlax.edu/organization/coders/events"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Events
+                </a>
               </div>
             </div>
           </div>
+        </div>
         }
       </div>
     </div>
@@ -60,7 +64,10 @@
     >
       <span class="text-xl">&lt;</span>
     </button>
-    <div class="pointer-events-auto absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2" #sliderDots></div>
+    <div
+      class="pointer-events-auto absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2"
+      #sliderDots
+    ></div>
     <button
       class="pointer-events-auto absolute right-4 top-1/2 -translate-y-1/2 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-md ring-1 ring-white/25 hover:bg-sky-600/30 hover:ring-sky-400 transition"
       type="button"
@@ -79,17 +86,22 @@
   <section id="about" class="py-8 lg:py-12">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center justify-items-center">
       <div class="w-full max-w-xl mx-auto">
-        <span class="inline-flex items-center rounded-full bg-sky-600 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+        <span
+          class="inline-flex items-center rounded-full bg-sky-600 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white"
+        >
           About Us
         </span>
         <h2 class="mt-3 text-3xl md:text-4xl font-bold text-slate-900">What is CODERS?</h2>
         <p class="mt-4 text-slate-600 leading-7">
-          CODERS is a community of UWL students scattered across a variety of departments who share common interests of coding, technology, and computer science.
+          CODERS is a community of UWL students scattered across a variety of departments who share
+          common interests of coding, technology, and computer science.
         </p>
         <div class="mt-6 rounded-xl bg-slate-50 p-5 ring-1 ring-inset ring-slate-200">
           <h3 class="text-lg font-semibold text-slate-900">Our Mission</h3>
           <p class="mt-2 text-slate-600">
-            CODERS is committed to enriching the La Crosse community by volunteering, teaching fundamental computer science skills, supporting student development and career readiness, and fostering diversity and inclusion in technology.
+            CODERS is committed to enriching the La Crosse community by volunteering, teaching
+            fundamental computer science skills, supporting student development and career
+            readiness, and fostering diversity and inclusion in technology.
           </p>
         </div>
       </div>
@@ -109,22 +121,36 @@
   <!-- What We Offer -->
   <section class="py-12 lg:py-16 bg-slate-50 rounded-2xl ring-1 ring-inset ring-slate-200">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-center font-mono text-3xl md:text-4xl font-bold text-slate-900">&lt; What_We_Offer /&gt;</h2>
-      <p class="mt-3 text-center font-mono text-slate-600">// Join us in our mission to code, create, and make a difference</p>
+      <h2 class="text-center font-mono text-3xl md:text-4xl font-bold text-slate-900">
+        &lt; What_We_Offer /&gt;
+      </h2>
+      <p class="mt-3 text-center font-mono text-slate-600">
+        // Join us in our mission to code, create, and make a difference
+      </p>
       <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
         @for (feature of features; track feature) {
-          <div class="group rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-md w-full max-w-sm">
-            <div class="mb-4 h-40 w-full overflow-hidden rounded-md">
-              <img [src]="feature.image" [alt]="feature.title" class="h-full w-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" />
-            </div>
-            <h3 class="text-lg font-semibold text-slate-900">{{ feature.title }}</h3>
-            <p class="mt-2 text-sm text-slate-600">{{ feature.description }}</p>
-            <div class="mt-4 flex flex-wrap gap-2">
-              @for (tech of feature.techStack; track tech) {
-                <span class="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-sky-700 ring-1 ring-inset ring-sky-200">{{ tech }}</span>
-              }
-            </div>
+        <div
+          class="group rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-md w-full max-w-sm"
+        >
+          <div class="mb-4 h-40 w-full overflow-hidden rounded-md">
+            <img
+              [src]="feature.image"
+              [alt]="feature.title"
+              class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+              loading="lazy"
+            />
           </div>
+          <h3 class="text-lg font-semibold text-slate-900">{{ feature.title }}</h3>
+          <p class="mt-2 text-sm text-slate-600">{{ feature.description }}</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            @for (tech of feature.techStack; track tech) {
+            <span
+              class="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-sky-700 ring-1 ring-inset ring-sky-200"
+              >{{ tech }}</span
+            >
+            }
+          </div>
+        </div>
         }
       </div>
     </div>
@@ -133,21 +159,33 @@
   <!-- What We Do -->
   <section class="py-12 lg:py-16">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-center font-mono text-3- xl md:text-4xl font-bold text-slate-900">function activities() {{ '{' }}</h2>
+      <h2 class="text-center font-mono text-3- xl md:text-4xl font-bold text-slate-900">
+        function activities() {{ '{' }}
+      </h2>
       <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
         @for (activity of activities; track activity) {
-          <div class="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-md w-full max-w-sm">
-            <div class="mb-4 h-40 w-full overflow-hidden rounded-md">
-              <img [src]="activity.image" [alt]="activity.title" class="h-full w-full object-cover" loading="lazy" />
-            </div>
-            <h3 class="text-lg font-semibold text-slate-900">{{ activity.title }}</h3>
-            <p class="mt-2 text-sm text-slate-600">{{ activity.description }}</p>
-            <div class="mt-4 flex flex-wrap gap-2">
-              @for (tech of activity.technologies; track tech) {
-                <span class="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-sky-700 ring-1 ring-inset ring-sky-200">{{ tech }}</span>
-              }
-            </div>
+        <div
+          class="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-md w-full max-w-sm"
+        >
+          <div class="mb-4 h-40 w-full overflow-hidden rounded-md">
+            <img
+              [src]="activity.image"
+              [alt]="activity.title"
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
           </div>
+          <h3 class="text-lg font-semibold text-slate-900">{{ activity.title }}</h3>
+          <p class="mt-2 text-sm text-slate-600">{{ activity.description }}</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            @for (tech of activity.technologies; track tech) {
+            <span
+              class="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-sky-700 ring-1 ring-inset ring-sky-200"
+              >{{ tech }}</span
+            >
+            }
+          </div>
+        </div>
         }
       </div>
       <p class="mt-6 text-center font-mono text-lg text-slate-800">{{ '}' }}</p>
@@ -157,31 +195,42 @@
   <!-- Schedule -->
   <section class="py-12 lg:py-16">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-center font-mono text-3xl md:text-4xl font-bold text-slate-900">while (true) {{ '{' }}</h2>
+      <h2 class="text-center font-mono text-3xl md:text-4xl font-bold text-slate-900">
+        while (true) {{ '{' }}
+      </h2>
       <p class="mt-3 text-center font-mono text-slate-600">// Our upcoming events</p>
       <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
         @for (event of events; track event) {
-          <div class="overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-200 w-full max-w-sm">
-            <div class="h-40 w-full overflow-hidden">
-              <img [src]="event.image" [alt]="event.title" class="h-full w-full object-cover transition-transform duration-300 hover:scale-105" loading="lazy" />
-            </div>
-            <div class="p-4">
-              <h3 class="text-lg font-semibold text-slate-900">{{ event.title }}</h3>
-              <p class="mt-1 text-sm text-slate-600">{{ event.time }}</p>
-              <p class="text-sm text-slate-600">{{ event.timeRange }}</p>
-              @if (event.timeRange2) {
-                <p class="text-sm text-slate-600">{{ event.timeRange2 }}</p>
+        <div
+          class="overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-200 w-full max-w-sm"
+        >
+          <div class="h-40 w-full overflow-hidden">
+            <img
+              [src]="event.image"
+              [alt]="event.title"
+              class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-slate-900">{{ event.title }}</h3>
+            <p class="mt-1 text-sm text-slate-600">{{ event.time }}</p>
+            <p class="text-sm text-slate-600">{{ event.timeRange }}</p>
+            @if (event.timeRange2) {
+            <p class="text-sm text-slate-600">{{ event.timeRange2 }}</p>
+            } @if (event.location) {
+            <p class="mt-1 text-sm font-semibold text-sky-700">{{ event.location }}</p>
+            }
+            <div class="mt-3 flex flex-wrap gap-2">
+              @for (tag of event.tags; track tag) {
+              <span
+                class="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-sky-700 ring-1 ring-inset ring-sky-200"
+                >{{ tag }}</span
+              >
               }
-              @if (event.location) {
-                <p class="mt-1 text-sm font-semibold text-sky-700">{{ event.location }}</p>
-              }
-              <div class="mt-3 flex flex-wrap gap-2">
-                @for (tag of event.tags; track tag) {
-                  <span class="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-sky-700 ring-1 ring-inset ring-sky-200">{{ tag }}</span>
-                }
-              </div>
             </div>
           </div>
+        </div>
         }
       </div>
       <p class="mt-6 text-center font-mono text-lg text-slate-800">{{ '}' }}</p>
@@ -190,11 +239,14 @@
 
   <!-- Team -->
   <section id="team" class="py-12 lg:py-16">
-    <div class="rounded-2xl bg-gradient-to-r from-sky-800 to-indigo-900 px-6 py-10 text-white shadow-xl">
+    <div
+      class="rounded-2xl bg-gradient-to-r from-sky-800 to-indigo-900 px-6 py-10 text-white shadow-xl"
+    >
       <div class="mx-auto max-w-3xl text-center">
         <h1 class="text-3xl md:text-4xl font-bold">About Our Team</h1>
         <p class="mt-3 text-white/90">
-          Meet the talented creators behind our website. Each of them brings a unique set of skills and creativity to our platform.
+          Meet the talented creators behind our website. Each of them brings a unique set of skills
+          and creativity to our platform.
         </p>
       </div>
     </div>
@@ -202,7 +254,9 @@
     <!-- STACK: one section per row -->
     <div class="mt-10 grid grid-cols-1 gap-8">
       <!-- Calendar -->
-      <section class="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 w-full max-w-6xl mx-auto">
+      <section
+        class="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 w-full max-w-6xl mx-auto"
+      >
         <h2 class="text-center text-xl font-semibold text-slate-900">Upcoming Events</h2>
         <div class="mt-4 overflow-hidden rounded-xl ring-1 ring-slate-200">
           <iframe
@@ -218,84 +272,101 @@
       </section>
 
       <!-- ✨ CODERS Carousel of Fame ✨ -->
-      <section class="rounded-2xl p-0 shadow-sm ring-1 ring-slate-200 bg-gradient-to-br from-slate-50 to-indigo-50 w-full max-w-6xl mx-auto">
+      <section
+        class="rounded-2xl p-0 shadow-sm ring-1 ring-slate-200 bg-gradient-to-br from-slate-50 to-indigo-50 w-full max-w-6xl mx-auto"
+      >
         <div class="flex items-center justify-between px-6 pt-6">
-          <h2 class="text-center w-full text-xl font-semibold text-slate-900">✨ CODERS Carousel of Fame ✨</h2>
+          <h2 class="text-center w-full text-xl font-semibold text-slate-900">
+            ✨ CODERS Carousel of Fame ✨
+          </h2>
         </div>
 
         <div class="mt-4 relative px-6 pb-6">
           <!-- Outer gradient border effect -->
-          <div class="rounded-2xl p-[1px] bg-gradient-to-r from-sky-300 via-indigo-300 to-fuchsia-300">
+          <div
+            class="rounded-2xl p-[1px] bg-gradient-to-r from-sky-300 via-indigo-300 to-fuchsia-300"
+          >
             <!-- Glass card container -->
             <div class="rounded-2xl bg-white/70 backdrop-blur-md ring-1 ring-white/40">
               <!-- Track wrapper (z-10) -->
               <div class="overflow-hidden rounded-2xl relative z-10">
                 <div class="h-auto w-full relative z-10" #teamSlider>
                   @for (member of teamMembers; track member) {
-                    <!-- Fixed layout: left column static, right column flexible -->
-                    <div class="grid grid-cols-1 lg:grid-cols-[360px_1fr] gap-0 min-w-full">
-                      <!-- LEFT: Fixed-width static block -->
-                      <section class="flex">
-                        <div class="w-full p-8 border-b lg:border-b-0 lg:border-r border-white/50">
-                          <div class="mx-auto w-full max-w-[320px]">
-                            <div class="flex flex-col items-center text-center">
-                              <div class="relative">
-                                <div class="rounded-full p-[2px] bg-gradient-to-tr from-sky-400 via-indigo-400 to-fuchsia-400">
-                                  <img
-                                    [src]="member.image"
-                                    [alt]="member.name"
-                                    class="h-40 w-40 rounded-full object-cover ring-4 ring-white/70 shadow-lg"
-                                    loading="lazy"
-                                  />
-                                </div>
-                                <div class="pointer-events-none absolute inset-0 rounded-full shadow-[0_0_40px_6px_rgba(56,189,248,0.15)]"></div>
+                  <!-- Fixed layout: left column static, right column flexible -->
+                  <div class="grid grid-cols-1 lg:grid-cols-[360px_1fr] gap-0 min-w-full">
+                    <!-- LEFT: Fixed-width static block -->
+                    <section class="flex">
+                      <div class="w-full p-8 border-b lg:border-b-0 lg:border-r border-white/50">
+                        <div class="mx-auto w-full max-w-[320px]">
+                          <div class="flex flex-col items-center text-center">
+                            <div class="relative">
+                              <div
+                                class="rounded-full p-[2px] bg-gradient-to-tr from-sky-400 via-indigo-400 to-fuchsia-400"
+                              >
+                                <img
+                                  [src]="member.image"
+                                  [alt]="member.name"
+                                  class="h-40 w-40 rounded-full object-cover ring-4 ring-white/70 shadow-lg"
+                                  loading="lazy"
+                                />
                               </div>
+                              <div
+                                class="pointer-events-none absolute inset-0 rounded-full shadow-[0_0_40px_6px_rgba(56,189,248,0.15)]"
+                              ></div>
+                            </div>
 
-                              <h3 class="mt-4 text-lg font-semibold text-slate-900">{{ member.name }}</h3>
-                              <p class="mt-1 text-sm text-slate-600">{{ member.major }}</p>
+                            <h3 class="mt-4 text-lg font-semibold text-slate-900">
+                              {{ member.name }}
+                            </h3>
+                            <p class="mt-1 text-sm text-slate-600">{{ member.major }}</p>
 
-                              <div class="mt-3 flex items-center justify-center">
-                                @if (member.linkedin) {
-                                  <a
-                                    [href]="member.linkedin"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="text-slate-600 hover:text-blue-600 transition-colors"
-                                    aria-label="LinkedIn"
-                                  >
-                                    <svg app-linkedin-icon fill="currentColor" class="size-7 m-1"></svg>
-                                  </a>
-                                }
-                                @if (member.github) {
-                                  <a
-                                    [href]="member.github"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="text-slate-600 hover:text-blue-600 transition-colors"
-                                    aria-label="GitHub"
-                                  >
-                                    <svg app-github-icon fill="currentColor" class="size-7 m-1"></svg>
-                                  </a>
-                                }
-                              </div>
+                            <div class="mt-3 flex items-center justify-center">
+                              @if (member.linkedin) {
+                              <a
+                                [href]="member.linkedin"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-slate-600 hover:text-blue-600 transition-colors"
+                                aria-label="LinkedIn"
+                              >
+                                <svg app-linkedin-icon fill="currentColor" class="size-7 m-1"></svg>
+                              </a>
+                              } @if (member.github) {
+                              <a
+                                [href]="member.github"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-slate-600 hover:text-blue-600 transition-colors"
+                                aria-label="GitHub"
+                              >
+                                <svg app-github-icon fill="currentColor" class="size-7 m-1"></svg>
+                              </a>
+                              }
                             </div>
                           </div>
                         </div>
-                      </section>
+                      </div>
+                    </section>
 
-                      <!-- RIGHT: Flexible highlights area (vertically centered) -->
-                      <section class="flex">
-                        <div class="w-full p-8">
-                          <!-- Make this a flex column that centers vertically -->
-                          <div class="mx-auto w-full max-w-3xl min-h-[320px] flex flex-col justify-center">
-                            <h4 class="text-base font-semibold text-slate-900 text-center lg:text-left">Highlights</h4>
+                    <!-- RIGHT: Flexible highlights area (vertically centered) -->
+                    <section class="flex">
+                      <div class="w-full p-8">
+                        <!-- Make this a flex column that centers vertically -->
+                        <div
+                          class="mx-auto w-full max-w-3xl min-h-[320px] flex flex-col justify-center"
+                        >
+                          <h4
+                            class="text-base font-semibold text-slate-900 text-center lg:text-left"
+                          >
+                            Highlights
+                          </h4>
 
-                            <ul class="mt-3 space-y-2 text-sm text-slate-700 leading-relaxed">
-                              @for (point of member.highlights; track point.text) {
-                                <li class="flex gap-2">
-                                  <span
-                                    class="mt-1 h-1.5 w-1.5 rounded-full shrink-0"
-                                    [ngClass]="{
+                          <ul class="mt-3 space-y-2 text-sm text-slate-700 leading-relaxed">
+                            @for (point of member.highlights; track point.text) {
+                            <li class="flex gap-2">
+                              <span
+                                class="mt-1 h-1.5 w-1.5 rounded-full shrink-0"
+                                [ngClass]="{
                                       'bg-sky-500': point.color === 'sky',
                                       'bg-indigo-500': point.color === 'indigo',
                                       'bg-fuchsia-500': point.color === 'fuchsia',
@@ -303,18 +374,17 @@
                                       'bg-rose-500': point.color === 'rose',
                                       'bg-amber-500': point.color === 'amber'
                                     }"
-                                  ></span>
-                                  {{ point.text }}
-                                </li>
-                              }
-                              @empty {
-                                <li class="text-slate-500">Highlights coming soon.</li>
-                              }
-                            </ul>
-                          </div>
+                              ></span>
+                              {{ point.text }}
+                            </li>
+                            } @empty {
+                            <li class="text-slate-500">Highlights coming soon.</li>
+                            }
+                          </ul>
                         </div>
-                      </section>
-                    </div>
+                      </div>
+                    </section>
+                  </div>
                   }
                 </div>
               </div>
@@ -330,7 +400,10 @@
                 >
                   &lt;
                 </button>
-                <div class="flex items-center relative z-20 pointer-events-auto" #teamSliderDots></div>
+                <div
+                  class="flex items-center relative z-20 pointer-events-auto"
+                  #teamSliderDots
+                ></div>
                 <button
                   class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-sky-700 to-indigo-800 text-white shadow-sm hover:from-white hover:to-white hover:text-sky-800 ring-1 ring-sky-300 transition pointer-events-auto"
                   #nextTeamSlideBtn
@@ -356,7 +429,7 @@
       <div class="w-full max-w-xl mx-auto">
         <div class="relative overflow-hidden rounded-xl shadow-md ring-1 ring-slate-200">
           <img
-            src="assets/images/people/IMG_7011.png"
+            src="assets/images/people/wall-person.png"
             alt="New members welcome event"
             class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
             loading="lazy"
@@ -364,19 +437,29 @@
         </div>
       </div>
       <div class="w-full max-w-xl mx-auto">
-        <span class="inline-flex items-center rounded-full bg-sky-600 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+        <span
+          class="inline-flex items-center rounded-full bg-sky-600 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white"
+        >
           Membership
         </span>
         <h2 class="mt-3 text-3xl md:text-4xl font-bold text-slate-900">How Can I Join?</h2>
         <p class="mt-4 text-slate-600 leading-7">
-          If you are a UWL Student, becoming a member is easy! Simply sign up through UWL's myOrgs platform to start receiving our weekly emails. You can also join our Discord server to connect with other members to stay updated on events!
+          If you are a UWL Student, becoming a member is easy! Simply sign up through UWL's myOrgs
+          platform to start receiving our weekly emails. You can also join our Discord server to
+          connect with other members to stay updated on events!
         </p>
 
-        <div class="mt-6 max-w-xl rounded-2xl bg-gradient-to-br from-slate-50 to-indigo-50 p-6 ring-1 ring-inset ring-slate-200 shadow-sm">
+        <div
+          class="mt-6 max-w-xl rounded-2xl bg-gradient-to-br from-slate-50 to-indigo-50 p-6 ring-1 ring-inset ring-slate-200 shadow-sm"
+        >
           <h3 class="text-lg font-semibold text-slate-900">Join Us in 3 Simple Steps:</h3>
           <ol class="mt-4 list-decimal space-y-4 pl-5">
             <li class="flex gap-3">
-              <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sky-600 text-white text-sm font-semibold">1</div>
+              <div
+                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sky-600 text-white text-sm font-semibold"
+              >
+                1
+              </div>
               <p class="text-slate-700">
                 Visit the
                 <a
@@ -384,17 +467,30 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   class="text-sky-700 underline decoration-dotted underline-offset-4 hover:text-sky-800"
-                >CODERS club page on myOrgs</a>
+                  >CODERS club page on myOrgs</a
+                >
                 or click the Join button below!
               </p>
             </li>
             <li class="flex gap-3">
-              <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sky-600 text-white text-sm font-semibold">2</div>
-              <p class="text-slate-700">Click the "Join" button and Log In with your UWL Credentials.</p>
+              <div
+                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sky-600 text-white text-sm font-semibold"
+              >
+                2
+              </div>
+              <p class="text-slate-700">
+                Click the "Join" button and Log In with your UWL Credentials.
+              </p>
             </li>
             <li class="flex gap-3">
-              <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sky-600 text-white text-sm font-semibold">3</div>
-              <p class="text-slate-700">Start Receiving Weekly Emails About Meetings and Upcoming Events!</p>
+              <div
+                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sky-600 text-white text-sm font-semibold"
+              >
+                3
+              </div>
+              <p class="text-slate-700">
+                Start Receiving Weekly Emails About Meetings and Upcoming Events!
+              </p>
             </li>
           </ol>
         </div>
