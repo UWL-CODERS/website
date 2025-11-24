@@ -203,7 +203,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
   teamMembers: TeamMember[] = [
     {
       name: 'Brendan Lambrecht',
-      image: 'assets/images/people/brendan-lambrecht.jpeg',
+      image: 'assets/images/people/brendan-lambrecht.webp',
       major: "Major: Computer Science Master of Software Engineering | Class of 27'",
       linkedin: 'https://www.linkedin.com/in/brendanlambrecht/',
       github: 'https://github.com/BlambrechtCodes',
@@ -221,7 +221,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       name: 'Jack Kern',
-      image: 'assets/images/people/jack-kern.jpg',
+      image: 'assets/images/people/jack-kern.webp',
       major: "Major: Computer Science Master of Software Engineering | Class of 26'",
       linkedin: 'https://www.linkedin.com/in/jack-kern-b9b501333/',
       github: 'https://github.com/KernJack',
@@ -236,7 +236,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       name: 'Zach Ydunate',
-      image: 'assets/images/people/zach-ydunate.jpg',
+      image: 'assets/images/people/zach-ydunate.webp',
       major: "Major: Computer Science | Class of 28'",
       linkedin: 'https://www.linkedin.com/in/zachary-ydunate/',
       github: 'https://github.com/zydunate',
@@ -248,8 +248,8 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       name: 'Muhammad Fardeen',
-      image: 'assets/images/people/muhammad-fardeen.jpg',
-      major: "Major: Computer Science | Class of 26'",
+      image: 'assets/images/people/muhammad-fardeen.webp',
+      major: "Major: Computer Science | Class of 27'",
       linkedin: 'https://www.linkedin.com/in/muhdfdeen/',
       github: 'https://github.com/muhdfdeen',
       highlights: [
@@ -260,7 +260,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       name: 'Bishal Karki',
-      image: 'assets/images/people/bishal-karki.jpg',
+      image: 'assets/images/people/bishal-karki.webp',
       major: "Major: Computer Science: Master of Software Engineering | Class of 25'",
       linkedin: 'https://www.linkedin.com/in/bishalkarki655/',
       github: 'https://github.com/bishalkarki01',
@@ -272,7 +272,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       name: 'Andree Lin',
-      image: 'assets/images/people/andree-lin.jpeg',
+      image: 'assets/images/people/andree-lin.webp',
       major: "Major: Computer Science | Class of 25'",
       linkedin: 'https://www.linkedin.com/in/andree-lin-56196a284/',
       github: 'https://github.com/andreelinyx',
@@ -284,7 +284,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       name: 'Leroy Ombogo',
-      image: 'assets/images/people/leroy-ombogo.jpeg',
+      image: 'assets/images/people/leroy-ombogo.webp',
       major: "Major: Computer Science | Class of 27'",
       linkedin: 'https://www.linkedin.com/in/leroy-o-13b724247/',
       github: 'https://github.com/Leroy-collab',
