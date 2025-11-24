@@ -45,7 +45,7 @@ export class ProjectsPage implements OnInit {
       description:
         'This website, which you are currently viewing, was developed by the UWL CODERS Club and is built using a range of modern web technologies.',
       imageUrl:
-        'https://raw.githubusercontent.com/UWL-CODERS/website/refs/heads/main/src/assets/images/logos/logo.png',
+        'assets/images/logos/CODERS.png',
       externalUrl: 'https://github.com/UWL-CODERS/website',
       tags: ['TypeScript', 'HTML', 'SCSS', 'Angular'],
       button: 'View Project',
@@ -74,7 +74,7 @@ export class ProjectsPage implements OnInit {
     {
       title: '2023 Lightning Talks',
       description: '',
-      imageUrl: 'assets/images/logos/logo.png',
+      imageUrl: 'assets/images/logos/CODERS.png',
       externalUrl: 'https://cs.uwlax.edu/~mzheng/LightningTalks2023.pdf',
       tags: ['Samantha Foley', 'Mao Zheng', 'Rig Das', 'W. Michael Petullo', 'Dipankar Mitra'],
       button: 'View Slides',
@@ -82,7 +82,7 @@ export class ProjectsPage implements OnInit {
     {
       title: '2024 Lightning Talks',
       description: '',
-      imageUrl: 'assets/images/logos/logo.png',
+      imageUrl: 'assets/images/logos/CODERS.png',
       externalUrl: 'https://cs.uwlax.edu/~mzheng/Lightning2024.pdf',
       tags: ['Mao Zheng', 'Niusen Chen', 'Dipankar Mitra', 'Samantha Foley', 'Rig Das'],
       button: 'View Slides',

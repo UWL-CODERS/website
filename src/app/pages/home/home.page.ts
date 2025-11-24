@@ -138,7 +138,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
       title: 'CODERS Projects',
       description:
         'Build real-world applications and contribute to open-source team projects that impact our community',
-      image: 'assets/images/logos/logo.png',
+      image: 'assets/images/logos/CODERS.png',
       techStack: ['Typescript', 'SCSS', 'Javascript', 'HTML', 'Angular', 'GitHub'],
     },
     {
@@ -155,7 +155,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
       title: 'Teaching Computer Science',
       description:
         'Share your knowledge by teaching basic coding conecpts to students and community members.',
-      image: 'assets/images/other/Codeorg.png',
+      image: 'assets/images/logos/CODE.png',
       technologies: ['Scratch', 'Code.org', 'Python', 'Presenting New Concepts'],
     },
     {
@@ -179,7 +179,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
       time: 'Every Tuesday!',
       timeRange: '4:30 PM - 5:00 PM',
       location: 'WING 016',
-      image: 'assets/images/logos/logo.png',
+      image: 'assets/images/logos/CODERS.png',
       tags: ['Python', 'Scratch', 'Teaching', 'Networking', 'New Concepts'],
     },
     {
@@ -195,7 +195,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
       time: 'Happening Throughout The Year!',
       timeRange: 'September - May',
       location: 'La Crosse County',
-      image: 'assets/images/logos/BGCNAL-Official-Symbol.png',
+      image: 'assets/images/logos/BGCNAL.png',
       tags: ['Conceptual', 'Games', 'Code.org'],
     },
   ];

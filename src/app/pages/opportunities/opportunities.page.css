@@ -540,16 +540,16 @@ h1 {
 
 /* Background Images for Carousel 1 */
 #carousel1-card1 .image-container {
-  background-image: url('../../../assets/images/logos/BGCNAL-Official-Symbol.png');
+  background-image: url('../../../assets/images/logos/BGCNAL.png');
 }
 #carousel1-card2 .image-container {
-  background-image: url('../../../assets/images/logos/ieee-logo.jpg');
+  background-image: url('../../../assets/images/logos/IEEE.jpg');
 }
 #carousel1-card3 .image-container {
   background-image: url('../../../assets/images/logos/BSU.jpg');
 }
 #carousel1-card4 .image-container {
-  background-image: url('../../../assets/images/logos/distem-logo.jpg');
+  background-image: url('../../../assets/images/logos/DiSTEM.jpg');
 }
 #carousel1-card5 .image-container {
   background-image: url('../../../assets/images/logos/RealEstateClub.png');
@@ -557,19 +557,19 @@ h1 {
 
 /* Background Images for Carousel 2 */
 #carousel2-card1 .image-container {
-  background-image: url('../../../assets/images/logos/kids-college.png');
+  background-image: url('../../../assets/images/logos/KidsCollege.png');
 }
 #carousel2-card2 .image-container {
-  background-image: url('../../../assets/images/logos/enchantedForest.jpg');
+  background-image: url('../../../assets/images/logos/EnchantedForest.jpg');
 }
 #carousel2-card3 .image-container {
-  background-image: url('../../../assets/images/logos/Colab.png');
+  background-image: url('../../../assets/images/logos/CODERSxIEEE.png');
 }
 #carousel2-card4 .image-container {
-  background-image: url('../../../assets/images/logos/UWL_Logo.png');
+  background-image: url('../../../assets/images/logos/UWL.png');
 }
 #carousel2-card5 .image-container {
-  background-image: url('../../../assets/images/logos/stem.png');
+  background-image: url('../../../assets/images/logos/STEM.png');
 }
 
 /* Image Container */
