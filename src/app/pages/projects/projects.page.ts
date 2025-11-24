@@ -44,8 +44,7 @@ export class ProjectsPage implements OnInit {
       title: 'CODERS Website',
       description:
         'This website, which you are currently viewing, was developed by the UWL CODERS Club and is built using a range of modern web technologies.',
-      imageUrl:
-        'assets/images/logos/CODERS.png',
+      imageUrl: 'assets/images/logos/CODERS.png',
       externalUrl: 'https://github.com/UWL-CODERS/website',
       tags: ['TypeScript', 'HTML', 'SCSS', 'Angular'],
       button: 'View Project',

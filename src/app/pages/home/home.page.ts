@@ -54,30 +54,10 @@ interface TeamMember {
   github?: string;
   highlights?: HighlightPoint[];
 }
-interface FacultyAdvisor {
-  name: string;
-  image: string;
-}
-interface ExecMember {
-  name: string;
-  image: string;
-  role: string;
-}
-interface Chairperson {
-  name: string;
-  image: string;
-  role: string;
-}
 
 @Component({
   selector: 'app-home',
-  standalone: true,
-  imports: [
-    // Existing components
-    LogoTransitionComponent,
-    GithubIconComponent,
-    LinkedinIconComponent
-],
+  imports: [LogoTransitionComponent, GithubIconComponent, LinkedinIconComponent],
   templateUrl: './home.page.html',
   styleUrl: './home.page.css',
 })
