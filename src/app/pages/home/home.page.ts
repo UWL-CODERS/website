@@ -7,7 +7,7 @@ import {
   inject,
   viewChild,
 } from '@angular/core';
-import {NgClass} from '@angular/common';
+
 import {LogoTransitionComponent} from '../../core/logo-transition/logo-transition.component';
 import {SeoService} from '../../services/seo.service';
 import {PageMeta} from '../../models/meta.model';
@@ -73,13 +73,11 @@ interface Chairperson {
   selector: 'app-home',
   standalone: true,
   imports: [
-    // Needed so [ngClass] works in the template
-    NgClass,
     // Existing components
     LogoTransitionComponent,
     GithubIconComponent,
-    LinkedinIconComponent,
-  ],
+    LinkedinIconComponent
+],
   templateUrl: './home.page.html',
   styleUrl: './home.page.css',
 })

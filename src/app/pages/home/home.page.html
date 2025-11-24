@@ -1,5 +1,5 @@
 <!-- Main component: Primary content and layout for the home page -->
-<app-logo-transition #logoTransition></app-logo-transition>
+<app-logo-transition #logoTransition />
 
 <!-- Hero / Banner -->
 <section class="relative isolate h-[70vh] min-h-[420px] w-full overflow-hidden bg-slate-900">
@@ -366,7 +366,7 @@
                             <li class="flex gap-2">
                               <span
                                 class="mt-1 h-1.5 w-1.5 rounded-full shrink-0"
-                                [ngClass]="{
+                                [class]="{
                                       'bg-sky-500': point.color === 'sky',
                                       'bg-indigo-500': point.color === 'indigo',
                                       'bg-fuchsia-500': point.color === 'fuchsia',
