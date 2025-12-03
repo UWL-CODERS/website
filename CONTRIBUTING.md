@@ -135,6 +135,7 @@ The easiest way to create a new icon is to use an existing one as a template.
 To maintain high performance and fast load times, we highly recommend using the **WebP** format for all images on the website. Please convert standard PNG or JPG files before adding them to the repository.
 
 Recommended tools:
+
 - **[ToWebP](https://towebp.app/)**: Best for batch converting multiple images at once.
 - **[Squoosh](https://squoosh.app/)**: Excellent for optimizing single images with granular control.
 

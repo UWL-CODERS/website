@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="src/assets/images/logos/CODERS.png" alt="CODERS Club logo" width="20%" height="20%">
+<img src="src/assets/images/logos/CODERS.webp" alt="CODERS Club logo" width="20%" height="20%">
 
 # CODERS Club: Website Project
 
