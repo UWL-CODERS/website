@@ -39,7 +39,7 @@
     "@types/node": "^24.10.1",
     "angular-eslint": "21.0.1",
     "eslint": "^9.39.1",
-    "jsdom": "^27.2.0",
+    "jsdom": "^27.3.0",
     "postcss": "^8.5.3",
     "prettier": "3.6.2",
     "typescript": "^5.9.2",
