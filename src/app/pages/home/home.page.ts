@@ -7,7 +7,7 @@ import {
   inject,
   viewChild,
 } from '@angular/core';
-import {NgClass} from '@angular/common';
+
 import {LogoTransitionComponent} from '../../core/logo-transition/logo-transition.component';
 import {SeoService} from '../../services/seo.service';
 import {PageMeta} from '../../models/meta.model';
@@ -54,32 +54,10 @@ interface TeamMember {
   github?: string;
   highlights?: HighlightPoint[];
 }
-interface FacultyAdvisor {
-  name: string;
-  image: string;
-}
-interface ExecMember {
-  name: string;
-  image: string;
-  role: string;
-}
-interface Chairperson {
-  name: string;
-  image: string;
-  role: string;
-}
 
 @Component({
   selector: 'app-home',
-  standalone: true,
-  imports: [
-    // Needed so [ngClass] works in the template
-    NgClass,
-    // Existing components
-    LogoTransitionComponent,
-    GithubIconComponent,
-    LinkedinIconComponent,
-  ],
+  imports: [LogoTransitionComponent, GithubIconComponent, LinkedinIconComponent],
   templateUrl: './home.page.html',
   styleUrl: './home.page.css',
 })
@@ -106,22 +84,22 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
 
   bannerSlides: BannerSlide[] = [
     {
-      image: 'assets/images/other/coding.jpeg',
+      image: 'assets/images/other/coding.webp',
       title: '< CODERS />',
       description: 'Where Innovation Meets Community',
     },
     {
-      image: 'assets/images/trick-or-treat/2024/IMG_6144_Long.png',
+      image: 'assets/images/trick-or-treat/2024/IMG_6144_Long.webp',
       title: 'Code. Create. Connect.',
       description: 'Join Our Community at UW-La Crosse',
     },
     {
-      image: 'assets/images/cookies-with-coders/IMG_7009.png',
+      image: 'assets/images/cookies-with-coders/IMG_7009.webp',
       title: 'Learn and Grow',
       description: 'Weekly Coding Sessions with Free Cookies!',
     },
     {
-      image: 'assets/images/kids-college/IMG_6887.png',
+      image: 'assets/images/kids-college/IMG_6887.webp',
       title: 'Help Us Build the Future',
       description: 'Work On Real Projects That Impact Our Community',
     },
@@ -131,21 +109,21 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'Coding Workshops',
       description: 'Volunteer and On-Campus hands-on coding sessions covering a variety of topics',
-      image: 'assets/images/kids-college/IMG_6923.png',
+      image: 'assets/images/kids-college/IMG_6923.webp',
       techStack: ['Python', 'Java', 'Code.org', 'Scratch', 'Git', 'Terminal'],
     },
     {
       title: 'CODERS Projects',
       description:
         'Build real-world applications and contribute to open-source team projects that impact our community',
-      image: 'assets/images/logos/logo.png',
+      image: 'assets/images/logos/CODERS.webp',
       techStack: ['Typescript', 'SCSS', 'Javascript', 'HTML', 'Angular', 'GitHub'],
     },
     {
       title: 'Tech Community',
       description:
         'Connect with fellow developers and industry professionals for advice and mentorship',
-      image: 'assets/images/intern-panels/2024/IMG_7995.jpg',
+      image: 'assets/images/intern-panels/2024/IMG_7995.webp',
       techStack: ['Networking', 'College Readiness', 'Internship Advice', 'Career Growth'],
     },
   ];
@@ -155,20 +133,20 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
       title: 'Teaching Computer Science',
       description:
         'Share your knowledge by teaching basic coding conecpts to students and community members.',
-      image: 'assets/images/other/Codeorg.png',
+      image: 'assets/images/logos/CODE.webp',
       technologies: ['Scratch', 'Code.org', 'Python', 'Presenting New Concepts'],
     },
     {
       title: 'Local Volunteering',
       description:
         'Volunteer for good causes to teach Computer Science and Coding Concepts to the next generation of innovators.',
-      image: 'assets/images/boys-and-girls/IMG_6759.png',
+      image: 'assets/images/boys-and-girls/IMG_6759.webp',
       technologies: ['Volunteer', 'Coding', 'Fun', 'Teaching', 'Presenting'],
     },
     {
       title: 'Cookies With CODERS',
       description: 'Chill and relax with fellow CODERS members while enjoying free cookies!',
-      image: 'assets/images/cookies-with-coders/Cookievar.JPG',
+      image: 'assets/images/cookies-with-coders/cookies.webp',
       technologies: ['Chill', 'Coding', 'Cookies', 'Tasty', 'Friendship'],
     },
   ];
@@ -179,7 +157,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
       time: 'Every Tuesday!',
       timeRange: '4:30 PM - 5:00 PM',
       location: 'WING 016',
-      image: 'assets/images/logos/logo.png',
+      image: 'assets/images/logos/CODERS.webp',
       tags: ['Python', 'Scratch', 'Teaching', 'Networking', 'New Concepts'],
     },
     {
@@ -187,7 +165,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
       time: 'Every Tuesday',
       timeRange: '3:30 PM - 5:30 PM',
       location: 'WING 016',
-      image: 'assets/images/other/cookiemain.png',
+      image: 'assets/images/other/cookies.webp',
       tags: ['Coding', 'Cookies', 'Community'],
     },
     {
@@ -195,7 +173,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
       time: 'Happening Throughout The Year!',
       timeRange: 'September - May',
       location: 'La Crosse County',
-      image: 'assets/images/logos/BGCNAL-Official-Symbol.png',
+      image: 'assets/images/logos/BGCNAL.webp',
       tags: ['Conceptual', 'Games', 'Code.org'],
     },
   ];
@@ -203,7 +181,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
   teamMembers: TeamMember[] = [
     {
       name: 'Brendan Lambrecht',
-      image: 'assets/images/people/brendan-lambrecht.jpeg',
+      image: 'assets/images/people/brendan-lambrecht.webp',
       major: "Major: Computer Science Master of Software Engineering | Class of 27'",
       linkedin: 'https://www.linkedin.com/in/brendanlambrecht/',
       github: 'https://github.com/BlambrechtCodes',
@@ -221,7 +199,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       name: 'Jack Kern',
-      image: 'assets/images/people/jack-kern.jpg',
+      image: 'assets/images/people/jack-kern.webp',
       major: "Major: Computer Science Master of Software Engineering | Class of 26'",
       linkedin: 'https://www.linkedin.com/in/jack-kern-b9b501333/',
       github: 'https://github.com/KernJack',
@@ -236,7 +214,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       name: 'Zach Ydunate',
-      image: 'assets/images/people/zach-ydunate.jpg',
+      image: 'assets/images/people/zach-ydunate.webp',
       major: "Major: Computer Science | Class of 28'",
       linkedin: 'https://www.linkedin.com/in/zachary-ydunate/',
       github: 'https://github.com/zydunate',
@@ -248,8 +226,8 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       name: 'Muhammad Fardeen',
-      image: 'assets/images/people/muhammad-fardeen.jpg',
-      major: "Major: Computer Science | Class of 26'",
+      image: 'assets/images/people/muhammad-fardeen.webp',
+      major: "Major: Computer Science | Class of 27'",
       linkedin: 'https://www.linkedin.com/in/muhdfdeen/',
       github: 'https://github.com/muhdfdeen',
       highlights: [
@@ -260,7 +238,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       name: 'Bishal Karki',
-      image: 'assets/images/people/bishal-karki.jpg',
+      image: 'assets/images/people/bishal-karki.webp',
       major: "Major: Computer Science: Master of Software Engineering | Class of 25'",
       linkedin: 'https://www.linkedin.com/in/bishalkarki655/',
       github: 'https://github.com/bishalkarki01',
@@ -272,7 +250,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       name: 'Andree Lin',
-      image: 'assets/images/people/andree-lin.jpeg',
+      image: 'assets/images/people/andree-lin.webp',
       major: "Major: Computer Science | Class of 25'",
       linkedin: 'https://www.linkedin.com/in/andree-lin-56196a284/',
       github: 'https://github.com/andreelinyx',
@@ -284,7 +262,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       name: 'Leroy Ombogo',
-      image: 'assets/images/people/leroy-ombogo.jpeg',
+      image: 'assets/images/people/leroy-ombogo.webp',
       major: "Major: Computer Science | Class of 27'",
       linkedin: 'https://www.linkedin.com/in/leroy-o-13b724247/',
       github: 'https://github.com/Leroy-collab',

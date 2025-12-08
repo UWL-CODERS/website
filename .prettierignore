@@ -1,3 +1,4 @@
 .prettierrc
 
 package-lock.json
+src/assets
