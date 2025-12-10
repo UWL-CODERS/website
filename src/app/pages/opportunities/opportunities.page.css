@@ -211,17 +211,6 @@
     0 0 0 1px rgba(255, 255, 255, 0.06) inset;
 }
 
-/* Accent stripe */
-#featured .featured-card.stats-container::before {
-  content: '';
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 6px;
-  background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
-  border-radius: 16px 0 0 16px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35) inset;
-}
-
 /* Header with sheen */
 #featured .featured-card .blue-header {
   position: relative;
