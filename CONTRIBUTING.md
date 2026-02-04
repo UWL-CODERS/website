@@ -54,8 +54,11 @@ npm install
 4. Run the development server:
 
 ```
-ng serve
+ng serve --host 0.0.0.0 --port 8080
 ```
+
+To test on the development Computer: Select **Local**
+To test on a Mobile Device: Select **Network**
 
 #### For Other UWL Students & Contributors (Fork & Pull Request Workflow)
 
