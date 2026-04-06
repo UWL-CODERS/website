@@ -8,9 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:uwl-coders-website": "node dist/uwl-coders-website/server/server.mjs",
-    "lint": "ng lint",
-    "deploy": "npm run build && wrangler deploy",
-    "preview": "npm run build && wrangler dev"
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -46,7 +44,6 @@
     "prettier": "3.8.1",
     "typescript": "^5.9.2",
     "typescript-eslint": "8.56.1",
-    "vitest": "^4.0.18",
-    "wrangler": "^4.80.0"
+    "vitest": "^4.0.18"
   }
 }
