@@ -12,8 +12,7 @@ import {PageMeta} from '../../models/meta.model';
       Projects
     </h1>
     <p class="text-center">
-      Check out the projects our members have been working on. Contact an executive to showcase your
-      work!
+      Built something cool? We'd love to feature it. Submit your project by opening a <a href="https://github.com/UWL-CODERS/website/issues/new" target="_blank" rel="noopener noreferrer">GitHub issue</a> or contacting an executive member.
     </p>
     <app-carousel [itemsInput]="projectData" />
     <h1 class="text-center w-fit mx-auto mt-8 mb-2 border-b-2 border-gray-300">CS Lightning Talks</h1>
@@ -52,8 +51,8 @@ export class ProjectsPage implements OnInit {
     {
       title: 'YMCA Project',
       description:
-        'A web app to manage YMCA programs and registrations as part of a minor project at UW-La Crosse.',
-      imageUrl: 'https://avatars.githubusercontent.com/u/63300213',
+        'A web app to manage YMCA programs and registrations as part of a minor project by alumni, Bishal Karki, at UW-La Crosse.',
+      imageUrl: 'https://github.com/bishalkarki01.png',
       externalUrl: 'https://github.com/bishalkarki01/YMCAProject',
       tags: ['JavaScript', 'HTML', 'CSS'],
       button: 'View Project',
@@ -62,10 +61,19 @@ export class ProjectsPage implements OnInit {
       title: 'FaceMesh',
       description:
         'This project utilizes the CV2 Python package and external Machine-Learning HTML Sources to make a visual face mesh.',
-      imageUrl: 'https://avatars.githubusercontent.com/u/132915020',
+      imageUrl: 'https://github.com/BlambrechtCodes.png',
       externalUrl: 'https://github.com/BlambrechtCodes/FaceMesh',
       tags: ['Python', 'CV2', 'HTML'],
       button: 'View Project',
+    },
+    {
+      title: 'Maboroshi',
+      description:
+        'Open-source organization developing modern and performant plugins for Paper-based Minecraft servers.',
+      imageUrl: 'https://github.com/MaboroshiKobo.png',
+      externalUrl: 'https://github.com/MaboroshiKobo',
+      tags: ['Java', 'Paper', 'Open Source'],
+      button: 'View Organization',
     },
   ];
 
