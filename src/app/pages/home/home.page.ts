@@ -99,7 +99,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
       description: 'Weekly Coding Sessions with Free Cookies!',
     },
     {
-      image: 'assets/images/kids-college/IMG_6887.webp',
+      image: 'assets/images/kids-college-2025/IMG_6887.webp',
       title: 'Help Us Build the Future',
       description: 'Work On Real Projects That Impact Our Community',
     },
@@ -109,7 +109,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'Coding Workshops',
       description: 'Volunteer and On-Campus hands-on coding sessions covering a variety of topics',
-      image: 'assets/images/kids-college/IMG_6923.webp',
+      image: 'assets/images/kids-college-2025/IMG_6923.webp',
       techStack: ['Python', 'Java', 'Code.org', 'Scratch', 'Git', 'Terminal'],
     },
     {
