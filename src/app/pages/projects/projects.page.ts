@@ -58,12 +58,12 @@ export class ProjectsPage implements OnInit {
       button: 'View Project',
     },
     {
-      title: 'FaceMesh',
+      title: 'Phishguard',
       description:
-        'This project utilizes the CV2 Python package and external Machine-Learning HTML Sources to make a visual face mesh.',
-      imageUrl: 'https://github.com/BlambrechtCodes.png',
-      externalUrl: 'https://github.com/BlambrechtCodes/FaceMesh',
-      tags: ['Python', 'CV2', 'HTML'],
+        'A smart, Python-powered project by Brendan Lambrecht and Zach Ydunate for identifying phishing links using machine learning.',
+      imageUrl: 'assets/images/projects/icon128.png',
+      externalUrl: 'https://github.com/BlambrechtCodes/Phishguard',
+      tags: ['Python', 'AI/ML', 'HTML'],
       button: 'View Project',
     },
     {
@@ -81,7 +81,7 @@ export class ProjectsPage implements OnInit {
     {
       title: '2023 Lightning Talks',
       description: '',
-      imageUrl: 'assets/images/logos/CODERS.webp',
+      imageUrl: 'assets/images/lightning-talks/Large.jpeg',
       externalUrl: 'https://cs.uwlax.edu/~mzheng/LightningTalks2023.pdf',
       tags: ['Samantha Foley', 'Mao Zheng', 'Rig Das', 'W. Michael Petullo', 'Dipankar Mitra'],
       button: 'View Slides',
@@ -89,9 +89,17 @@ export class ProjectsPage implements OnInit {
     {
       title: '2024 Lightning Talks',
       description: '',
-      imageUrl: 'assets/images/logos/CODERS.webp',
+      imageUrl: 'assets/images/lightning-talks/Large.jpeg',
       externalUrl: 'https://cs.uwlax.edu/~mzheng/Lightning2024.pdf',
       tags: ['Mao Zheng', 'Niusen Chen', 'Dipankar Mitra', 'Samantha Foley', 'Rig Das'],
+      button: 'View Slides',
+    },
+    {
+      title: '2025 Lightning Talks',
+      description: '',
+      imageUrl: 'assets/images/lightning-talks/Large.jpeg',
+      externalUrl: 'https://www.cs.uwlax.edu/~mzheng/LightningTalk2025.pdf',
+      tags: ['Samantha Foley', 'Mao Zheng', 'Rig Das', 'W. Michael Petullo', 'Dipankar Mitra'],
       button: 'View Slides',
     },
   ];

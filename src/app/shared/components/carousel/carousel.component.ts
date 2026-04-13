@@ -42,7 +42,7 @@ interface CarouselItem {
               class="min-w-full text-center"
               [attr.aria-hidden]="currentIndex() !== i">
               <div class="grid md:grid-cols-2 items-center rounded-xl border m-8">
-                <div class="aspect-auto overflow-hidden rounded-lg p-8">
+                 <div class="aspect-auto overflow-hidden rounded-2xl p-8">
                   @if (item.imageUrl) {
                     <img
                       [ngSrc]="item.imageUrl!"
