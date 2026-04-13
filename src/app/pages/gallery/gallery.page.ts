@@ -127,40 +127,89 @@ export class GalleryPage implements OnInit {
         'Volunteering to Teach 6-8th Graders the Wonderful World of Computer Science!',
         [
           {
-            src: 'assets/images/kids-college/IMG_0875.webp',
+            src: 'assets/images/kids-college-2025/IMG_0875.webp',
             alt: 'Brendan Teaching Students How To Think Critically',
             caption: 'Brendan Teaching Students How To Think Critically',
             event: "Kids' College | April 2025",
           },
           {
-            src: 'assets/images/kids-college/IMG_6891.webp',
+            src: 'assets/images/kids-college-2025/IMG_6891.webp',
             alt: 'Students Discussing to Solve the Maze',
             caption: 'Students Discussing to Solve the Maze',
             event: "Kids' College | April 2025",
           },
           {
-            src: 'assets/images/kids-college/IMG_6895.webp',
+            src: 'assets/images/kids-college-2025/IMG_6895.webp',
             alt: 'Students Attempting to Solve A Puzzle',
             caption: 'Students Attempting to Solve A Puzzle',
             event: "Kids' College | April 2025",
           },
           {
-            src: 'assets/images/kids-college/IMG_0878.webp',
+            src: 'assets/images/kids-college-2025/IMG_0878.webp',
             alt: 'A Group of Students Solved The Puzzle!',
             caption: 'A Group of Students Solved The Puzzle!',
             event: "Kids' College | April 2025",
           },
           {
-            src: 'assets/images/kids-college/IMG_6889.webp',
+            src: 'assets/images/kids-college-2025/IMG_6889.webp',
             alt: 'Zheyi and Jack Presenting Facts of CS Majors',
             caption: 'Zheyi and Jack Presenting Topics of CS',
             event: "Kids' College | April 2025",
           },
           {
-            src: 'assets/images/kids-college/IMG_6899.webp',
+            src: 'assets/images/kids-college-2025/IMG_6899.webp',
             alt: 'Jack Handing Out Candy to The Winners',
             caption: 'Jack Handing Out Candy to The Winners',
             event: "Kids' College | April 2025",
+          },
+        ],
+        [
+          {
+            text: ' UWL',
+            iconPath: 'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z',
+          },
+        ],
+      ),
+
+      this.createAlbum(
+        "Kids' College | April 2026",
+        'Volunteering to Teach 6-8th Graders Once Again!',
+        [
+          {
+            src: 'assets/images/kids-college-2026/IMG_0082.webp',
+            alt: 'Students Engaged in a Coding Activity',
+            caption: 'Students Engaged in a Coding Activity',
+            event: "Kids' College | April 2026",
+          },
+          {
+            src: 'assets/images/kids-college-2026/IMG_0086.webp',
+            alt: 'Volunteer Guiding Students Through Programming Concepts',
+            caption: 'Volunteer Guiding Students Through Programming Concepts',
+            event: "Kids' College | April 2026",
+          },
+          {
+            src: 'assets/images/kids-college-2026/IMG_0103.webp',
+            alt: 'Students Collaborating on a Computer Science Challenge',
+            caption: 'Students Collaborating on a Computer Science Challenge',
+            event: "Kids' College | April 2026",
+          },
+          {
+            src: 'assets/images/kids-college-2026/IMG_0108.webp',
+            alt: 'Group Maze Activity!',
+            caption: 'Group Maze Activity!',
+            event: "Kids' College | April 2026",
+          },
+          {
+            src: 'assets/images/kids-college-2026/IMG_7848.webp',
+            alt: 'Students Working through Activities on Code.org',
+            caption: 'Students Working through Activities on Code.org',
+            event: "Kids' College | April 2026",
+          },
+          {
+            src: 'assets/images/kids-college-2026/IMG_7874.webp',
+            alt: 'Celebrating Completing the Volunteer Sessions',
+            caption: 'Celebrating Completing the Volunteer Sessions',
+            event: "Kids' College | April 2026",
           },
         ],
         [
