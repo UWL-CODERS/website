@@ -60,6 +60,9 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "allowedHosts": ["coders-prime.cs.uwlax.edu"]
+          },
           "configurations": {
             "production": {
               "buildTarget": "uwl-coders-website:build:production"
