@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "uwl-coders-website",
+  "name": "coders",
   "compatibility_date": "2026-04-06",
   "observability": {
     "enabled": true
